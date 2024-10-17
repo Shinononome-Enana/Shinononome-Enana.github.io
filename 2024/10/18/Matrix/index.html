@@ -14,7 +14,7 @@
   
   
   <title>
-    关于 |
+    MyFirstBlog |
     
     ロ　ユイセーの魔法領域
   </title>
@@ -28,16 +28,20 @@
 <link rel="stylesheet" href="/css/loader.css">
 
   
-  <meta name="description" content="关于本网站本博客网站于2024&#x2F;10&#x2F;10日，由Lu Weicheng搭建并私人使用。其主要用途有：  课设代码和工程经验记录 工程、项目记录(思路、代码等) 日语学习的相关记录 记录留学生活中值得纪念的东西 动漫、游戏相关的内容  博主个人信息 现居地：日本福冈县北九州市若松区ひびきの学研都市 联系方式： QQ：1175072426 微信：a1175072426   Bili">
-<meta property="og:type" content="website">
-<meta property="og:title" content="关于">
-<meta property="og:url" content="http://example.com/about/index.html">
+  <meta name="description" content="log(2024.10.18):这样写，函数貌似无法用一个二级指针以返回一个二维数组……可能是在函数内声明output数组的作用域仅在函数内部，一旦调用函数结束output指针就会指空。 12345678910111213141516171819202122    double** Matrix_Calculation::Matrix_mult(double** A,double** B,int">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MyFirstBlog">
+<meta property="og:url" content="http://example.com/2024/10/18/Matrix/index.html">
 <meta property="og:site_name" content="ロ　ユイセーの魔法領域">
-<meta property="og:description" content="关于本网站本博客网站于2024&#x2F;10&#x2F;10日，由Lu Weicheng搭建并私人使用。其主要用途有：  课设代码和工程经验记录 工程、项目记录(思路、代码等) 日语学习的相关记录 记录留学生活中值得纪念的东西 动漫、游戏相关的内容  博主个人信息 现居地：日本福冈县北九州市若松区ひびきの学研都市 联系方式： QQ：1175072426 微信：a1175072426   Bili">
+<meta property="og:description" content="log(2024.10.18):这样写，函数貌似无法用一个二级指针以返回一个二维数组……可能是在函数内声明output数组的作用域仅在函数内部，一旦调用函数结束output指针就会指空。 12345678910111213141516171819202122    double** Matrix_Calculation::Matrix_mult(double** A,double** B,int">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-10-13T09:00:00.000Z">
-<meta property="article:modified_time" content="2024-10-13T12:46:36.582Z">
+<meta property="article:published_time" content="2024-10-17T15:25:00.000Z">
+<meta property="article:modified_time" content="2024-10-17T15:34:17.692Z">
 <meta property="article:author" content="ロ　ユイセー(Lu Weicheng)">
+<meta property="article:tag" content="FPGA">
+<meta property="article:tag" content="Verilog">
+<meta property="article:tag" content="CPP">
+<meta property="article:tag" content="Python">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="ロ　ユイセーの魔法領域" type="application/atom+xml">
@@ -146,7 +150,7 @@
 <header id="header">
   
     
-      <img fetchpriority="high" src="/images/banner.webp" alt="关于">
+      <img fetchpriority="high" src="/images/banner.webp" alt="MyFirstBlog">
     
   
   <div id="header-outer">
@@ -155,7 +159,7 @@
         
         
           <a href="/" id="logo">
-            <h1 data-aos="slide-up">关于</h1>
+            <h1 data-aos="slide-up">MyFirstBlog</h1>
           </a>
         
       
@@ -171,13 +175,13 @@
 
         <div id="content">
           
-          <section id="main"><article id="page-" class="h-entry article article-type-page" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+          <section id="main"><article id="post-Matrix" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner" data-aos="fade-up">
     <div class="article-meta">
       <div class="article-date">
-  <a href="/about/index.html" class="article-date-link" data-aos="zoom-in">
-    <time datetime="2024-10-13T09:00:00.000Z" itemprop="datePublished">2024-10-13</time>
-    <time style="display: none;" id="post-update-time">2024-10-13</time>
+  <a href="/2024/10/18/Matrix/" class="article-date-link" data-aos="zoom-in">
+    <time datetime="2024-10-17T15:25:00.000Z" itemprop="datePublished">2024-10-18</time>
+    <time style="display: none;" id="post-update-time">2024-10-18</time>
   </a>
 </div>
 
@@ -190,24 +194,10 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
       
-        <h2 id="关于本网站"><a href="#关于本网站" class="headerlink" title="关于本网站"></a>关于本网站</h2><p>本博客网站于2024&#x2F;10&#x2F;10日，由Lu Weicheng搭建并私人使用。其主要用途有：</p>
-<ul>
-<li>课设代码和工程经验记录</li>
-<li>工程、项目记录(思路、代码等)</li>
-<li>日语学习的相关记录</li>
-<li>记录留学生活中值得纪念的东西</li>
-<li>动漫、游戏相关的内容</li>
-</ul>
-<h2 id="博主个人信息"><a href="#博主个人信息" class="headerlink" title="博主个人信息"></a>博主个人信息</h2><ul>
-<li>现居地：日本福冈县北九州市若松区ひびきの学研都市</li>
-<li>联系方式：<ul>
-<li>QQ：1175072426</li>
-<li>微信：a1175072426</li>
-</ul>
-</li>
-<li>Bilibili主页：<a target="_blank" rel="noopener" href="https://space.bilibili.com/123245199?spm_id_from=333.1007.0.0">https://space.bilibili.com/123245199?spm_id_from=333.1007.0.0</a></li>
-<li>Csdn主页：<a target="_blank" rel="noopener" href="https://blog.csdn.net/GalaxyerKw?spm=1000.2115.3001.5343">https://blog.csdn.net/GalaxyerKw?spm=1000.2115.3001.5343</a></li>
-</ul>
+        <p>log(2024.10.18):这样写，函数貌似无法用一个二级指针以返回一个二维数组……可能是在函数内声明output数组的作用域仅在函数内部，一旦调用函数结束output指针就会指空。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="type">double</span>** <span class="title">Matrix_Calculation::Matrix_mult</span><span class="params">(<span class="type">double</span>** A,<span class="type">double</span>** B,<span class="type">int</span> m,<span class="type">int</span> n,<span class="type">int</span> p,<span class="type">int</span> q)</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//二维数组(m*n)与(p*q)相乘，必须有n=p，否则无法计算</span></span><br><span class="line">    <span class="keyword">if</span>(n!=p) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;A矩阵列数：&quot;</span> &lt;&lt; n &lt;&lt; <span class="string">&quot;  B矩阵行数：&quot;</span> &lt;&lt; p &lt;&lt; <span class="string">&quot;  因此无法相乘！&quot;</span> &lt;&lt; endl;</span><br><span class="line">        <span class="keyword">return</span> ERROR;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> i,j,k;</span><br><span class="line">    <span class="type">double</span> output[m][q];  </span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;=m; i++)&#123;        <span class="comment">//扫A(m*n)矩阵的行(第1行~第m行)</span></span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">1</span>; j&lt;=q; j++)&#123;        <span class="comment">//扫B(n*q)矩阵的行(第1列~第q列)</span></span><br><span class="line">            <span class="keyword">for</span>(k=<span class="number">1</span>; k&lt;=n; k++)&#123;        <span class="comment">//扫A和B的乘项。因为A每一行的元素个数=B每一列的元素个数，因此可以用一个变量扫描。</span></span><br><span class="line">                output[i][j] += A[i][k] * B[k][j];</span><br><span class="line">            &#125;</span><br><span class="line">            cout &lt;&lt; output[i][j] &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; endl;  <span class="comment">//结果i行j列的元素运算完毕</span></span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;/n&quot;</span> &lt;&lt; endl;  <span class="comment">//结果i行的所有元素运算完毕</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> output;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>log(2024.10.18):于是，我不如直接把返回的output二维数组传入，直接在函数里操作而不是返回。</p>
 
       
     </div>
@@ -219,11 +209,34 @@
       
       
       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/CPP/" rel="tag">CPP</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/FPGA/" rel="tag">FPGA</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/Verilog/" rel="tag">Verilog</a></li></ul>
+
 
     </footer>
   </div>
   
     
+  <nav id="article-nav" data-aos="fade-up">
+    
+    
+    <div class="article-nav-link-wrap article-nav-link-right">
+      
+        
+        
+          <img data-src="/covers/naxida.png" data-sizes="auto" alt="MyFirstBlog" class="lazyload">
+        
+      
+      <a href="/2024/10/10/MyFirstBlog/"></a>
+      <div class="article-nav-caption">Older</div>
+      <h3 class="article-nav-title">
+        
+          MyFirstBlog
+        
+      </h3>
+    </div>
+    
+  </nav>
+
 
   
 </article>
@@ -236,10 +249,19 @@
 </section>
           
             <aside id="sidebar">
-  <div class="sidebar-wrapper ">
+  <div class="sidebar-wrapper wrap-sticky">
     <div class="sidebar-wrap" data-aos="fade-up">
       
-        <div class="sidebar-author">
+        <div class="sidebar-toc-sidebar"><div class="sidebar-toc">
+  <h3 class="toc-title">Contents</h3>
+  <div class="sidebar-toc-wrapper toc-div-class" >
+      
+        
+      
+  </div>
+</div>
+</div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
   <img data-src="/avatar/avatar.webp" data-sizes="auto" alt="ロ　ユイセー(Lu Weicheng)" class="lazyload">
   <div class="sidebar-author-name">ロ　ユイセー(Lu Weicheng)</div>
   <div class="sidebar-description"></div>
@@ -288,8 +310,13 @@
     </div>
   
 </div>
-
+</div>
       
+      
+        <div class="sidebar-btn-wrapper" style="position:static">
+          <div class="sidebar-toc-btn current"></div>
+          <div class="sidebar-common-btn"></div>
+        </div>
       
     </div>
   </div>
@@ -347,7 +374,16 @@
       <nav id="mobile-nav">
   <div class="sidebar-wrap">
     
-      <div class="sidebar-author">
+      <div class="sidebar-toc-sidebar"><div class="sidebar-toc">
+  <h3 class="toc-title">Contents</h3>
+  <div class="sidebar-toc-wrapper toc-div-class" >
+      
+        
+      
+  </div>
+</div>
+</div>
+      <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
   <img data-src="/avatar/avatar.webp" data-sizes="auto" alt="ロ　ユイセー(Lu Weicheng)" class="lazyload">
   <div class="sidebar-author-name">ロ　ユイセー(Lu Weicheng)</div>
   <div class="sidebar-description"></div>
@@ -396,9 +432,14 @@
     </div>
   
 </div>
-
+</div>
     
   </div>
+  
+    <div class="sidebar-btn-wrapper">
+      <div class="sidebar-toc-btn current"></div>
+      <div class="sidebar-common-btn"></div>
+    </div>
   
 </nav>
 
