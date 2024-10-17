@@ -28,20 +28,17 @@
 <link rel="stylesheet" href="/css/loader.css">
 
   
-  <meta name="description" content="log(2024.10.18):这样写，函数貌似无法用一个二级指针以返回一个二维数组……可能是在函数内声明output数组的作用域仅在函数内部，一旦调用函数结束output指针就会指空。 12345678910111213141516171819202122    double** Matrix_Calculation::Matrix_mult(double** A,double** B,int">
+  <meta name="description" content="log(2024.10.18):这样写报错，函数貌似无法用一个二级指针以返回一个二维数组……可能是在函数内声明output数组的作用域仅在函数内部，一旦调用函数结束output指针就会指空。 12345678910111213141516171819202122double** Matrix_Calculation::Matrix_mult(double** A,double** B,int m,">
 <meta property="og:type" content="article">
 <meta property="og:title" content="cpp实现矩阵操作">
 <meta property="og:url" content="http://example.com/2024/10/18/Matrix/index.html">
 <meta property="og:site_name" content="ロ　ユイセーの魔法領域">
-<meta property="og:description" content="log(2024.10.18):这样写，函数貌似无法用一个二级指针以返回一个二维数组……可能是在函数内声明output数组的作用域仅在函数内部，一旦调用函数结束output指针就会指空。 12345678910111213141516171819202122    double** Matrix_Calculation::Matrix_mult(double** A,double** B,int">
+<meta property="og:description" content="log(2024.10.18):这样写报错，函数貌似无法用一个二级指针以返回一个二维数组……可能是在函数内声明output数组的作用域仅在函数内部，一旦调用函数结束output指针就会指空。 12345678910111213141516171819202122double** Matrix_Calculation::Matrix_mult(double** A,double** B,int m,">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-10-17T15:25:00.000Z">
-<meta property="article:modified_time" content="2024-10-17T15:36:32.751Z">
+<meta property="article:modified_time" content="2024-10-17T15:38:48.456Z">
 <meta property="article:author" content="ロ　ユイセー(Lu Weicheng)">
-<meta property="article:tag" content="FPGA">
-<meta property="article:tag" content="Verilog">
 <meta property="article:tag" content="CPP">
-<meta property="article:tag" content="Python">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="ロ　ユイセーの魔法領域" type="application/atom+xml">
@@ -194,11 +191,13 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
       
-        <p>log(2024.10.18):这样写，函数貌似无法用一个二级指针以返回一个二维数组……可能是在函数内声明output数组的作用域仅在函数内部，一旦调用函数结束output指针就会指空。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="type">double</span>** <span class="title">Matrix_Calculation::Matrix_mult</span><span class="params">(<span class="type">double</span>** A,<span class="type">double</span>** B,<span class="type">int</span> m,<span class="type">int</span> n,<span class="type">int</span> p,<span class="type">int</span> q)</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//二维数组(m*n)与(p*q)相乘，必须有n=p，否则无法计算</span></span><br><span class="line">    <span class="keyword">if</span>(n!=p) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;A矩阵列数：&quot;</span> &lt;&lt; n &lt;&lt; <span class="string">&quot;  B矩阵行数：&quot;</span> &lt;&lt; p &lt;&lt; <span class="string">&quot;  因此无法相乘！&quot;</span> &lt;&lt; endl;</span><br><span class="line">        <span class="keyword">return</span> ERROR;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> i,j,k;</span><br><span class="line">    <span class="type">double</span> output[m][q];  </span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;=m; i++)&#123;        <span class="comment">//扫A(m*n)矩阵的行(第1行~第m行)</span></span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">1</span>; j&lt;=q; j++)&#123;        <span class="comment">//扫B(n*q)矩阵的行(第1列~第q列)</span></span><br><span class="line">            <span class="keyword">for</span>(k=<span class="number">1</span>; k&lt;=n; k++)&#123;        <span class="comment">//扫A和B的乘项。因为A每一行的元素个数=B每一列的元素个数，因此可以用一个变量扫描。</span></span><br><span class="line">                output[i][j] += A[i][k] * B[k][j];</span><br><span class="line">            &#125;</span><br><span class="line">            cout &lt;&lt; output[i][j] &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; endl;  <span class="comment">//结果i行j列的元素运算完毕</span></span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;/n&quot;</span> &lt;&lt; endl;  <span class="comment">//结果i行的所有元素运算完毕</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> output;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>log(2024.10.18):这样写报错，函数貌似无法用一个二级指针以返回一个二维数组……可能是在函数内声明output数组的作用域仅在函数内部，一旦调用函数结束output指针就会指空。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">double</span>** <span class="title">Matrix_Calculation::Matrix_mult</span><span class="params">(<span class="type">double</span>** A,<span class="type">double</span>** B,<span class="type">int</span> m,<span class="type">int</span> n,<span class="type">int</span> p,<span class="type">int</span> q)</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//二维数组(m*n)与(p*q)相乘，必须有n=p，否则无法计算</span></span><br><span class="line">    <span class="keyword">if</span>(n!=p) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;A矩阵列数：&quot;</span> &lt;&lt; n &lt;&lt; <span class="string">&quot;  B矩阵行数：&quot;</span> &lt;&lt; p &lt;&lt; <span class="string">&quot;  因此无法相乘！&quot;</span> &lt;&lt; endl;</span><br><span class="line">        <span class="keyword">return</span> ERROR;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> i,j,k;</span><br><span class="line">    <span class="type">double</span> output[m][q];  </span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;=m; i++)&#123;        <span class="comment">//扫A(m*n)矩阵的行(第1行~第m行)</span></span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">1</span>; j&lt;=q; j++)&#123;        <span class="comment">//扫B(n*q)矩阵的行(第1列~第q列)</span></span><br><span class="line">            <span class="keyword">for</span>(k=<span class="number">1</span>; k&lt;=n; k++)&#123;        <span class="comment">//扫A和B的乘项。因为A每一行的元素个数=B每一列的元素个数，因此可以用一个变量扫描。</span></span><br><span class="line">                output[i][j] += A[i][k] * B[k][j];</span><br><span class="line">            &#125;</span><br><span class="line">            cout &lt;&lt; output[i][j] &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; endl;  <span class="comment">//结果i行j列的元素运算完毕</span></span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;/n&quot;</span> &lt;&lt; endl;  <span class="comment">//结果i行的所有元素运算完毕</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> output;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>log(2024.10.18):于是，我不如直接把返回的output二维数组传入，直接在函数里操作而不是返回。</p>
 
+
+<p>log(2024.10.18):于是，我不如直接把要返回的output二维数组传入，直接在函数里操作写入，而不是返回。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">Matrix_Calculation::Matrix_mult</span><span class="params">(<span class="type">double</span>** A,<span class="type">double</span>** B,<span class="type">int</span> m,<span class="type">int</span> n,<span class="type">int</span> p,<span class="type">int</span> q,<span class="type">double</span>** output)</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//二维数组(m*n)与(p*q)相乘，必须有n=p，否则无法计算</span></span><br><span class="line">    <span class="keyword">if</span>(n!=p) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;A矩阵列数：&quot;</span> &lt;&lt; n &lt;&lt; <span class="string">&quot;  B矩阵行数：&quot;</span> &lt;&lt; p &lt;&lt; <span class="string">&quot;  因此无法相乘！&quot;</span> &lt;&lt; endl;</span><br><span class="line">        <span class="keyword">return</span> ERROR;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> i,j,k;</span><br><span class="line">    <span class="comment">//double output[m][q];  </span></span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;=m; i++)&#123;        <span class="comment">//扫A(m*n)矩阵的行(第1行~第m行)</span></span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">1</span>; j&lt;=q; j++)&#123;        <span class="comment">//扫B(n*q)矩阵的行(第1列~第q列)</span></span><br><span class="line">            <span class="keyword">for</span>(k=<span class="number">1</span>; k&lt;=n; k++)&#123;        <span class="comment">//扫A和B的乘项。因为A每一行的元素个数=B每一列的元素个数，因此可以用一个变量扫描。</span></span><br><span class="line">                output[i][j] += A[i][k] * B[k][j];</span><br><span class="line">            &#125;</span><br><span class="line">            cout &lt;&lt; output[i][j] &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; endl;  <span class="comment">//结果i行j列的元素运算完毕</span></span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;/n&quot;</span> &lt;&lt; endl;  <span class="comment">//结果i行的所有元素运算完毕</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> OK;</span><br><span class="line">    <span class="comment">//return output;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
@@ -209,7 +208,7 @@
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/CPP/" rel="tag">CPP</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/FPGA/" rel="tag">FPGA</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/Verilog/" rel="tag">Verilog</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/CPP/" rel="tag">CPP</a></li></ul>
 
 
     </footer>
@@ -223,7 +222,7 @@
       
         
         
-          <img data-src="/covers/keli.png" data-sizes="auto" alt="MyFirstBlog" class="lazyload">
+          <img data-src="/covers/hutao_xiangling.jpg" data-sizes="auto" alt="MyFirstBlog" class="lazyload">
         
       
       <a href="/2024/10/10/MyFirstBlog/"></a>
@@ -347,10 +346,10 @@
     
       <div>
         <span class="icon-brush"></span>
-        664
+        914
         &nbsp;|&nbsp;
         <span class="icon-coffee"></span>
-        00:03
+        00:04
       </div>
     
     
