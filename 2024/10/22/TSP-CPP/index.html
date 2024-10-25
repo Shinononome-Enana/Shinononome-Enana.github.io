@@ -35,12 +35,14 @@
 <meta property="og:site_name" content="ロ　ユイセーの魔法領域">
 <meta property="og:description" content="完整代码1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192939495969798991001011">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s2.loli.net/2024/10/25/sdcKDOQLRIMgqbt.jpg">
 <meta property="article:published_time" content="2024-10-22T10:05:24.000Z">
-<meta property="article:modified_time" content="2024-10-25T01:45:38.901Z">
+<meta property="article:modified_time" content="2024-10-25T02:07:17.145Z">
 <meta property="article:author" content="ロ　ユイセー(Lu Weicheng)">
 <meta property="article:tag" content="CPP">
 <meta property="article:tag" content="TSP">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2024/10/25/sdcKDOQLRIMgqbt.jpg">
   
     <link rel="alternate" href="/atom.xml" title="ロ　ユイセーの魔法領域" type="application/atom+xml">
   
@@ -205,16 +207,27 @@
 <li>route: 路径，是一个存放int的一维vector。比如{3,2,1,4,5}，表示该蚂蚁的行走路径是3-&gt;2-&gt;1-&gt;4-&gt;5。算法的运行过程中，在每只蚂蚁、每一次根据概率选择完毕下一个节点后，route需要在末尾实时存入(push_back)这个目的节点。</li>
 <li>TotalRouteLength：每一次迭代完成后(即一只蚂蚁走遍了所有节点)，存放route路径的总长度。</li>
 </ul>
+<h3 id="距离矩阵和信息素矩阵"><a href="#距离矩阵和信息素矩阵" class="headerlink" title="距离矩阵和信息素矩阵"></a>距离矩阵和信息素矩阵</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> vector&lt;vector&lt;<span class="type">double</span>&gt;&gt;  Matrix;</span><br><span class="line"><span class="comment">//距离矩阵，信息素矩阵</span></span><br><span class="line">Matrix DistancesMatrix;</span><br><span class="line">Matrix InformationMatrix;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>矩阵的第i行第j列元素，表示从i节点到j节点“路径的距离”&#x2F;“路径上信息素的含量”。</li>
+<li>DistancesMatrix是算法的输入，他反映了当前TSP问题的城市个数和它们之间的位置关系(彼此间的距离)；</li>
+<li>i-&gt;j与j-&gt;i路径相同只是方向相反，同一条路径上的距离和信息素都应该相同。因此，DistancesMatrix和InformationMatrix都是主对角线全0的对称矩阵。</li>
+</ul>
 <h3 id="算法主逻辑solve"><a href="#算法主逻辑solve" class="headerlink" title="算法主逻辑solve()"></a>算法主逻辑solve()</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">TSP::solve</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> iter=<span class="number">0</span>; iter&lt;ITERATION_TIMES; iter++)&#123;</span><br><span class="line">        <span class="function">vector&lt;Ant&gt; <span class="title">ants</span><span class="params">(ANT_NUMBER)</span></span>;       <span class="comment">//####创建存放Ant结构体变量的数组，开辟的空间数量为ANT_NUMBER</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; ANT_NUMBER; i++)&#123;        <span class="comment">//第i只蚂蚁</span></span><br><span class="line">            ants[i].route.<span class="built_in">push_back</span>(<span class="built_in">rand</span>() % city_number);   <span class="comment">//Step1:初始化蚂蚁所在节点（随机）</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j &lt; city_number - <span class="number">1</span>; j++)&#123;   <span class="comment">//第j步移动</span></span><br><span class="line">                <span class="type">int</span> nextCity = <span class="built_in">Select_NextCity</span>(ants[i]);     <span class="comment">//Step2:选择下一个前往的节点,结果push到route集合中去。重复直到走遍所有节点。#核心：Select_NextCity()方法</span></span><br><span class="line">                ants[i].route.<span class="built_in">push_back</span>(nextCity);</span><br><span class="line">            &#125;</span><br><span class="line">            ants[i].TotalRouteLength = <span class="built_in">Calculate_TotalLength</span>(ants[i]);  <span class="comment">//Step3:计算该蚂蚁(i)当前路径下的总距离，然后看看是不是最佳情况。#核心：Calculate_TotalLength()方法</span></span><br><span class="line">            <span class="keyword">if</span>(ants[i].TotalRouteLength &lt; BestRouteLength)</span><br><span class="line">            &#123;</span><br><span class="line">                BestRouteLength = ants[i].TotalRouteLength;</span><br><span class="line">                BestRoute = ants[i].route;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//Step4:所有蚂蚁的情况运行结束，现在开始根据ants所有成员存储的route信息，更新信息素矩阵。#核心：Update_Information()方法</span></span><br><span class="line">        <span class="built_in">Update_Information</span>(ants);</span><br><span class="line">        <span class="comment">//Step5:本次迭代结束，进入下一个迭代。</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>三重循环：最外层循环控制算法总迭代次数；i循环遍历每只蚂蚁；j循环控制每只蚂蚁进行寻路。</li>
-<li>方法调用：<ul>
+<li>核心方法调用：<ul>
 <li>Select_NextCity：传入当前蚂蚁(结构体)。因为结构体中包含了蚂蚁现在的位置信息now(route的末尾元素)，因此可以遍历计算概率p(now,next)，并通过轮盘赌选择下一步的节点编号next。</li>
+<li>Calculate_TotalLength：最内j循环运行完毕，即当前蚂蚁已经走遍所有节点，运算总路径长。随后确认是否是最佳情况。</li>
+<li>Update_Information：所有蚂蚁寻路完毕，本次迭代完成，根据每只蚂蚁的路径route更新信息素矩阵。</li>
 </ul>
 </li>
+<li>另外：ants为所有蚂蚁的集合，数据类型是存放结构体对象的一维vector。</li>
 </ul>
-<h3 id="核心函数·其一："><a href="#核心函数·其一：" class="headerlink" title="核心函数·其一："></a>核心函数·其一：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<p>算法主逻辑手写版：<br><img src="https://s2.loli.net/2024/10/25/sdcKDOQLRIMgqbt.jpg" width="400" height="800"></p>
+<h3 id="核心方法·其一：Select-NextCity"><a href="#核心方法·其一：Select-NextCity" class="headerlink" title="核心方法·其一：Select_NextCity"></a>核心方法·其一：Select_NextCity</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
 
 <h2 id="读取-tsp数据文件"><a href="#读取-tsp数据文件" class="headerlink" title="读取.tsp数据文件"></a>读取.tsp数据文件</h2><h2 id="Berlin52数据集测试情况—-稍后更新"><a href="#Berlin52数据集测试情况—-稍后更新" class="headerlink" title="Berlin52数据集测试情况—-&gt;稍后更新"></a>Berlin52数据集测试情况—-&gt;稍后更新</h2>
       
@@ -241,7 +254,7 @@
       
         
         
-          <img data-src="/covers/naxida.png" data-sizes="auto" alt="cpp实现矩阵操作" class="lazyload">
+          <img data-src="/covers/funingna.jpg" data-sizes="auto" alt="cpp实现矩阵操作" class="lazyload">
         
       
       <a href="/2024/10/18/Matrix/"></a>
@@ -274,7 +287,7 @@
   <h3 class="toc-title">Contents</h3>
   <div class="sidebar-toc-wrapper toc-div-class" >
       
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8C%E6%95%B4%E4%BB%A3%E7%A0%81"><span class="toc-number">1.</span> <span class="toc-text">完整代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E9%80%BB%E8%BE%91%E5%92%8C%E8%A7%A3%E6%9E%90%E2%80%94-2024-10-25%E6%9B%B4%E6%96%B0%E4%B8%AD"><span class="toc-number">2.</span> <span class="toc-text">代码逻辑和解析—-&gt;2024.10.25更新中</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E8%BD%BD%E4%BD%93%E2%80%9C%E8%9A%82%E8%9A%81%E2%80%9D%E7%9A%84%E7%BB%93%E6%9E%84%E4%BD%93%E8%A1%A8%E5%BE%81"><span class="toc-number">2.1.</span> <span class="toc-text">算法载体“蚂蚁”的结构体表征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E4%B8%BB%E9%80%BB%E8%BE%91solve"><span class="toc-number">2.2.</span> <span class="toc-text">算法主逻辑solve()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E5%87%BD%E6%95%B0%C2%B7%E5%85%B6%E4%B8%80%EF%BC%9A"><span class="toc-number">2.3.</span> <span class="toc-text">核心函数·其一：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%BB%E5%8F%96-tsp%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6"><span class="toc-number">3.</span> <span class="toc-text">读取.tsp数据文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Berlin52%E6%95%B0%E6%8D%AE%E9%9B%86%E6%B5%8B%E8%AF%95%E6%83%85%E5%86%B5%E2%80%94-%E7%A8%8D%E5%90%8E%E6%9B%B4%E6%96%B0"><span class="toc-number">4.</span> <span class="toc-text">Berlin52数据集测试情况—-&gt;稍后更新</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8C%E6%95%B4%E4%BB%A3%E7%A0%81"><span class="toc-number">1.</span> <span class="toc-text">完整代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E9%80%BB%E8%BE%91%E5%92%8C%E8%A7%A3%E6%9E%90%E2%80%94-2024-10-25%E6%9B%B4%E6%96%B0%E4%B8%AD"><span class="toc-number">2.</span> <span class="toc-text">代码逻辑和解析—-&gt;2024.10.25更新中</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E8%BD%BD%E4%BD%93%E2%80%9C%E8%9A%82%E8%9A%81%E2%80%9D%E7%9A%84%E7%BB%93%E6%9E%84%E4%BD%93%E8%A1%A8%E5%BE%81"><span class="toc-number">2.1.</span> <span class="toc-text">算法载体“蚂蚁”的结构体表征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%9D%E7%A6%BB%E7%9F%A9%E9%98%B5%E5%92%8C%E4%BF%A1%E6%81%AF%E7%B4%A0%E7%9F%A9%E9%98%B5"><span class="toc-number">2.2.</span> <span class="toc-text">距离矩阵和信息素矩阵</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E4%B8%BB%E9%80%BB%E8%BE%91solve"><span class="toc-number">2.3.</span> <span class="toc-text">算法主逻辑solve()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E6%96%B9%E6%B3%95%C2%B7%E5%85%B6%E4%B8%80%EF%BC%9ASelect-NextCity"><span class="toc-number">2.4.</span> <span class="toc-text">核心方法·其一：Select_NextCity</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%BB%E5%8F%96-tsp%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6"><span class="toc-number">3.</span> <span class="toc-text">读取.tsp数据文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Berlin52%E6%95%B0%E6%8D%AE%E9%9B%86%E6%B5%8B%E8%AF%95%E6%83%85%E5%86%B5%E2%80%94-%E7%A8%8D%E5%90%8E%E6%9B%B4%E6%96%B0"><span class="toc-number">4.</span> <span class="toc-text">Berlin52数据集测试情况—-&gt;稍后更新</span></a></li></ol>
       
   </div>
 </div>
@@ -365,10 +378,10 @@
     
       <div>
         <span class="icon-brush"></span>
-        4.2k
+        4.5k
         &nbsp;|&nbsp;
         <span class="icon-coffee"></span>
-        00:24
+        00:25
       </div>
     
     
@@ -396,7 +409,7 @@
   <h3 class="toc-title">Contents</h3>
   <div class="sidebar-toc-wrapper toc-div-class" >
       
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8C%E6%95%B4%E4%BB%A3%E7%A0%81"><span class="toc-number">1.</span> <span class="toc-text">完整代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E9%80%BB%E8%BE%91%E5%92%8C%E8%A7%A3%E6%9E%90%E2%80%94-2024-10-25%E6%9B%B4%E6%96%B0%E4%B8%AD"><span class="toc-number">2.</span> <span class="toc-text">代码逻辑和解析—-&gt;2024.10.25更新中</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E8%BD%BD%E4%BD%93%E2%80%9C%E8%9A%82%E8%9A%81%E2%80%9D%E7%9A%84%E7%BB%93%E6%9E%84%E4%BD%93%E8%A1%A8%E5%BE%81"><span class="toc-number">2.1.</span> <span class="toc-text">算法载体“蚂蚁”的结构体表征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E4%B8%BB%E9%80%BB%E8%BE%91solve"><span class="toc-number">2.2.</span> <span class="toc-text">算法主逻辑solve()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E5%87%BD%E6%95%B0%C2%B7%E5%85%B6%E4%B8%80%EF%BC%9A"><span class="toc-number">2.3.</span> <span class="toc-text">核心函数·其一：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%BB%E5%8F%96-tsp%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6"><span class="toc-number">3.</span> <span class="toc-text">读取.tsp数据文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Berlin52%E6%95%B0%E6%8D%AE%E9%9B%86%E6%B5%8B%E8%AF%95%E6%83%85%E5%86%B5%E2%80%94-%E7%A8%8D%E5%90%8E%E6%9B%B4%E6%96%B0"><span class="toc-number">4.</span> <span class="toc-text">Berlin52数据集测试情况—-&gt;稍后更新</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8C%E6%95%B4%E4%BB%A3%E7%A0%81"><span class="toc-number">1.</span> <span class="toc-text">完整代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E9%80%BB%E8%BE%91%E5%92%8C%E8%A7%A3%E6%9E%90%E2%80%94-2024-10-25%E6%9B%B4%E6%96%B0%E4%B8%AD"><span class="toc-number">2.</span> <span class="toc-text">代码逻辑和解析—-&gt;2024.10.25更新中</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E8%BD%BD%E4%BD%93%E2%80%9C%E8%9A%82%E8%9A%81%E2%80%9D%E7%9A%84%E7%BB%93%E6%9E%84%E4%BD%93%E8%A1%A8%E5%BE%81"><span class="toc-number">2.1.</span> <span class="toc-text">算法载体“蚂蚁”的结构体表征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%9D%E7%A6%BB%E7%9F%A9%E9%98%B5%E5%92%8C%E4%BF%A1%E6%81%AF%E7%B4%A0%E7%9F%A9%E9%98%B5"><span class="toc-number">2.2.</span> <span class="toc-text">距离矩阵和信息素矩阵</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E4%B8%BB%E9%80%BB%E8%BE%91solve"><span class="toc-number">2.3.</span> <span class="toc-text">算法主逻辑solve()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E6%96%B9%E6%B3%95%C2%B7%E5%85%B6%E4%B8%80%EF%BC%9ASelect-NextCity"><span class="toc-number">2.4.</span> <span class="toc-text">核心方法·其一：Select_NextCity</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%BB%E5%8F%96-tsp%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6"><span class="toc-number">3.</span> <span class="toc-text">读取.tsp数据文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Berlin52%E6%95%B0%E6%8D%AE%E9%9B%86%E6%B5%8B%E8%AF%95%E6%83%85%E5%86%B5%E2%80%94-%E7%A8%8D%E5%90%8E%E6%9B%B4%E6%96%B0"><span class="toc-number">4.</span> <span class="toc-text">Berlin52数据集测试情况—-&gt;稍后更新</span></a></li></ol>
       
   </div>
 </div>
