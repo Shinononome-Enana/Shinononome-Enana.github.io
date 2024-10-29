@@ -212,8 +212,18 @@
     <footer class="article-footer">
       
       
+        <a data-aos="zoom-in" href="/2024/10/18/Matrix/#comments" class="article-comment-link">
+          <span class="post-comments-count valine-comment-count" data-xid="/2024/10/18/Matrix/" itemprop="commentCount"></span>
+          Comments
+        </a>
       
       
+      
+      
+        <span data-aos="zoom-in" id="/2024/10/18/Matrix/" class="leancloud_visitors article-visitor-link" data-flag-title="cpp实现矩阵操作">
+          <span class="leancloud-visitors-count">0</span>
+          <em class="post-meta-item-text">Readings</em>
+        </span>
       
       
       
@@ -248,6 +258,8 @@
 
   
 </article>
+
+  <section id="comments" class="vcomment"></section>
 
 
 
@@ -517,6 +529,34 @@
   }
 </script>
 
+
+  
+<script src="https://npm.webcache.cn/valine@1.5.1/dist/Valine.min.js" data-pjax></script>
+
+  <script data-pjax>
+    var GUEST_INFO = ['nick', 'mail', 'link'];
+    var guest_info = 'nick,mail,link'.split(',').filter((item) => {
+      return GUEST_INFO.indexOf(item) > -1
+    });
+    var recordIP = JSON.parse('true');
+    var highlight = JSON.parse('true');
+    var visitor = JSON.parse('true');
+
+    new Valine({
+      el: '.vcomment',
+      appId: "vZrPo1hr8deuhcYIVYgq4Ced-MdYXbMMI",
+      appKey: "2no94OrxPyOEvOqqWqsiAO2q",
+      placeholder: "Just go go",
+      pageSize: '10',
+      avatar: 'mp',
+      lang: 'zh-cn',
+      recordIP: recordIP,
+      highlight: highlight,
+      visitor: visitor,
+      requiredFields: guest_info,
+      path: window.location.pathname
+    });
+  </script>
 
 
 
