@@ -47,6 +47,10 @@
   <link rel="preload" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   
   
+    
+      <link rel="preload" href="https://npm.webcache.cn/@waline/client@v2/dist/waline.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
+  
   
   
 <script src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js"></script>
@@ -546,6 +550,26 @@
 
 
 
+
+  <script data-pjax type="module">
+    import { init } from "https://npm.webcache.cn/@waline/client@2.15.8/dist/waline.mjs";
+    if(_$('.wcomment')) {
+      window.walineInstance = init({
+        el: '.wcomment',
+        serverURL: 'https://waline-lime-six.vercel.app/',
+        lang: 'zh-CN',
+        locale: {},
+        emoji: ["https://unpkg.com/@waline/emojis@1.2.0/weibo","https://unpkg.com/@waline/emojis@1.2.0/alus","https://unpkg.com/@waline/emojis@1.2.0/bilibili","https://unpkg.com/@waline/emojis@1.2.0/qq","https://unpkg.com/@waline/emojis@1.2.0/tieba","https://unpkg.com/@waline/emojis@1.2.0/tw-emoji"],
+        meta: ["nick","mail"],
+        requiredMeta: ["nick","mail"],
+        wordLimit: JSON.parse('0'),
+        comment: true,
+        pageSize: JSON.parse('10'),
+        dark: 'html[data-theme="dark"]',
+        pageview: JSON.parse('true'),
+    });
+    }
+  </script>
 
 
 
