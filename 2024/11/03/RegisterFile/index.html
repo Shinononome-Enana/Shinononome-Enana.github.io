@@ -35,14 +35,14 @@
 <meta property="og:site_name" content="ロ　ユイセーの魔法領域">
 <meta property="og:description" content="RF4x8模块硬件描述基本功能描述：  读写全双工。写入数据需要①拉高一位使能信号en_wr并②给定地址Addr_wr和③数据Data_wr；读取数据需要给定地址Addr_rd_X，并支持两路读取(X&#x3D;A&#x2F;B)。 数据位宽：8bit；地址位宽：4bit，地址总数2^4&#x3D;16个。即本RF4x8中可以存放16个8bit数据。 时序：clk上升沿检测钟控；rst下降沿检测，">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://shinononome-enana.github.io/RegisterFile/1.jpg">
-<meta property="og:image" content="https://shinononome-enana.github.io/RegisterFile/2.jpg">
+<meta property="og:image" content="https://s2.loli.net/2024/11/03/qA7xGedVZCSsin6.jpg">
+<meta property="og:image" content="https://s2.loli.net/2024/11/03/R4EmpAqacloZKdJ.jpg">
 <meta property="article:published_time" content="2024-11-03T04:43:31.000Z">
-<meta property="article:modified_time" content="2024-11-03T05:24:51.097Z">
+<meta property="article:modified_time" content="2024-11-03T05:28:46.466Z">
 <meta property="article:author" content="ロ　ユイセー(Lu Weicheng)">
 <meta property="article:tag" content="Verilog">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://shinononome-enana.github.io/RegisterFile/1.jpg">
+<meta name="twitter:image" content="https://s2.loli.net/2024/11/03/qA7xGedVZCSsin6.jpg">
   
     <link rel="alternate" href="/atom.xml" title="ロ　ユイセーの魔法領域" type="application/atom+xml">
   
@@ -223,7 +223,9 @@
 <li><strong>130ns时读数据：</strong>改变B端口读地址为0001,在140ns的clk上升沿被捕捉,Data_rd_B读取到地址0001处的数据11110000。</li>
 <li><strong>260ns时发生复位：</strong>rst被拉低(图2中黄色实线所在位置)，此时再读地址0101的数据，发现被重置为00000000。</li>
 </ul>
-<p><img src="/RegisterFile/1.jpg" alt="图1"><br><img src="/RegisterFile/2.jpg" alt="图2"></p>
+<img src="https://s2.loli.net/2024/11/03/qA7xGedVZCSsin6.jpg">
+<img src="https://s2.loli.net/2024/11/03/R4EmpAqacloZKdJ.jpg">
+
 <p><strong>注</strong>：</p>
 <ul>
 <li>本测试例中，读地址给出后需要等待半个时钟周期才能读出数据，这是因为读地址信号刚好和clk错开(读地址信号给出时正好是clk下降沿)，需要等待clk到达上升沿才能捕捉到读地址信号。如果读写信号再延时半个时钟周期，那么不会出现这样的情况。</li>
