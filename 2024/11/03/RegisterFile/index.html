@@ -35,14 +35,15 @@
 <meta property="og:site_name" content="ロ　ユイセーの魔法領域">
 <meta property="og:description" content="RF4x8模块硬件描述基本功能描述：  读写全双工。写入数据需要①拉高一位使能信号en_wr并②给定地址Addr_wr和③数据Data_wr；读取数据需要给定地址Addr_rd_X，并支持两路读取(X&#x3D;A&#x2F;B)。 数据位宽：8bit；地址位宽：4bit，地址总数2^4&#x3D;16个。即本RF4x8中可以存放16个8bit数据。 时序：clk上升沿检测钟控；rst下降沿检测，">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s2.loli.net/2024/11/03/9FjlhLSgbz2spkI.jpg">
 <meta property="og:image" content="https://s2.loli.net/2024/11/03/qA7xGedVZCSsin6.jpg">
 <meta property="og:image" content="https://s2.loli.net/2024/11/03/R4EmpAqacloZKdJ.jpg">
 <meta property="article:published_time" content="2024-11-03T04:43:31.000Z">
-<meta property="article:modified_time" content="2024-11-03T05:28:46.466Z">
+<meta property="article:modified_time" content="2024-11-03T05:32:36.593Z">
 <meta property="article:author" content="ロ　ユイセー(Lu Weicheng)">
 <meta property="article:tag" content="Verilog">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://s2.loli.net/2024/11/03/qA7xGedVZCSsin6.jpg">
+<meta name="twitter:image" content="https://s2.loli.net/2024/11/03/9FjlhLSgbz2spkI.jpg">
   
     <link rel="alternate" href="/atom.xml" title="ロ　ユイセーの魔法領域" type="application/atom+xml">
   
@@ -212,6 +213,8 @@
 <li>数据位宽：8bit；地址位宽：4bit，地址总数2^4&#x3D;16个。即<strong>本RF4x8中可以存放16个8bit数据</strong>。</li>
 <li>时序：clk上升沿检测钟控；rst下降沿检测，异步复位。</li>
 </ul>
+<img src="https://s2.loli.net/2024/11/03/9FjlhLSgbz2spkI.jpg">
+
 <figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">module</span> RF4x8 #( <span class="keyword">parameter</span></span><br><span class="line">    DATA_WIDTH = <span class="number">8</span>,</span><br><span class="line">    ADDR_WIDTH = <span class="number">4</span></span><br><span class="line">)(</span><br><span class="line">    <span class="keyword">input</span>   <span class="keyword">wire</span>    clk,</span><br><span class="line">    <span class="keyword">input</span>   <span class="keyword">wire</span>    rst,</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">input</span>   <span class="keyword">wire</span>    en_wr,</span><br><span class="line">    <span class="keyword">input</span>   <span class="keyword">wire</span>[DATA_WIDTH-<span class="number">1</span>:<span class="number">0</span>]   Data_wr,    <span class="comment">//写数据：位宽为8bit</span></span><br><span class="line">    <span class="keyword">input</span>   <span class="keyword">wire</span>[ADDR_WIDTH-<span class="number">1</span>:<span class="number">0</span>]   Addr_wr,    <span class="comment">//写地址：地址位宽为4bit,因此总地址数量为2^4 = 16</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">input</span>   <span class="keyword">wire</span>[ADDR_WIDTH-<span class="number">1</span>:<span class="number">0</span>]   Addr_rd_A,  <span class="comment">//读地址A</span></span><br><span class="line">    <span class="keyword">input</span>   <span class="keyword">wire</span>[ADDR_WIDTH-<span class="number">1</span>:<span class="number">0</span>]   Addr_rd_B,  <span class="comment">//读地址B</span></span><br><span class="line">    <span class="keyword">output</span>  <span class="keyword">reg</span>[DATA_WIDTH-<span class="number">1</span>:<span class="number">0</span>]    Data_rd_A,</span><br><span class="line">    <span class="keyword">output</span>  <span class="keyword">reg</span>[DATA_WIDTH-<span class="number">1</span>:<span class="number">0</span>]    Data_rd_B</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">reg</span>[<span class="number">2</span>**ADDR_WIDTH-<span class="number">1</span>:<span class="number">0</span>]  addr;</span><br><span class="line"><span class="keyword">reg</span>[DATA_WIDTH-<span class="number">1</span>:<span class="number">0</span>]  data[<span class="number">0</span>:<span class="number">2</span>**ADDR_WIDTH-<span class="number">1</span>];   <span class="comment">//[7:0] data[0:15] -&gt; 16个地址，每个地址下存储一个8bit数据</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//reset:清空数据</span></span><br><span class="line"><span class="keyword">integer</span> i;</span><br><span class="line"><span class="keyword">always</span>@(<span class="keyword">posedge</span> clk <span class="keyword">or</span> <span class="keyword">negedge</span> rst)</span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">    <span class="keyword">if</span>(!rst)    <span class="keyword">begin</span></span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;<span class="number">2</span>**ADDR_WIDTH; i=i+<span class="number">1</span>)    data[i] &lt;= <span class="number">8&#x27;b0000_0000</span>;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//写数据</span></span><br><span class="line"><span class="keyword">always</span>@(<span class="keyword">posedge</span> clk)</span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">    <span class="keyword">if</span>(en_wr)           <span class="comment">//写使能en_wr==1&#x27;b1  </span></span><br><span class="line">        data[Addr_wr] &lt;= Data_wr;</span><br><span class="line">    <span class="keyword">else</span>    </span><br><span class="line">        data[Addr_wr] &lt;= data[Addr_wr];</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//读数据</span></span><br><span class="line"><span class="keyword">always</span>@(<span class="keyword">posedge</span> clk)</span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">    Data_rd_A &lt;= data[Addr_rd_A];   <span class="comment">//A通道</span></span><br><span class="line">    Data_rd_B &lt;= data[Addr_rd_B];   <span class="comment">//B通道</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
 
 <hr>
@@ -224,6 +227,7 @@
 <li><strong>260ns时发生复位：</strong>rst被拉低(图2中黄色实线所在位置)，此时再读地址0101的数据，发现被重置为00000000。</li>
 </ul>
 <img src="https://s2.loli.net/2024/11/03/qA7xGedVZCSsin6.jpg">
+
 <img src="https://s2.loli.net/2024/11/03/R4EmpAqacloZKdJ.jpg">
 
 <p><strong>注</strong>：</p>
@@ -274,7 +278,7 @@
       
         
         
-          <img data-src="/covers/naxida.png" data-sizes="auto" alt="有关日语中「と」和「という」文法的一些理解" class="lazyload">
+          <img data-src="/covers/funingna.jpg" data-sizes="auto" alt="有关日语中「と」和「という」文法的一些理解" class="lazyload">
         
       
       <a href="/2024/10/28/hinongo01/"></a>
