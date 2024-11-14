@@ -6,7 +6,7 @@
   <link href="https://shinononome-enana.github.io/atom.xml" rel="self"/>
   
   <link href="https://shinononome-enana.github.io/"/>
-  <updated>2024-11-10T15:57:11.660Z</updated>
+  <updated>2024-11-14T15:11:48.592Z</updated>
   <id>https://shinononome-enana.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>关于「させていただきます」的几点理解</title>
+    <link href="https://shinononome-enana.github.io/2024/11/14/nihongo-itadaku/"/>
+    <id>https://shinononome-enana.github.io/2024/11/14/nihongo-itadaku/</id>
+    <published>2024-11-14T14:59:06.000Z</published>
+    <updated>2024-11-14T15:11:48.592Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;问题引发&quot;&gt;&lt;a href=&quot;#问题引发&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="日本語" scheme="https://shinononome-enana.github.io/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E/"/>
+    
+    
+    <category term="日本語" scheme="https://shinononome-enana.github.io/tags/%E6%97%A5%E6%9C%AC%E8%AA%9E/"/>
+    
+  </entry>
   
   <entry>
     <title>用原生opencv代码实现霍夫变换(Tough-Transform)</title>
