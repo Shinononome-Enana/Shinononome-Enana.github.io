@@ -6,7 +6,7 @@
   <link href="https://shinononome-enana.github.io/atom.xml" rel="self"/>
   
   <link href="https://shinononome-enana.github.io/"/>
-  <updated>2024-11-16T13:05:28.417Z</updated>
+  <updated>2024-12-13T11:55:11.128Z</updated>
   <id>https://shinononome-enana.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>opencv-VSP_thinning</title>
+    <link href="https://shinononome-enana.github.io/2024/12/13/opencv-VSP-thinning/"/>
+    <id>https://shinononome-enana.github.io/2024/12/13/opencv-VSP-thinning/</id>
+    <published>2024-12-13T09:04:07.000Z</published>
+    <updated>2024-12-13T11:55:11.128Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>如何区分使用「ないで」和「なくて」</title>
