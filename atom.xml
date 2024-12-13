@@ -6,7 +6,7 @@
   <link href="https://shinononome-enana.github.io/atom.xml" rel="self"/>
   
   <link href="https://shinononome-enana.github.io/"/>
-  <updated>2024-12-13T12:19:21.681Z</updated>
+  <updated>2024-12-13T12:23:00.423Z</updated>
   <id>https://shinononome-enana.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>opencv-VSP_thinning</title>
+    <title>Opencv图像骨干提取Thinning Algorithm (VSP Project)</title>
     <link href="https://shinononome-enana.github.io/2024/12/13/opencv-VSP-thinning/"/>
     <id>https://shinononome-enana.github.io/2024/12/13/opencv-VSP-thinning/</id>
     <published>2024-12-13T09:04:07.000Z</published>
-    <updated>2024-12-13T12:19:21.681Z</updated>
+    <updated>2024-12-13T12:23:00.423Z</updated>
     
     
       
@@ -34,6 +34,14 @@
     
     
     
+    <category term="LAB EXERCISE" scheme="https://shinononome-enana.github.io/categories/LAB-EXERCISE/"/>
+    
+    <category term="Opencv" scheme="https://shinononome-enana.github.io/categories/LAB-EXERCISE/Opencv/"/>
+    
+    
+    <category term="CPP" scheme="https://shinononome-enana.github.io/tags/CPP/"/>
+    
+    <category term="Tough-Transform" scheme="https://shinononome-enana.github.io/tags/Tough-Transform/"/>
     
   </entry>
   
