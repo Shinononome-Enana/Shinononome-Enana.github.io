@@ -6,7 +6,7 @@
   <link href="https://shinononome-enana.github.io/atom.xml" rel="self"/>
   
   <link href="https://shinononome-enana.github.io/"/>
-  <updated>2024-12-18T07:49:53.624Z</updated>
+  <updated>2025-01-03T13:27:13.104Z</updated>
   <id>https://shinononome-enana.github.io/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>2025travel</title>
+    <link href="https://shinononome-enana.github.io/2025/01/03/2025travel/"/>
+    <id>https://shinononome-enana.github.io/2025/01/03/2025travel/</id>
+    <published>2025-01-03T13:08:15.000Z</published>
+    <updated>2025-01-03T13:27:13.104Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Life in Japan" scheme="https://shinononome-enana.github.io/categories/Life-in-Japan/"/>
+    
+    
+    <category term="travel" scheme="https://shinononome-enana.github.io/tags/travel/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Opencv图像骨干提取算法的实现和优化 Thinning Algorithm (VSP Project)</title>
     <link href="https://shinononome-enana.github.io/2024/12/13/opencv-VSP-thinning/"/>
     <id>https://shinononome-enana.github.io/2024/12/13/opencv-VSP-thinning/</id>
     <published>2024-12-13T09:04:07.000Z</published>
-    <updated>2024-12-18T07:49:53.624Z</updated>
+    <updated>2025-01-03T13:06:47.368Z</updated>
     
     
       
@@ -36,8 +61,6 @@
     
     
     <category term="LAB EXERCISE" scheme="https://shinononome-enana.github.io/categories/LAB-EXERCISE/"/>
-    
-    <category term="Opencv" scheme="https://shinononome-enana.github.io/categories/LAB-EXERCISE/Opencv/"/>
     
     
     <category term="CPP" scheme="https://shinononome-enana.github.io/tags/CPP/"/>
@@ -97,7 +120,7 @@
     <link href="https://shinononome-enana.github.io/2024/11/10/opencv/"/>
     <id>https://shinononome-enana.github.io/2024/11/10/opencv/</id>
     <published>2024-11-10T13:08:01.000Z</published>
-    <updated>2024-11-10T15:57:11.660Z</updated>
+    <updated>2025-01-03T13:06:36.530Z</updated>
     
     
       
@@ -112,8 +135,6 @@
     
     
     <category term="LAB EXERCISE" scheme="https://shinononome-enana.github.io/categories/LAB-EXERCISE/"/>
-    
-    <category term="Opencv" scheme="https://shinononome-enana.github.io/categories/LAB-EXERCISE/Opencv/"/>
     
     
     <category term="CPP" scheme="https://shinononome-enana.github.io/tags/CPP/"/>

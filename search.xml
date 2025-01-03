@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>2025travel</title>
+      <link href="/2025/01/03/2025travel/"/>
+      <url>/2025/01/03/2025travel/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>2024<del>2025是我来日本留学后的第一个新年(跨年)，正好这会儿学校放冬假，我便计划想去哪里玩一下。一开始本来打算和实验室的其他几位同学去东京跨年，但是我们酒店订太晚了，东京12.31</del>1.1的跨年夜酒店最便宜的一晚上都要一千五六百RMB,实在是无法接受，于是大家就散了(他们去长崎看芙莉莲了)……后来舍友曹桑提议去宫岛上玩儿，说是学姐推荐，但找了半天也不知道在哪儿，后来也不知道什么原因我突然说可以去“四国”看看，后来就这么拍定了。</p><h2 id="启程：新門司-→-徳島-東九フェーリ"><a href="#启程：新門司-→-徳島-東九フェーリ" class="headerlink" title="启程：新門司 → 徳島 (東九フェーリ)"></a>启程：新門司 → 徳島 (東九フェーリ)</h2><p>我和舍友两人一人各背一个双肩跑，轻装上阵，12.27从</p><h2 id="总行程"><a href="#总行程" class="headerlink" title="总行程"></a>总行程</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> Life in Japan </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> travel </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Opencv图像骨干提取算法的实现和优化 Thinning Algorithm (VSP Project)</title>
       <link href="/2024/12/13/opencv-VSP-thinning/"/>
       <url>/2024/12/13/opencv-VSP-thinning/</url>
@@ -14,8 +39,6 @@
       <categories>
           
           <category> LAB EXERCISE </category>
-          
-          <category> Opencv </category>
           
       </categories>
       
@@ -81,8 +104,6 @@
       <categories>
           
           <category> LAB EXERCISE </category>
-          
-          <category> Opencv </category>
           
       </categories>
       
