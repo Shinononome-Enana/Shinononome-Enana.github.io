@@ -6,7 +6,7 @@
   <link href="https://shinononome-enana.github.io/atom.xml" rel="self"/>
   
   <link href="https://shinononome-enana.github.io/"/>
-  <updated>2025-02-08T06:39:10.683Z</updated>
+  <updated>2025-02-08T07:12:31.801Z</updated>
   <id>https://shinononome-enana.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Calculator的Verilog实现与上板验证：SystemLSI Project#1 留档</title>
+    <link href="https://shinononome-enana.github.io/2025/02/08/slsi-calculator-project/"/>
+    <id>https://shinononome-enana.github.io/2025/02/08/slsi-calculator-project/</id>
+    <published>2025-02-08T06:43:55.000Z</published>
+    <updated>2025-02-08T07:12:31.801Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;核心功能与创新功能-PPT&quot;&gt;&lt;a href=&quot;#核心功能与创新功能-PPT&quot; class=&quot;headerlink&quot; title=&quot;核心功能与创新功能(PPT)&quot;&gt;&lt;/a&gt;核心功能与创新功能(PPT)&lt;/h2&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="Course Assignment" scheme="https://shinononome-enana.github.io/categories/Course-Assignment/"/>
+    
+    <category term="System LSI Design" scheme="https://shinononome-enana.github.io/categories/Course-Assignment/System-LSI-Design/"/>
+    
+    
+    <category term="Verilog" scheme="https://shinononome-enana.github.io/tags/Verilog/"/>
+    
+  </entry>
   
   <entry>
     <title>Pipline-CPU的Verilog实现与仿真：SystemLSI Project#2 留档</title>
