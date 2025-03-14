@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>使用PSO-NN解决双螺旋分类TSNP问题</title>
+      <link href="/2025/03/14/TSNP%E2%80%94problem/"/>
+      <url>/2025/03/14/TSNP%E2%80%94problem/</url>
+      
+        <content type="html"><![CDATA[<h2 id="核心思想"><a href="#核心思想" class="headerlink" title="核心思想"></a>核心思想</h2><ul><li>粒子群算法PSO优化神经网络权重和偏置参数，取代传统的梯度下降法。</li><li>神经网络参数矩阵展平，作为PSO算法中粒子的速度参数进行优化。</li></ul><hr><h2 id="Presentation-PPT"><a href="#Presentation-PPT" class="headerlink" title="Presentation PPT"></a>Presentation PPT</h2><hr><h2 id="报告"><a href="#报告" class="headerlink" title="报告"></a>报告</h2><img src="https://s2.loli.net/2025/03/14/gHLJ3A5RpmKj87E.png"><img src="https://s2.loli.net/2025/03/14/m1ebqYIX7H3rWaT.png"><img src="https://s2.loli.net/2025/03/14/fh6ktHsC2PmIVyj.png"><img src="https://s2.loli.net/2025/03/14/AejT5v7FQwiIGza.png"><img src="https://s2.loli.net/2025/03/14/pOoqIDPJgC1WNft.png"><img src="https://s2.loli.net/2025/03/14/NICPbvj4Vs6WQqk.png"><hr><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> Course Assignment </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CPP </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Calculator的Verilog实现与上板验证：SystemLSI Project#1 留档</title>
       <link href="/2025/02/08/slsi-calculator-project/"/>
       <url>/2025/02/08/slsi-calculator-project/</url>

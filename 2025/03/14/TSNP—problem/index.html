@@ -14,7 +14,7 @@
   
   
   <title>
-    Archives: 2024/10 |
+    使用PSO-NN解决双螺旋分类TSNP问题 |
     
     ロ　ユイセーの魔法領域
   </title>
@@ -28,13 +28,25 @@
 <link rel="stylesheet" href="/css/loader.css">
 
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="ロ　ユイセーの魔法領域">
-<meta property="og:url" content="https://shinononome-enana.github.io/archives/2024/10/index.html">
+  <meta name="description" content="核心思想 粒子群算法PSO优化神经网络权重和偏置参数，取代传统的梯度下降法。 神经网络参数矩阵展平，作为PSO算法中粒子的速度参数进行优化。   Presentation PPT 报告             代码">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用PSO-NN解决双螺旋分类TSNP问题">
+<meta property="og:url" content="https://shinononome-enana.github.io/2025/03/14/TSNP%E2%80%94problem/index.html">
 <meta property="og:site_name" content="ロ　ユイセーの魔法領域">
+<meta property="og:description" content="核心思想 粒子群算法PSO优化神经网络权重和偏置参数，取代传统的梯度下降法。 神经网络参数矩阵展平，作为PSO算法中粒子的速度参数进行优化。   Presentation PPT 报告             代码">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s2.loli.net/2025/03/14/gHLJ3A5RpmKj87E.png">
+<meta property="og:image" content="https://s2.loli.net/2025/03/14/m1ebqYIX7H3rWaT.png">
+<meta property="og:image" content="https://s2.loli.net/2025/03/14/fh6ktHsC2PmIVyj.png">
+<meta property="og:image" content="https://s2.loli.net/2025/03/14/AejT5v7FQwiIGza.png">
+<meta property="og:image" content="https://s2.loli.net/2025/03/14/pOoqIDPJgC1WNft.png">
+<meta property="og:image" content="https://s2.loli.net/2025/03/14/NICPbvj4Vs6WQqk.png">
+<meta property="article:published_time" content="2025-03-14T11:23:46.000Z">
+<meta property="article:modified_time" content="2025-03-14T11:39:35.372Z">
 <meta property="article:author" content="ロ　ユイセー(Lu Weicheng)">
+<meta property="article:tag" content="CPP">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2025/03/14/gHLJ3A5RpmKj87E.png">
   
     <link rel="alternate" href="/atom.xml" title="ロ　ユイセーの魔法領域" type="application/atom+xml">
   
@@ -48,7 +60,9 @@
   
   
     
-      <link rel="preload" href="https://npm.webcache.cn/@waline/client@v2/dist/waline.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+      
+<link rel="stylesheet" href="https://npm.webcache.cn/@waline/client@v2/dist/waline.css">
+
     
   
   
@@ -148,7 +162,7 @@
 <header id="header">
   
     
-      <img fetchpriority="high" src="/images/banner.webp" alt="">
+      <img fetchpriority="high" src="/images/banner.webp" alt="使用PSO-NN解决双螺旋分类TSNP问题">
     
   
   <div id="header-outer">
@@ -157,7 +171,7 @@
         
         
           <a href="/" id="logo">
-            <h1 data-aos="slide-up">Archives</h1>
+            <h1 data-aos="slide-up">使用PSO-NN解决双螺旋分类TSNP问题</h1>
           </a>
         
       
@@ -173,159 +187,132 @@
 
         <div id="content">
           
-          <section id="main">
-<div class="archives-outer-wrap" data-aos="fade-up">
-  <div class="tag-wrap">
-    
-      <div class="archives-tag-list-item" data-aos="zoom-in">
-        <a class="archives-tag-list-link" href="/tags/CPP/">CPP</a>
-      </div>
-    
-      <div class="archives-tag-list-item" data-aos="zoom-in">
-        <a class="archives-tag-list-link" href="/tags/Verilog/">Verilog</a>
-      </div>
-    
-      <div class="archives-tag-list-item" data-aos="zoom-in">
-        <a class="archives-tag-list-link" href="/tags/TSP/">TSP</a>
-      </div>
-    
-      <div class="archives-tag-list-item" data-aos="zoom-in">
-        <a class="archives-tag-list-link" href="/tags/vocaloid/">vocaloid</a>
-      </div>
-    
-      <div class="archives-tag-list-item" data-aos="zoom-in">
-        <a class="archives-tag-list-link" href="/tags/日本語/">日本語</a>
-      </div>
-    
-      <div class="archives-tag-list-item" data-aos="zoom-in">
-        <a class="archives-tag-list-link" href="/tags/Tough-Transform/">Tough-Transform</a>
-      </div>
-    
-      <div class="archives-tag-list-item" data-aos="zoom-in">
-        <a class="archives-tag-list-link" href="/tags/travel/">travel</a>
-      </div>
-    
+          <section id="main"><article id="post-TSNP—problem" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner" data-aos="fade-up">
+    <div class="article-meta">
+      <div class="article-date">
+  <a href="/2025/03/14/TSNP%E2%80%94problem/" class="article-date-link" data-aos="zoom-in">
+    <time datetime="2025-03-14T11:23:46.000Z" itemprop="datePublished">2025-03-14</time>
+    <time style="display: none;" id="post-update-time">2025-03-14</time>
+  </a>
+</div>
+
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Course-Assignment/" data-aos="zoom-in">Course Assignment</a>
   </div>
-  <div class="category-wrap">
+
+
+    </div>
+    <div class="hr-line"></div>
     
-      <div class="archives-category-list-item" data-aos="zoom-in">
-        <a class="archives-category-list-link" href="/categories/LAB-EXERCISE/">LAB EXERCISE</a>
-      </div>
-    
-      <div class="archives-category-list-item" data-aos="zoom-in">
-        <a class="archives-category-list-link" href="/categories/Course-Assignment/">Course Assignment</a>
-      </div>
-    
-      <div class="archives-category-list-item" data-aos="zoom-in">
-        <a class="archives-category-list-link" href="/categories/Course-Assignment/System-LSI-Design/">System LSI Design</a>
-      </div>
-    
-      <div class="archives-category-list-item" data-aos="zoom-in">
-        <a class="archives-category-list-link" href="/categories/Course-Assignment/Computational-Intelligence/">Computational Intelligence</a>
-      </div>
-    
-      <div class="archives-category-list-item" data-aos="zoom-in">
-        <a class="archives-category-list-link" href="/categories/VOCALOID/">VOCALOID</a>
-      </div>
-    
-      <div class="archives-category-list-item" data-aos="zoom-in">
-        <a class="archives-category-list-link" href="/categories/日本語/">日本語</a>
-      </div>
-    
-      <div class="archives-category-list-item" data-aos="zoom-in">
-        <a class="archives-category-list-link" href="/categories/Life-in-Japan/">Life in Japan</a>
-      </div>
-    
-  </div>
-  
-  
-    
-    
+
+    <div class="e-content article-entry" itemprop="articleBody">
       
       
-      <section class="archives-wrap" data-aos="fade-up">
-        <div class="archive-year-wrap">
-          <a href="/archives/2024" class="archive-year">2024</a>
-        </div>
-        <ul>
-          
-          <li class="archive-article">
-  <div class="archive-article-date-wrap">
-    <a href="/2024/10/28/hinongo01/">
-      <time class="dt-published" datetime="2024-10-28T12:30:25.000Z" itemprop="datePublished">10-28</time>
-    </a>
-  </div>
-  
-    
-      <a class="archive-article-title" href="/2024/10/28/hinongo01/">有关日语中「と」和「という」文法的一些理解</a>
-    
-  
-</li>
+        <h2 id="核心思想"><a href="#核心思想" class="headerlink" title="核心思想"></a>核心思想</h2><ul>
+<li>粒子群算法PSO优化神经网络权重和偏置参数，取代传统的梯度下降法。</li>
+<li>神经网络参数矩阵展平，作为PSO算法中粒子的速度参数进行优化。</li>
+</ul>
+<hr>
+<h2 id="Presentation-PPT"><a href="#Presentation-PPT" class="headerlink" title="Presentation PPT"></a>Presentation PPT</h2><hr>
+<h2 id="报告"><a href="#报告" class="headerlink" title="报告"></a>报告</h2><img src="https://s2.loli.net/2025/03/14/gHLJ3A5RpmKj87E.png">
 
-          
-    
-    
-          <li class="archive-article">
-  <div class="archive-article-date-wrap">
-    <a href="/2024/10/27/VOCALOID%E8%B0%83%E6%95%99%E4%B9%8B%E5%8D%81%E4%BA%8C%E5%A4%A7%E5%8F%82%E6%95%B0/">
-      <time class="dt-published" datetime="2024-10-27T11:05:00.000Z" itemprop="datePublished">10-27</time>
-    </a>
-  </div>
-  
-    
-      <a class="archive-article-title" href="/2024/10/27/VOCALOID%E8%B0%83%E6%95%99%E4%B9%8B%E5%8D%81%E4%BA%8C%E5%A4%A7%E5%8F%82%E6%95%B0/">VOCALOID调教之十二大参数</a>
-    
-  
-</li>
+<img src="https://s2.loli.net/2025/03/14/m1ebqYIX7H3rWaT.png">
 
-          
-    
-    
-          <li class="archive-article">
-  <div class="archive-article-date-wrap">
-    <a href="/2024/10/22/TSP-CPP/">
-      <time class="dt-published" datetime="2024-10-22T10:05:24.000Z" itemprop="datePublished">10-22</time>
-    </a>
-  </div>
-  
-    
-      <a class="archive-article-title" href="/2024/10/22/TSP-CPP/">CPP实现蚁群算法(ACO)并解决TSP问题</a>
-    
-  
-</li>
+<img src="https://s2.loli.net/2025/03/14/fh6ktHsC2PmIVyj.png">
 
-          
-    
-    
-          <li class="archive-article">
-  <div class="archive-article-date-wrap">
-    <a href="/2024/10/18/Matrix/">
-      <time class="dt-published" datetime="2024-10-17T15:25:00.000Z" itemprop="datePublished">10-18</time>
-    </a>
-  </div>
-  
-    
-      <a class="archive-article-title" href="/2024/10/18/Matrix/">cpp实现矩阵操作</a>
-    
-  
-</li>
+<img src="https://s2.loli.net/2025/03/14/AejT5v7FQwiIGza.png">
 
-          
-          
-        </ul>
-      </section>
-  
+<img src="https://s2.loli.net/2025/03/14/pOoqIDPJgC1WNft.png">
+
+<img src="https://s2.loli.net/2025/03/14/NICPbvj4Vs6WQqk.png">
+
+<hr>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <blockquote class="article-copyright">
+    <p><strong>本文作者：</strong>ロ　ユイセー(Lu Weicheng) @ ロ　ユイセーの魔法領域</p>
+    <p><strong>本文链接：</strong><a href="https://shinononome-enana.github.io/2025/03/14/TSNP%E2%80%94problem/">https://shinononome-enana.github.io/2025/03/14/TSNP%E2%80%94problem/</a></p>
+    <p><strong>本文标题：</strong>使用PSO-NN解决双螺旋分类TSNP问题</p>
+    
+    
+    <p><strong>本文版权：</strong>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"><span class="icon-creative-commons"></span>BY-NC-SA</a> 许可协议。转载请注明出处！</p>
+    <span class="icon-creative-commons article-copyright-bg"></span>
+  </blockquote>
+      
+      
+        <a data-aos="zoom-in" href="/2025/03/14/TSNP%E2%80%94problem/#comments" class="article-comment-link">
+          <span class="post-comments-count waline-comment-count" data-path="/2025/03/14/TSNP%E2%80%94problem/" itemprop="commentCount"></span>
+          Comments
+        </a>
+      
+      
+      
+      
+        <span data-aos="zoom-in" class="article-visitor-link">
+          <span class="waline-pageview-count" data-path="/2025/03/14/TSNP%E2%80%94problem/">0</span>
+          <em class="post-meta-item-text">Readings</em>
+        </span>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/CPP/" rel="tag">CPP</a></li></ul>
+
+
+    </footer>
   </div>
+  
+    
+  <nav id="article-nav" data-aos="fade-up">
+    
+    
+    <div class="article-nav-link-wrap article-nav-link-right">
+      
+        
+        
+          <img data-src="/covers/naxida.png" data-sizes="auto" alt="Calculator的Verilog实现与上板验证：SystemLSI Project#1 留档" class="lazyload">
+        
+      
+      <a href="/2025/02/08/slsi-calculator-project/"></a>
+      <div class="article-nav-caption">Older</div>
+      <h3 class="article-nav-title">
+        
+          Calculator的Verilog实现与上板验证：SystemLSI Project#1 留档
+        
+      </h3>
+    </div>
+    
+  </nav>
+
+
+  
+</article>
+
+
+  <div id="comments" class="wcomment"></div>
+
+
 
 
 
 </section>
           
             <aside id="sidebar">
-  <div class="sidebar-wrapper ">
+  <div class="sidebar-wrapper wrap-sticky">
     <div class="sidebar-wrap" data-aos="fade-up">
       
-        <div class="sidebar-author">
+        <div class="sidebar-toc-sidebar"><div class="sidebar-toc">
+  <h3 class="toc-title">Contents</h3>
+  <div class="sidebar-toc-wrapper toc-div-class" >
+      
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E6%80%9D%E6%83%B3"><span class="toc-number">1.</span> <span class="toc-text">核心思想</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Presentation-PPT"><span class="toc-number">2.</span> <span class="toc-text">Presentation PPT</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%A5%E5%91%8A"><span class="toc-number">3.</span> <span class="toc-text">报告</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-number">4.</span> <span class="toc-text">代码</span></a></li></ol>
+      
+  </div>
+</div>
+</div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
   <img data-src="/avatar/avatar.webp" data-sizes="auto" alt="ロ　ユイセー(Lu Weicheng)" class="lazyload">
   <div class="sidebar-author-name">ロ　ユイセー(Lu Weicheng)</div>
   <div class="sidebar-description"></div>
@@ -386,8 +373,13 @@
     </div>
   
 </div>
-
+</div>
       
+      
+        <div class="sidebar-btn-wrapper" style="position:static">
+          <div class="sidebar-toc-btn current"></div>
+          <div class="sidebar-common-btn"></div>
+        </div>
       
     </div>
   </div>
@@ -445,7 +437,16 @@
       <nav id="mobile-nav">
   <div class="sidebar-wrap">
     
-      <div class="sidebar-author">
+      <div class="sidebar-toc-sidebar"><div class="sidebar-toc">
+  <h3 class="toc-title">Contents</h3>
+  <div class="sidebar-toc-wrapper toc-div-class" >
+      
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E6%80%9D%E6%83%B3"><span class="toc-number">1.</span> <span class="toc-text">核心思想</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Presentation-PPT"><span class="toc-number">2.</span> <span class="toc-text">Presentation PPT</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%A5%E5%91%8A"><span class="toc-number">3.</span> <span class="toc-text">报告</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-number">4.</span> <span class="toc-text">代码</span></a></li></ol>
+      
+  </div>
+</div>
+</div>
+      <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
   <img data-src="/avatar/avatar.webp" data-sizes="auto" alt="ロ　ユイセー(Lu Weicheng)" class="lazyload">
   <div class="sidebar-author-name">ロ　ユイセー(Lu Weicheng)</div>
   <div class="sidebar-description"></div>
@@ -506,9 +507,14 @@
     </div>
   
 </div>
-
+</div>
     
   </div>
+  
+    <div class="sidebar-btn-wrapper">
+      <div class="sidebar-toc-btn current"></div>
+      <div class="sidebar-common-btn"></div>
+    </div>
   
 </nav>
 
