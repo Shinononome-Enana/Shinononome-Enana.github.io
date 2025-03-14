@@ -28,13 +28,40 @@
 <link rel="stylesheet" href="/css/loader.css">
 
   
-  <meta name="description" content="核心思想 粒子群算法PSO优化神经网络权重和偏置参数，取代传统的梯度下降法。 神经网络参数矩阵展平，作为PSO算法中粒子的速度参数进行优化。   Presentation PPT 报告             代码">
+  <meta name="description" content="核心思想 粒子群算法PSO优化神经网络权重和偏置参数，取代传统的梯度下降法。 神经网络参数矩阵展平，作为PSO算法中粒子的速度参数进行优化。   Presentation PPT                                                       报告             代码">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用PSO-NN解决双螺旋分类TSNP问题">
 <meta property="og:url" content="https://shinononome-enana.github.io/2025/03/14/TSNP%E2%80%94problem/index.html">
 <meta property="og:site_name" content="ロ　ユイセーの魔法領域">
-<meta property="og:description" content="核心思想 粒子群算法PSO优化神经网络权重和偏置参数，取代传统的梯度下降法。 神经网络参数矩阵展平，作为PSO算法中粒子的速度参数进行优化。   Presentation PPT 报告             代码">
+<meta property="og:description" content="核心思想 粒子群算法PSO优化神经网络权重和偏置参数，取代传统的梯度下降法。 神经网络参数矩阵展平，作为PSO算法中粒子的速度参数进行优化。   Presentation PPT                                                       报告             代码">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s2.loli.net/2025/03/14/xUrA3vkNdilZInS.jpg">
+<meta property="og:image" content="https://s2.loli.net/2025/03/14/teSMvKg3dj8UNIF.jpg">
+<meta property="og:image" content="https://s2.loli.net/2025/03/14/sa9XOM75ch1CdUH.jpg">
+<meta property="og:image" content="https://s2.loli.net/2025/03/14/wyUBXdPCYFJ3ghl.jpg">
+<meta property="og:image" content="https://s2.loli.net/2025/03/14/82K3OxNZv4EGWwT.jpg">
+<meta property="og:image" content="https://s2.loli.net/2025/03/14/bQyK2iN4dof7uBw.jpg">
+<meta property="og:image" content="https://s2.loli.net/2025/03/14/qXI9dgYku7SJOvo.jpg">
+<meta property="og:image" content="https://s2.loli.net/2025/03/14/icXvJuEwTZGRhf6.jpg">
+<meta property="og:image" content="https://s2.loli.net/2025/03/14/9pZJjm8KFaA6yId.jpg">
+<meta property="og:image" content="https://s2.loli.net/2025/03/14/3xpPRvLMiAdBmtU.jpg">
+<meta property="og:image" content="https://s2.loli.net/2025/03/14/JXr5A96s1vQS73P.jpg">
+<meta property="og:image" content="https://s2.loli.net/2025/03/14/MvYcsQfIduDoaKp.jpg">
+<meta property="og:image" content="https://s2.loli.net/2025/03/14/mwupfrFZqQRojb9.jpg">
+<meta property="og:image" content="https://s2.loli.net/2025/03/14/BVajvxYpkUiRNeQ.jpg">
+<meta property="og:image" content="https://s2.loli.net/2025/03/14/2tkoqziDPLMu8jJ.jpg">
+<meta property="og:image" content="https://s2.loli.net/2025/03/14/FNuyMpiDnBbtmVs.jpg">
+<meta property="og:image" content="https://s2.loli.net/2025/03/14/bMNlUrwYEhDZITz.jpg">
+<meta property="og:image" content="https://s2.loli.net/2025/03/14/2xMOGN7gDcBYVn9.jpg">
+<meta property="og:image" content="https://s2.loli.net/2025/03/14/FvGP4bkmBWyXALx.jpg">
+<meta property="og:image" content="https://s2.loli.net/2025/03/14/zrCKM9YQTlWxwIy.jpg">
+<meta property="og:image" content="https://s2.loli.net/2025/03/14/UagBy2iqkF4WnRo.jpg">
+<meta property="og:image" content="https://s2.loli.net/2025/03/14/iYLvM9NtpInzbhK.jpg">
+<meta property="og:image" content="https://s2.loli.net/2025/03/14/7RY3oekWh8Lu6tI.jpg">
+<meta property="og:image" content="https://s2.loli.net/2025/03/14/AkRmN4W8P7cIqa2.jpg">
+<meta property="og:image" content="https://s2.loli.net/2025/03/14/fvG1ePdh7iTSYBW.jpg">
+<meta property="og:image" content="https://s2.loli.net/2025/03/14/9thjGwPWpTxn17u.jpg">
+<meta property="og:image" content="https://s2.loli.net/2025/03/14/cKAZG3uinNyvJY1.jpg">
 <meta property="og:image" content="https://s2.loli.net/2025/03/14/gHLJ3A5RpmKj87E.png">
 <meta property="og:image" content="https://s2.loli.net/2025/03/14/m1ebqYIX7H3rWaT.png">
 <meta property="og:image" content="https://s2.loli.net/2025/03/14/fh6ktHsC2PmIVyj.png">
@@ -42,11 +69,11 @@
 <meta property="og:image" content="https://s2.loli.net/2025/03/14/pOoqIDPJgC1WNft.png">
 <meta property="og:image" content="https://s2.loli.net/2025/03/14/NICPbvj4Vs6WQqk.png">
 <meta property="article:published_time" content="2025-03-14T11:23:46.000Z">
-<meta property="article:modified_time" content="2025-03-14T11:39:35.372Z">
+<meta property="article:modified_time" content="2025-03-14T11:54:50.711Z">
 <meta property="article:author" content="ロ　ユイセー(Lu Weicheng)">
 <meta property="article:tag" content="CPP">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://s2.loli.net/2025/03/14/gHLJ3A5RpmKj87E.png">
+<meta name="twitter:image" content="https://s2.loli.net/2025/03/14/xUrA3vkNdilZInS.jpg">
   
     <link rel="alternate" href="/atom.xml" title="ロ　ユイセーの魔法領域" type="application/atom+xml">
   
@@ -215,7 +242,61 @@
 <li>神经网络参数矩阵展平，作为PSO算法中粒子的速度参数进行优化。</li>
 </ul>
 <hr>
-<h2 id="Presentation-PPT"><a href="#Presentation-PPT" class="headerlink" title="Presentation PPT"></a>Presentation PPT</h2><hr>
+<h2 id="Presentation-PPT"><a href="#Presentation-PPT" class="headerlink" title="Presentation PPT"></a>Presentation PPT</h2><img src="https://s2.loli.net/2025/03/14/xUrA3vkNdilZInS.jpg">
+
+<img src="https://s2.loli.net/2025/03/14/teSMvKg3dj8UNIF.jpg">
+
+<img src="https://s2.loli.net/2025/03/14/sa9XOM75ch1CdUH.jpg">
+
+<img src="https://s2.loli.net/2025/03/14/wyUBXdPCYFJ3ghl.jpg">
+
+<img src="https://s2.loli.net/2025/03/14/82K3OxNZv4EGWwT.jpg">
+
+<img src="https://s2.loli.net/2025/03/14/bQyK2iN4dof7uBw.jpg">
+
+<img src="https://s2.loli.net/2025/03/14/qXI9dgYku7SJOvo.jpg">
+
+<img src="https://s2.loli.net/2025/03/14/icXvJuEwTZGRhf6.jpg">
+
+<img src="https://s2.loli.net/2025/03/14/9pZJjm8KFaA6yId.jpg">
+
+<img src="https://s2.loli.net/2025/03/14/3xpPRvLMiAdBmtU.jpg">
+
+<img src="https://s2.loli.net/2025/03/14/JXr5A96s1vQS73P.jpg">
+
+<img src="https://s2.loli.net/2025/03/14/MvYcsQfIduDoaKp.jpg">
+
+<img src="https://s2.loli.net/2025/03/14/mwupfrFZqQRojb9.jpg">
+
+<img src="https://s2.loli.net/2025/03/14/BVajvxYpkUiRNeQ.jpg">
+
+<img src="https://s2.loli.net/2025/03/14/2tkoqziDPLMu8jJ.jpg">
+
+<img src="https://s2.loli.net/2025/03/14/FNuyMpiDnBbtmVs.jpg">
+
+<img src="https://s2.loli.net/2025/03/14/bMNlUrwYEhDZITz.jpg">
+
+<img src="https://s2.loli.net/2025/03/14/2xMOGN7gDcBYVn9.jpg">
+
+<img src="https://s2.loli.net/2025/03/14/FvGP4bkmBWyXALx.jpg">
+
+<img src="https://s2.loli.net/2025/03/14/zrCKM9YQTlWxwIy.jpg">
+
+<img src="https://s2.loli.net/2025/03/14/UagBy2iqkF4WnRo.jpg">
+
+<img src="https://s2.loli.net/2025/03/14/iYLvM9NtpInzbhK.jpg">
+
+<img src="https://s2.loli.net/2025/03/14/7RY3oekWh8Lu6tI.jpg">
+
+<img src="https://s2.loli.net/2025/03/14/AkRmN4W8P7cIqa2.jpg">
+
+<img src="https://s2.loli.net/2025/03/14/fvG1ePdh7iTSYBW.jpg">
+
+<img src="https://s2.loli.net/2025/03/14/9thjGwPWpTxn17u.jpg">
+
+<img src="https://s2.loli.net/2025/03/14/cKAZG3uinNyvJY1.jpg">
+
+<hr>
 <h2 id="报告"><a href="#报告" class="headerlink" title="报告"></a>报告</h2><img src="https://s2.loli.net/2025/03/14/gHLJ3A5RpmKj87E.png">
 
 <img src="https://s2.loli.net/2025/03/14/m1ebqYIX7H3rWaT.png">
