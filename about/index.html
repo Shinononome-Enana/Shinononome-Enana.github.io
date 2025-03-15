@@ -154,7 +154,16 @@
 <header id="header">
   
     
-      <img fetchpriority="high" src="/images/avemujica.webp" alt="关于">
+      <picture>
+        
+          <source media="(max-width: 479px)" srcset="/images/avemujica-600w.webp">
+        
+          <source media="(max-width: 799px)" srcset="/images/avemujica-800w.webp">
+        
+          <source media="(min-width: 800px)" srcset="/images/avemujica.webp">
+        
+        <img fetchpriority="high" src="/images/avemujica.webp" alt="关于">
+      </picture>
     
   
   <div id="header-outer">
