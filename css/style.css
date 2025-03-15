@@ -12,7 +12,7 @@
   --grey-9: #999;
   --grey-7: #777;
   --color-archive-year: #000;
-  --color-default: #555;
+  --color-default: #666;
   --color-border: var(--purple-3);
   --color-link: var(--purple-1);
   --color-background: #eee;
@@ -20,7 +20,7 @@
   --color-header-background: rgba(255,255,255,0.9);
   --color-footer-background: #fff;
   --color-mobile-nav-background: #fff;
-  --color-wrap: #fff;
+  --color-wrap: rgba(255,255,255,0.9);
   --color-sticky: #f0e9fc;
   --color-h2-border: #eee;
   --color-meta-shadow: var(--purple-6);
