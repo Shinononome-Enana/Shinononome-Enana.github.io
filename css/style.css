@@ -1,18 +1,18 @@
 :root {
-  --red-0: #7135ac;
-  --red-1: #8e5bc0;
-  --red-2: #a87dcc;
-  --red-3: #bfa0e2;
-  --red-4: #d0b3f1;
-  --red-5: #e1c6f8;
-  --red-5-5: #f0e9fc;
-  --red-6: #f7f1fc;
+  --purple-0: #7135ac;
+  --purple-1: #8e5bc0;
+  --purple-2: #a87dcc;
+  --purple-3: #bfa0e2;
+  --purple-4: #d0b3f1;
+  --purple-5: #e1c6f8;
+  --purple-5-5: #f0e9fc;
+  --purple-6: #f7f1fc;
   --grey-9: #999;
   --grey-7: #777;
   --color-archive-year: #000;
   --color-default: #555;
-  --color-border: var(--red-3);
-  --color-link: var(--red-1);
+  --color-border: var(--purple-3);
+  --color-link: var(--purple-1);
   --color-background: #eee;
   --color-code-background: #f5f5f5;
   --color-header-background: rgba(255,255,255,0.9);
@@ -21,7 +21,7 @@
   --color-wrap: #fff;
   --color-sticky: #f0e9fc;
   --color-h2-border: #eee;
-  --color-meta-shadow: var(--red-6);
+  --color-meta-shadow: var(--purple-6);
   --color-hover-shadow: rgba(150,150,150,0.1);
   --color-h2-after: rgba(113,53,172,0.6);
   --color-h2-after-shadow: rgba(142,91,192,0.7);
@@ -44,20 +44,20 @@
   --cursor-text: url("../images/cursor/reimu-cursor-text.png"), text;
 }
 [data-theme="dark"]:root {
-  --red-0: #7135ac;
-  --red-1: #8e5bc0;
-  --red-2: #a87dcc;
-  --red-3: #bfa0e2;
-  --red-4: rgba(208,179,241,0.5);
-  --red-5: rgba(225,198,248,0.2);
-  --red-5-5: rgba(240,233,252,0.1);
-  --red-6: rgba(247,241,252,0.2);
+  --purple-0: #7135ac;
+  --purple-1: #8e5bc0;
+  --purple-2: #a87dcc;
+  --purple-3: #bfa0e2;
+  --purple-4: rgba(208,179,241,0.5);
+  --purple-5: rgba(225,198,248,0.2);
+  --purple-5-5: rgba(240,233,252,0.1);
+  --purple-6: rgba(247,241,252,0.2);
   --grey-9: #999;
   --grey-7: #777;
   --color-archive-year: #999;
   --color-default: #999;
-  --color-border: var(--red-5);
-  --color-link: var(--red-1);
+  --color-border: var(--purple-5);
+  --color-link: var(--purple-1);
   --color-background: #21252b;
   --color-code-background: rgba(232,232,232,0.1);
   --color-header-background: #222;
