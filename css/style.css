@@ -3,10 +3,10 @@
   --purple-1: #8e5bc0;
   --purple-2: #a87dcc;
   --purple-3: #bfa0e2;
-  --purple-4: #d0b3f1;
-  --purple-5: #e1c6f8;
-  --purple-5-5: #f0e9fc;
-  --purple-6: #f7f1fc;
+  --purple-4: rgba(208,179,241,0.5);
+  --purple-5: rgba(225,198,248,0.2);
+  --purple-5-5: rgba(240,233,252,0.1);
+  --purple-6: rgba(247,241,252,0.2);
   --grey-9: #999;
   --grey-7: #777;
   --color-archive-year: #000;
