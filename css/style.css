@@ -1,12 +1,14 @@
 :root {
-  --purple-0: #7135ac;
-  --purple-1: #8e5bc0;
-  --purple-2: #a87dcc;
-  --purple-3: #bfa0e2;
-  --purple-4: rgba(208,179,241,0.5);
-  --purple-5: rgba(225,198,248,0.2);
-  --purple-5-5: rgba(240,233,252,0.1);
-  --purple-6: rgba(247,241,252,0.2);
+  --purple-0: #7f00ff; /* 主紫色 */
+  --purple-1: #a852ff; /* 浅紫色 */
+  --purple-2: #bd7aff; /* 更浅紫色 */
+  --purple-3: #d6adff; /* 淡紫色 */
+  --purple-4: #e8d1ff; /* 更淡的紫色 */
+  --purple-5: #f2e5ff; /* 非常淡的紫色 */
+  --purple-5-5: #f5ebff; /* 超浅紫色 */
+  --purple-6: #faf5ff; /* 极浅的紫色 */
+  --color-purple-6-shadow: rgba(166,77,255,0.6); /* 紫色阴影 */
+  --color-purple-3-shadow: rgba(166,77,255,0.3); /* 紫色阴影 */
   --grey-9: #999;
   --grey-7: #777;
   --color-archive-year: #000;
@@ -48,10 +50,10 @@
   --purple-1: #8e5bc0;
   --purple-2: #a87dcc;
   --purple-3: #bfa0e2;
-  --purple-4: rgba(208,179,241,0.5);
-  --purple-5: rgba(225,198,248,0.2);
-  --purple-5-5: rgba(240,233,252,0.1);
-  --purple-6: rgba(247,241,252,0.2);
+  --purple-4: rgba(232,209,255,0.5); /* 更淡的紫色（半透明） */
+  --purple-5: rgba(242,229,255,0.2); /* 非常淡的紫色（半透明） */
+  --purple-5-5: rgba(245,235,255,0.1); /* 超浅紫色（几乎透明） */
+  --purple-6: rgba(250,245,255,0.2); /* 极浅紫色（接近白色） */
   --grey-9: #999;
   --grey-7: #777;
   --color-archive-year: #999;
