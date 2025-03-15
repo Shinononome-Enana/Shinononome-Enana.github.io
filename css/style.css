@@ -1,20 +1,20 @@
 :root {
-  --purple-0: #7f00ff; /* 主紫色 */
-  --purple-1: #a852ff; /* 浅紫色 */
-  --purple-2: #bd7aff; /* 更浅紫色 */
-  --purple-3: #d6adff; /* 淡紫色 */
-  --purple-4: #e8d1ff; /* 更淡的紫色 */
-  --purple-5: #f2e5ff; /* 非常淡的紫色 */
-  --purple-5-5: #f5ebff; /* 超浅紫色 */
-  --purple-6: #faf5ff; /* 极浅的紫色 */
-  --color-purple-6-shadow: rgba(166,77,255,0.6); /* 紫色阴影 */
-  --color-purple-3-shadow: rgba(166,77,255,0.3); /* 紫色阴影 */
+  --red-0: #7f00ff; /* 主紫色 */
+  --red-1: #a852ff; /* 浅紫色 */
+  --red-2: #bd7aff; /* 更浅紫色 */
+  --red-3: #d6adff; /* 淡紫色 */
+  --red-4: #e8d1ff; /* 更淡的紫色 */
+  --red-5: #f2e5ff; /* 非常淡的紫色 */
+  --red-5-5: #f5ebff; /* 超浅紫色 */
+  --red-6: #faf5ff; /* 极浅的紫色 */
+  --color-red-6-shadow: rgba(166,77,255,0.6); /* 紫色阴影 */
+  --color-red-3-shadow: rgba(166,77,255,0.3); /* 紫色阴影 */
   --grey-9: #999;
   --grey-7: #777;
   --color-archive-year: #000;
   --color-default: #666;
-  --color-border: var(--purple-3);
-  --color-link: var(--purple-1);
+  --color-border: var(--red-3);
+  --color-link: var(--red-1);
   --color-background: #eee;
   --color-code-background: #f5f5f5;
   --color-header-background: rgba(255,255,255,0.9);
@@ -23,7 +23,7 @@
   --color-wrap: rgba(255,255,255,0.9);
   --color-sticky: #f0e9fc;
   --color-h2-border: #eee;
-  --color-meta-shadow: var(--purple-6);
+  --color-meta-shadow: var(--red-6);
   --color-hover-shadow: rgba(150,150,150,0.1);
   --color-h2-after: rgba(113,53,172,0.6);
   --color-h2-after-shadow: rgba(142,91,192,0.7);
@@ -46,20 +46,20 @@
   --cursor-text: url("../images/cursor/reimu-cursor-text.png"), text;
 }
 [data-theme="dark"]:root {
-  --purple-0: #7135ac;
-  --purple-1: #8e5bc0;
-  --purple-2: #a87dcc;
-  --purple-3: #bfa0e2;
-  --purple-4: rgba(232,209,255,0.5); /* 更淡的紫色（半透明） */
-  --purple-5: rgba(242,229,255,0.2); /* 非常淡的紫色（半透明） */
-  --purple-5-5: rgba(245,235,255,0.1); /* 超浅紫色（几乎透明） */
-  --purple-6: rgba(250,245,255,0.2); /* 极浅紫色（接近白色） */
+  --red-0: #7135ac;
+  --red-1: #8e5bc0;
+  --red-2: #a87dcc;
+  --red-3: #bfa0e2;
+  --red-4: rgba(232,209,255,0.5); /* 更淡的紫色（半透明） */
+  --red-5: rgba(242,229,255,0.2); /* 非常淡的紫色（半透明） */
+  --red-5-5: rgba(245,235,255,0.1); /* 超浅紫色（几乎透明） */
+  --red-6: rgba(250,245,255,0.2); /* 极浅紫色（接近白色） */
   --grey-9: #999;
   --grey-7: #777;
   --color-archive-year: #999;
   --color-default: #999;
-  --color-border: var(--purple-5);
-  --color-link: var(--purple-1);
+  --color-border: var(--red-5);
+  --color-link: var(--red-1);
   --color-background: #21252b;
   --color-code-background: rgba(232,232,232,0.1);
   --color-header-background: #222;
