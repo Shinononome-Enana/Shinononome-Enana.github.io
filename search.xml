@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>【修士课题记录01】有关6DoF Object-Pose Estimation课题的学习、调研和讨论</title>
+      <link href="/2025/03/20/master-research-20250320/"/>
+      <url>/2025/03/20/master-research-20250320/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="3-20与教授短暂meeting的总结"><a href="#3-20与教授短暂meeting的总结" class="headerlink" title="3.20与教授短暂meeting的总结"></a>3.20与教授短暂meeting的总结</h2><h3 id="我的三个提案"><a href="#我的三个提案" class="headerlink" title="我的三个提案"></a>我的三个提案</h3><p>经过3月份对6D物体姿态估计(6DoF Object-Pose Estimation)的学习和调研，以及和Li博的讨论，今天开会时idea也是终于受到了教授的认可。这意味着我今后的修士课题的大方向，很有可能就已经定下来了。下面是我的PPT：</p><div class="row">    <embed src="https://shinononome-enana.github.io/file/LUWeicheng_20250320_brief_talk_about_future_research.pdf" width="100%" height="550" type="application/pdf"></div><p>在我的PPT中，我主要阐释了三个关键点：</p><ul><li><strong>End-to-end Method：</strong> 我的目标是构建一个端到端的网络，能够直接回归出6D姿态估计参数T和R。</li><li><strong>RGB based, No Depth：</strong> 不使用深度信息Tz，而是通过网络去回归这个参数。回归得到深度Tz后，根据pin-hole模型并结合相机内参可以直接计算出Tx和Ty。</li><li><strong>Challenging Scenarios：</strong> object pose领域有一些较为挑战性的场景，最具代表性的就是texture-less,Symmetric,Occlusion和Transparent。</li></ul><h3 id="Prediction-≠-Estimation！基于1ms的object-pose-prediction是一个全新的领域"><a href="#Prediction-≠-Estimation！基于1ms的object-pose-prediction是一个全新的领域" class="headerlink" title="Prediction ≠ Estimation！基于1ms的object-pose prediction是一个全新的领域"></a>Prediction ≠ Estimation！基于1ms的object-pose prediction是一个全新的领域</h3><p>Li博士在会议后和我提到，至今还没有人用1ms系统的GPU-FPGA框架做过object-pose prediction相关的工作，如果能把这一部分做好，也是一个相当不错的proposal。我之前错以为pose-rediction就是estimation，但其实并不是这样的。</p><ul><li>estimation：输入t时刻的图像，预测物体<strong>t时刻(当前)的状态。</strong></li><li>prediction：输入t时刻的图像，预测物体<strong>t+n时刻(尚未发生)的状态。</strong></li></ul><p>再后来，教授给我发了一封邮件，里面提到了他多年前曾提案过的pose prediction的框架结构，从这个图片中就能一目了然了。实验室前辈完成的dual-hand首次提出了使用GPU优化FPGA的1ms框架，关键帧交给GPU进行精确计算，然后在十几(或者有可能是几十)帧之后，反馈回FPGA进行优化。由于GPU运算也有延时，因此这个框架下只能<strong>用老的数据优化新的数据，这就是所谓的estimation的局限性。</strong>但如果用当前时刻的帧预测十几或几十帧之后物体的状态，此时刚好GPU也运算完成，这样的话就是<strong>用预测的数据优化新的数据，这就是所谓的prediction。</strong>这是目前实验室尚未踏足的领域。</p><img src="https://s2.loli.net/2025/03/20/Ltev3GjlK6n57i4.png" width="500" height="500"><hr><h2 id="论文阅读"><a href="#论文阅读" class="headerlink" title="论文阅读"></a>论文阅读</h2><h3 id="综述："><a href="#综述：" class="headerlink" title="综述："></a>综述：</h3><p>这篇综述我觉得最有用的地方在于最后的future direction部分，详细介绍了很多很多值得研究的方向。其中提到的“End-to-end methods integrating detection or segmentation”,“Single RGB image-based methods”和“Model lightweighting”，都与我的想法和1ms系统对速度的要求不谋而合。</p><p>当然，这篇文章前面的部分阐述了object-pose estimation的基本概念，对于入门者而言能够增广领域内知识储备，建议耐心看完。</p><div class="row">    <embed src="https://shinononome-enana.github.io/file/PoseCNN.pdf" width="100%" height="550" type="application/pdf"></div><h3 id="PoseCNN：一个端到端的Object-Pose-estimation网络"><a href="#PoseCNN：一个端到端的Object-Pose-estimation网络" class="headerlink" title="PoseCNN：一个端到端的Object Pose-estimation网络"></a>PoseCNN：一个端到端的Object Pose-estimation网络</h3><p>这篇论文非常适合萌新学习，在原理部分详细阐述了object-pose领域的基础知识，包括：<strong>物体的6D参数T(Translation:Tx,Ty,Tz)和R(Rotation:一个四元组)的组成，图像的2D参数(cx,cy)等</strong>；以及他的配图可以清晰直观地看出物体坐标系和相机坐标系，以及他们之间的关系。</p><p>并且，PoseCNN是目前主流的network-based的一个范本，非常值得学习：网络的最初部分是用于feature extraction的CNN网络；随后接上几个并行的网络，将之前提取出的特征(keypoint等)作为输入，分别进行不同的回归工作。最终，整合成为6D的[T | R]预测结果。</p><div class="row">    <embed src="https://shinononome-enana.github.io/file/PoseCNN.pdf" width="100%" height="550" type="application/pdf"></div><h3 id=""><a href="#" class="headerlink" title=""></a></h3>]]></content>
+      
+      
+      <categories>
+          
+          <category> Master Research </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>コンビニアルバイト见闻·其一</title>
       <link href="/2025/03/18/conbini-kansou-01/"/>
       <url>/2025/03/18/conbini-kansou-01/</url>

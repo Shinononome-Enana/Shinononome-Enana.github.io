@@ -14,7 +14,7 @@
   
   
   <title>
-    Category: LAB EXERCISE |
+    【修士课题记录01】有关6DoF Object-Pose Estimation课题的学习、调研和讨论 |
     
     デジタル旅の休暇所
   </title>
@@ -28,13 +28,19 @@
 <link rel="stylesheet" href="/css/loader.css">
 
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="デジタル旅の休暇所">
-<meta property="og:url" content="https://shinononome-enana.github.io/categories/LAB-EXERCISE/index.html">
+  <meta name="description" content="3.20与教授短暂meeting的总结我的三个提案经过3月份对6D物体姿态估计(6DoF Object-Pose Estimation)的学习和调研，以及和Li博的讨论，今天开会时idea也是终于受到了教授的认可。这意味着我今后的修士课题的大方向，很有可能就已经定下来了。下面是我的PPT：   	      	     在我的PPT中，我主要阐释了三个关键点：  End-to-end Method">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【修士课题记录01】有关6DoF Object-Pose Estimation课题的学习、调研和讨论">
+<meta property="og:url" content="https://shinononome-enana.github.io/2025/03/20/master-research-20250320/index.html">
 <meta property="og:site_name" content="デジタル旅の休暇所">
+<meta property="og:description" content="3.20与教授短暂meeting的总结我的三个提案经过3月份对6D物体姿态估计(6DoF Object-Pose Estimation)的学习和调研，以及和Li博的讨论，今天开会时idea也是终于受到了教授的认可。这意味着我今后的修士课题的大方向，很有可能就已经定下来了。下面是我的PPT：   	      	     在我的PPT中，我主要阐释了三个关键点：  End-to-end Method">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s2.loli.net/2025/03/20/Ltev3GjlK6n57i4.png">
+<meta property="article:published_time" content="2025-03-20T14:33:27.000Z">
+<meta property="article:modified_time" content="2025-03-20T15:37:56.742Z">
 <meta property="article:author" content="ロ　ユイセー(Lu Weicheng)">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2025/03/20/Ltev3GjlK6n57i4.png">
   
     <link rel="alternate" href="/atom.xml" title="デジタル旅の休暇所" type="application/atom+xml">
   
@@ -48,7 +54,9 @@
   
   
     
-      <link rel="preload" href="https://npm.webcache.cn/@waline/client@v2/dist/waline.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+      
+<link rel="stylesheet" href="https://npm.webcache.cn/@waline/client@v2/dist/waline.css">
+
     
   
   
@@ -155,7 +163,7 @@
 <header id="header">
   
     
-      <img fetchpriority="high" src="/images/avemujica.webp" alt="">
+      <img fetchpriority="high" src="/images/avemujica.webp" alt="【修士课题记录01】有关6DoF Object-Pose Estimation课题的学习、调研和讨论">
     
   
   <div id="header-outer">
@@ -164,15 +172,13 @@
         
         
           <a href="/" id="logo">
-            <h1 data-aos="slide-up">Categories</h1>
+            <h1 data-aos="slide-up">【修士课题记录01】有关6DoF Object-Pose Estimation课题的学习、调研和讨论</h1>
           </a>
         
       
       
         
         <h2 id="subtitle-wrap" data-aos="slide-down">
-          
-            <a href="/" id="subtitle">LAB EXERCISE</a>
           
         </h2>
       
@@ -183,10 +189,19 @@
         <div id="content">
           
             <aside id="sidebar">
-  <div class="sidebar-wrapper ">
+  <div class="sidebar-wrapper wrap-sticky">
     <div class="sidebar-wrap" data-aos="fade-up">
       
-        <div class="sidebar-author">
+        <div class="sidebar-toc-sidebar"><div class="sidebar-toc">
+  <h3 class="toc-title">Contents</h3>
+  <div class="sidebar-toc-wrapper toc-div-class" >
+      
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-20%E4%B8%8E%E6%95%99%E6%8E%88%E7%9F%AD%E6%9A%82meeting%E7%9A%84%E6%80%BB%E7%BB%93"><span class="toc-number">1.</span> <span class="toc-text">3.20与教授短暂meeting的总结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%88%91%E7%9A%84%E4%B8%89%E4%B8%AA%E6%8F%90%E6%A1%88"><span class="toc-number">1.1.</span> <span class="toc-text">我的三个提案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Prediction-%E2%89%A0-Estimation%EF%BC%81%E5%9F%BA%E4%BA%8E1ms%E7%9A%84object-pose-prediction%E6%98%AF%E4%B8%80%E4%B8%AA%E5%85%A8%E6%96%B0%E7%9A%84%E9%A2%86%E5%9F%9F"><span class="toc-number">1.2.</span> <span class="toc-text">Prediction ≠ Estimation！基于1ms的object-pose prediction是一个全新的领域</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB"><span class="toc-number">2.</span> <span class="toc-text">论文阅读</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%BC%E8%BF%B0%EF%BC%9A"><span class="toc-number">2.1.</span> <span class="toc-text">综述：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PoseCNN%EF%BC%9A%E4%B8%80%E4%B8%AA%E7%AB%AF%E5%88%B0%E7%AB%AF%E7%9A%84Object-Pose-estimation%E7%BD%91%E7%BB%9C"><span class="toc-number">2.2.</span> <span class="toc-text">PoseCNN：一个端到端的Object Pose-estimation网络</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.3.</span> <span class="toc-text"></span></a></li></ol></li></ol>
+      
+  </div>
+</div>
+</div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
   <img data-src="/avatar/avatar.webp" data-sizes="auto" alt="ロ　ユイセー(Lu Weicheng)" class="lazyload">
   <div class="sidebar-author-name">ロ　ユイセー(Lu Weicheng)</div>
   <div class="sidebar-description"></div>
@@ -253,8 +268,13 @@
     </div>
   
 </div>
-
+</div>
       
+      
+        <div class="sidebar-btn-wrapper" style="position:static">
+          <div class="sidebar-toc-btn current"></div>
+          <div class="sidebar-common-btn"></div>
+        </div>
       
     </div>
   </div>
@@ -263,141 +283,141 @@
 </aside>
 
           
-          <section id="main">
-<div class="archives-outer-wrap" data-aos="fade-up">
-  <div class="tag-wrap">
-    
-      <div class="archives-tag-list-item" data-aos="zoom-in">
-        <a class="archives-tag-list-link" href="/tags/travel/">travel</a>
-      </div>
-    
-      <div class="archives-tag-list-item" data-aos="zoom-in">
-        <a class="archives-tag-list-link" href="/tags/CPP/">CPP</a>
-      </div>
-    
-      <div class="archives-tag-list-item" data-aos="zoom-in">
-        <a class="archives-tag-list-link" href="/tags/Verilog/">Verilog</a>
-      </div>
-    
-      <div class="archives-tag-list-item" data-aos="zoom-in">
-        <a class="archives-tag-list-link" href="/tags/TSP/">TSP</a>
-      </div>
-    
-      <div class="archives-tag-list-item" data-aos="zoom-in">
-        <a class="archives-tag-list-link" href="/tags/vocaloid/">vocaloid</a>
-      </div>
-    
-      <div class="archives-tag-list-item" data-aos="zoom-in">
-        <a class="archives-tag-list-link" href="/tags/日本語/">日本語</a>
-      </div>
-    
-      <div class="archives-tag-list-item" data-aos="zoom-in">
-        <a class="archives-tag-list-link" href="/tags/Tough-Transform/">Tough-Transform</a>
-      </div>
-    
-      <div class="archives-tag-list-item" data-aos="zoom-in">
-        <a class="archives-tag-list-link" href="/tags/アルバイト/">アルバイト</a>
-      </div>
-    
+          <section id="main"><article id="post-master-research-20250320" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner" data-aos="fade-up">
+    <div class="article-meta">
+      <div class="article-date">
+  <a href="/2025/03/20/master-research-20250320/" class="article-date-link" data-aos="zoom-in">
+    <time datetime="2025-03-20T14:33:27.000Z" itemprop="datePublished">2025-03-20</time>
+    <time style="display: none;" id="post-update-time">2025-03-21</time>
+  </a>
+</div>
+
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Master-Research/" data-aos="zoom-in">Master Research</a>
   </div>
-  <div class="category-wrap">
+
+
+    </div>
+    <div class="hr-line"></div>
     
-      <div class="archives-category-list-item" data-aos="zoom-in">
-        <a class="archives-category-list-link" href="/categories/Life-in-Japan/">Life in Japan</a>
-      </div>
-    
-      <div class="archives-category-list-item" data-aos="zoom-in">
-        <a class="archives-category-list-link" href="/categories/LAB-EXERCISE/">LAB EXERCISE</a>
-      </div>
-    
-      <div class="archives-category-list-item" data-aos="zoom-in">
-        <a class="archives-category-list-link" href="/categories/Course-Assignment/">Course Assignment</a>
-      </div>
-    
-      <div class="archives-category-list-item" data-aos="zoom-in">
-        <a class="archives-category-list-link" href="/categories/VOCALOID/">VOCALOID</a>
-      </div>
-    
-      <div class="archives-category-list-item" data-aos="zoom-in">
-        <a class="archives-category-list-link" href="/categories/日本語/">日本語</a>
-      </div>
-    
-      <div class="archives-category-list-item" data-aos="zoom-in">
-        <a class="archives-category-list-link" href="/categories/Course-Assignment/System-LSI-Design/">System LSI Design</a>
-      </div>
-    
-      <div class="archives-category-list-item" data-aos="zoom-in">
-        <a class="archives-category-list-link" href="/categories/Course-Assignment/Computational-Intelligence/">Computational Intelligence</a>
-      </div>
-    
-      <div class="archives-category-list-item" data-aos="zoom-in">
-        <a class="archives-category-list-link" href="/categories/Master-Research/">Master Research</a>
-      </div>
-    
-  </div>
-  
-  
-    
-    
+
+    <div class="e-content article-entry" itemprop="articleBody">
       
       
-      <section class="archives-wrap" data-aos="fade-up">
-        <div class="archive-year-wrap">
-          <a href="/archives/2024" class="archive-year">2024</a>
-        </div>
-        <ul>
-          
-          <li class="archive-article">
-  <div class="archive-article-date-wrap">
-    <a href="/2024/12/13/opencv-VSP-thinning/">
-      <time class="dt-published" datetime="2024-12-13T09:04:07.000Z" itemprop="datePublished">12-13</time>
-    </a>
-  </div>
-  
-    
-      <a class="archive-article-title" href="/2024/12/13/opencv-VSP-thinning/">Opencv图像骨干提取算法的实现和优化 Thinning Algorithm (VSP Project)</a>
-    
-  
-</li>
+        <h2 id="3-20与教授短暂meeting的总结"><a href="#3-20与教授短暂meeting的总结" class="headerlink" title="3.20与教授短暂meeting的总结"></a>3.20与教授短暂meeting的总结</h2><h3 id="我的三个提案"><a href="#我的三个提案" class="headerlink" title="我的三个提案"></a>我的三个提案</h3><p>经过3月份对6D物体姿态估计(6DoF Object-Pose Estimation)的学习和调研，以及和Li博的讨论，今天开会时idea也是终于受到了教授的认可。这意味着我今后的修士课题的大方向，很有可能就已经定下来了。下面是我的PPT：</p>
 
-          
-    
-    
-          <li class="archive-article">
-  <div class="archive-article-date-wrap">
-    <a href="/2024/11/10/opencv/">
-      <time class="dt-published" datetime="2024-11-10T13:08:01.000Z" itemprop="datePublished">11-10</time>
-    </a>
-  </div>
-  
-    
-      <a class="archive-article-title" href="/2024/11/10/opencv/">用原生opencv代码实现霍夫变换(Tough-Transform)</a>
-    
-  
-</li>
 
-          
-    
-    
-          <li class="archive-article">
-  <div class="archive-article-date-wrap">
-    <a href="/2024/10/18/Matrix/">
-      <time class="dt-published" datetime="2024-10-17T15:25:00.000Z" itemprop="datePublished">10-18</time>
-    </a>
-  </div>
-  
-    
-      <a class="archive-article-title" href="/2024/10/18/Matrix/">cpp实现矩阵操作</a>
-    
-  
-</li>
+	<div class="row">
+    <embed src="https://shinononome-enana.github.io/file/LUWeicheng_20250320_brief_talk_about_future_research.pdf" width="100%" height="550" type="application/pdf">
+	</div>
 
-          
-          
-        </ul>
-      </section>
-  
+
+
+
+<p>在我的PPT中，我主要阐释了三个关键点：</p>
+<ul>
+<li><strong>End-to-end Method：</strong> 我的目标是构建一个端到端的网络，能够直接回归出6D姿态估计参数T和R。</li>
+<li><strong>RGB based, No Depth：</strong> 不使用深度信息Tz，而是通过网络去回归这个参数。回归得到深度Tz后，根据pin-hole模型并结合相机内参可以直接计算出Tx和Ty。</li>
+<li><strong>Challenging Scenarios：</strong> object pose领域有一些较为挑战性的场景，最具代表性的就是texture-less,Symmetric,Occlusion和Transparent。</li>
+</ul>
+<h3 id="Prediction-≠-Estimation！基于1ms的object-pose-prediction是一个全新的领域"><a href="#Prediction-≠-Estimation！基于1ms的object-pose-prediction是一个全新的领域" class="headerlink" title="Prediction ≠ Estimation！基于1ms的object-pose prediction是一个全新的领域"></a>Prediction ≠ Estimation！基于1ms的object-pose prediction是一个全新的领域</h3><p>Li博士在会议后和我提到，至今还没有人用1ms系统的GPU-FPGA框架做过object-pose prediction相关的工作，如果能把这一部分做好，也是一个相当不错的proposal。我之前错以为pose-rediction就是estimation，但其实并不是这样的。</p>
+<ul>
+<li>estimation：输入t时刻的图像，预测物体<strong>t时刻(当前)的状态。</strong></li>
+<li>prediction：输入t时刻的图像，预测物体<strong>t+n时刻(尚未发生)的状态。</strong></li>
+</ul>
+<p>再后来，教授给我发了一封邮件，里面提到了他多年前曾提案过的pose prediction的框架结构，从这个图片中就能一目了然了。实验室前辈完成的dual-hand首次提出了使用GPU优化FPGA的1ms框架，关键帧交给GPU进行精确计算，然后在十几(或者有可能是几十)帧之后，反馈回FPGA进行优化。由于GPU运算也有延时，因此这个框架下只能<strong>用老的数据优化新的数据，这就是所谓的estimation的局限性。</strong>但如果用当前时刻的帧预测十几或几十帧之后物体的状态，此时刚好GPU也运算完成，这样的话就是<strong>用预测的数据优化新的数据，这就是所谓的prediction。</strong>这是目前实验室尚未踏足的领域。</p>
+<img src="https://s2.loli.net/2025/03/20/Ltev3GjlK6n57i4.png" width="500" height="500">
+
+<hr>
+<h2 id="论文阅读"><a href="#论文阅读" class="headerlink" title="论文阅读"></a>论文阅读</h2><h3 id="综述："><a href="#综述：" class="headerlink" title="综述："></a>综述：</h3><p>这篇综述我觉得最有用的地方在于最后的future direction部分，详细介绍了很多很多值得研究的方向。其中提到的“End-to-end methods integrating detection or segmentation”,“Single RGB image-based methods”和“Model lightweighting”，都与我的想法和1ms系统对速度的要求不谋而合。</p>
+<p>当然，这篇文章前面的部分阐述了object-pose estimation的基本概念，对于入门者而言能够增广领域内知识储备，建议耐心看完。</p>
+
+
+	<div class="row">
+    <embed src="https://shinononome-enana.github.io/file/PoseCNN.pdf" width="100%" height="550" type="application/pdf">
+	</div>
+
+
+
+
+
+<h3 id="PoseCNN：一个端到端的Object-Pose-estimation网络"><a href="#PoseCNN：一个端到端的Object-Pose-estimation网络" class="headerlink" title="PoseCNN：一个端到端的Object Pose-estimation网络"></a>PoseCNN：一个端到端的Object Pose-estimation网络</h3><p>这篇论文非常适合萌新学习，在原理部分详细阐述了object-pose领域的基础知识，包括：<strong>物体的6D参数T(Translation:Tx,Ty,Tz)和R(Rotation:一个四元组)的组成，图像的2D参数(cx,cy)等</strong>；以及他的配图可以清晰直观地看出物体坐标系和相机坐标系，以及他们之间的关系。</p>
+<p>并且，PoseCNN是目前主流的network-based的一个范本，非常值得学习：网络的最初部分是用于feature extraction的CNN网络；随后接上几个并行的网络，将之前提取出的特征(keypoint等)作为输入，分别进行不同的回归工作。最终，整合成为6D的[T | R]预测结果。</p>
+
+
+	<div class="row">
+    <embed src="https://shinononome-enana.github.io/file/PoseCNN.pdf" width="100%" height="550" type="application/pdf">
+	</div>
+
+
+
+
+
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3>
+      
+    </div>
+    <footer class="article-footer">
+      <blockquote class="article-copyright">
+    <p><strong>本文作者：</strong>ロ　ユイセー(Lu Weicheng) @ デジタル旅の休暇所</p>
+    <p><strong>本文链接：</strong><a href="https://shinononome-enana.github.io/2025/03/20/master-research-20250320/">https://shinononome-enana.github.io/2025/03/20/master-research-20250320/</a></p>
+    <p><strong>本文标题：</strong>【修士课题记录01】有关6DoF Object-Pose Estimation课题的学习、调研和讨论</p>
+    
+    
+    <p><strong>本文版权：</strong>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"><span class="icon-creative-commons"></span>BY-NC-SA</a> 许可协议。转载请注明出处！</p>
+    <span class="icon-creative-commons article-copyright-bg"></span>
+  </blockquote>
+      
+      
+        <a data-aos="zoom-in" href="/2025/03/20/master-research-20250320/#comments" class="article-comment-link">
+          <span class="post-comments-count waline-comment-count" data-path="/2025/03/20/master-research-20250320/" itemprop="commentCount"></span>
+          Comments
+        </a>
+      
+      
+      
+      
+        <span data-aos="zoom-in" class="article-visitor-link">
+          <span class="waline-pageview-count" data-path="/2025/03/20/master-research-20250320/">0</span>
+          <em class="post-meta-item-text">Readings</em>
+        </span>
+      
+      
+
+    </footer>
   </div>
+  
+    
+  <nav id="article-nav" data-aos="fade-up">
+    
+    
+    <div class="article-nav-link-wrap article-nav-link-right">
+      
+        
+        
+          <img data-src="/covers/jiangjiang.jpg" data-sizes="auto" alt="コンビニアルバイト见闻·其一" class="lazyload">
+        
+      
+      <a href="/2025/03/18/conbini-kansou-01/"></a>
+      <div class="article-nav-caption">Older</div>
+      <h3 class="article-nav-title">
+        
+          コンビニアルバイト见闻·其一
+        
+      </h3>
+    </div>
+    
+  </nav>
+
+
+  
+</article>
+
+
+  <div id="comments" class="wcomment"></div>
+
+
 
 
 
@@ -452,7 +472,16 @@
       <nav id="mobile-nav">
   <div class="sidebar-wrap">
     
-      <div class="sidebar-author">
+      <div class="sidebar-toc-sidebar"><div class="sidebar-toc">
+  <h3 class="toc-title">Contents</h3>
+  <div class="sidebar-toc-wrapper toc-div-class" >
+      
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-20%E4%B8%8E%E6%95%99%E6%8E%88%E7%9F%AD%E6%9A%82meeting%E7%9A%84%E6%80%BB%E7%BB%93"><span class="toc-number">1.</span> <span class="toc-text">3.20与教授短暂meeting的总结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%88%91%E7%9A%84%E4%B8%89%E4%B8%AA%E6%8F%90%E6%A1%88"><span class="toc-number">1.1.</span> <span class="toc-text">我的三个提案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Prediction-%E2%89%A0-Estimation%EF%BC%81%E5%9F%BA%E4%BA%8E1ms%E7%9A%84object-pose-prediction%E6%98%AF%E4%B8%80%E4%B8%AA%E5%85%A8%E6%96%B0%E7%9A%84%E9%A2%86%E5%9F%9F"><span class="toc-number">1.2.</span> <span class="toc-text">Prediction ≠ Estimation！基于1ms的object-pose prediction是一个全新的领域</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB"><span class="toc-number">2.</span> <span class="toc-text">论文阅读</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%BC%E8%BF%B0%EF%BC%9A"><span class="toc-number">2.1.</span> <span class="toc-text">综述：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PoseCNN%EF%BC%9A%E4%B8%80%E4%B8%AA%E7%AB%AF%E5%88%B0%E7%AB%AF%E7%9A%84Object-Pose-estimation%E7%BD%91%E7%BB%9C"><span class="toc-number">2.2.</span> <span class="toc-text">PoseCNN：一个端到端的Object Pose-estimation网络</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.3.</span> <span class="toc-text"></span></a></li></ol></li></ol>
+      
+  </div>
+</div>
+</div>
+      <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
   <img data-src="/avatar/avatar.webp" data-sizes="auto" alt="ロ　ユイセー(Lu Weicheng)" class="lazyload">
   <div class="sidebar-author-name">ロ　ユイセー(Lu Weicheng)</div>
   <div class="sidebar-description"></div>
@@ -519,9 +548,14 @@
     </div>
   
 </div>
-
+</div>
     
   </div>
+  
+    <div class="sidebar-btn-wrapper">
+      <div class="sidebar-toc-btn current"></div>
+      <div class="sidebar-common-btn"></div>
+    </div>
   
 </nav>
 
