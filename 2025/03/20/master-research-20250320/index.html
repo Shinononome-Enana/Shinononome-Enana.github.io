@@ -37,7 +37,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://s2.loli.net/2025/03/20/Ltev3GjlK6n57i4.png">
 <meta property="article:published_time" content="2025-03-20T14:33:27.000Z">
-<meta property="article:modified_time" content="2025-03-20T15:38:58.579Z">
+<meta property="article:modified_time" content="2025-03-20T15:50:46.210Z">
 <meta property="article:author" content="ロ　ユイセー(Lu Weicheng)">
 <meta property="article:tag" content="Object Pose">
 <meta name="twitter:card" content="summary">
@@ -197,7 +197,7 @@
   <h3 class="toc-title">Contents</h3>
   <div class="sidebar-toc-wrapper toc-div-class" >
       
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-20%E4%B8%8E%E6%95%99%E6%8E%88%E7%9F%AD%E6%9A%82meeting%E7%9A%84%E6%80%BB%E7%BB%93"><span class="toc-number">1.</span> <span class="toc-text">3.20与教授短暂meeting的总结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%88%91%E7%9A%84%E4%B8%89%E4%B8%AA%E6%8F%90%E6%A1%88"><span class="toc-number">1.1.</span> <span class="toc-text">我的三个提案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Prediction-%E2%89%A0-Estimation%EF%BC%81%E5%9F%BA%E4%BA%8E1ms%E7%9A%84object-pose-prediction%E6%98%AF%E4%B8%80%E4%B8%AA%E5%85%A8%E6%96%B0%E7%9A%84%E9%A2%86%E5%9F%9F"><span class="toc-number">1.2.</span> <span class="toc-text">Prediction ≠ Estimation！基于1ms的object-pose prediction是一个全新的领域</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB"><span class="toc-number">2.</span> <span class="toc-text">论文阅读</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%BC%E8%BF%B0%EF%BC%9A"><span class="toc-number">2.1.</span> <span class="toc-text">综述：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PoseCNN%EF%BC%9A%E4%B8%80%E4%B8%AA%E7%AB%AF%E5%88%B0%E7%AB%AF%E7%9A%84Object-Pose-estimation%E7%BD%91%E7%BB%9C"><span class="toc-number">2.2.</span> <span class="toc-text">PoseCNN：一个端到端的Object Pose-estimation网络</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.3.</span> <span class="toc-text"></span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-20%E4%B8%8E%E6%95%99%E6%8E%88%E7%9F%AD%E6%9A%82meeting%E7%9A%84%E6%80%BB%E7%BB%93"><span class="toc-number">1.</span> <span class="toc-text">3.20与教授短暂meeting的总结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%88%91%E7%9A%84%E4%B8%89%E4%B8%AA%E6%8F%90%E6%A1%88"><span class="toc-number">1.1.</span> <span class="toc-text">我的三个提案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Prediction-%E2%89%A0-Estimation%EF%BC%81%E5%9F%BA%E4%BA%8E1ms%E7%9A%84object-pose-prediction%E6%98%AF%E4%B8%80%E4%B8%AA%E5%85%A8%E6%96%B0%E7%9A%84%E9%A2%86%E5%9F%9F"><span class="toc-number">1.2.</span> <span class="toc-text">Prediction ≠ Estimation！基于1ms的object-pose prediction是一个全新的领域</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB"><span class="toc-number">2.</span> <span class="toc-text">论文阅读</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%BC%E8%BF%B0%EF%BC%9ADeep-Learning-Based-Object-Pose-Estimation-A-Comprehensive-Survey"><span class="toc-number">2.1.</span> <span class="toc-text">综述：Deep Learning-Based Object Pose Estimation: A Comprehensive Survey</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PoseCNN%EF%BC%9A%E4%B8%80%E4%B8%AA%E7%AB%AF%E5%88%B0%E7%AB%AF%E7%9A%84Object-Pose-estimation%E7%BD%91%E7%BB%9C"><span class="toc-number">2.2.</span> <span class="toc-text">PoseCNN：一个端到端的Object Pose-estimation网络</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E5%90%91%E8%B0%83%E7%A0%94%E9%9A%8F%E7%AC%94"><span class="toc-number">3.</span> <span class="toc-text">方向调研随笔</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PossibleResearchPoint"><span class="toc-number">4.</span> <span class="toc-text">PossibleResearchPoint</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#memo"><span class="toc-number">5.</span> <span class="toc-text">memo</span></a></li></ol>
       
   </div>
 </div>
@@ -311,7 +311,7 @@
 
 
 	<div class="row">
-    <embed src="https://shinononome-enana.github.io/file/LUWeicheng_20250320_brief_talk_about_future_research.pdf" width="100%" height="550" type="application/pdf">
+    <embed src="https://shinononome-enana.github.io/file/20250320talk.pdf" width="100%" height="550" type="application/pdf">
 	</div>
 
 
@@ -329,15 +329,15 @@
 <li>prediction：输入t时刻的图像，预测物体<strong>t+n时刻(尚未发生)的状态。</strong></li>
 </ul>
 <p>再后来，教授给我发了一封邮件，里面提到了他多年前曾提案过的pose prediction的框架结构，从这个图片中就能一目了然了。实验室前辈完成的dual-hand首次提出了使用GPU优化FPGA的1ms框架，关键帧交给GPU进行精确计算，然后在十几(或者有可能是几十)帧之后，反馈回FPGA进行优化。由于GPU运算也有延时，因此这个框架下只能<strong>用老的数据优化新的数据，这就是所谓的estimation的局限性。</strong>但如果用当前时刻的帧预测十几或几十帧之后物体的状态，此时刚好GPU也运算完成，这样的话就是<strong>用预测的数据优化新的数据，这就是所谓的prediction。</strong>这是目前实验室尚未踏足的领域。</p>
-<img src="https://s2.loli.net/2025/03/20/Ltev3GjlK6n57i4.png" width="500" height="500">
+<img src="https://s2.loli.net/2025/03/20/Ltev3GjlK6n57i4.png">
 
 <hr>
-<h2 id="论文阅读"><a href="#论文阅读" class="headerlink" title="论文阅读"></a>论文阅读</h2><h3 id="综述："><a href="#综述：" class="headerlink" title="综述："></a>综述：</h3><p>这篇综述我觉得最有用的地方在于最后的future direction部分，详细介绍了很多很多值得研究的方向。其中提到的“End-to-end methods integrating detection or segmentation”,“Single RGB image-based methods”和“Model lightweighting”，都与我的想法和1ms系统对速度的要求不谋而合。</p>
+<h2 id="论文阅读"><a href="#论文阅读" class="headerlink" title="论文阅读"></a>论文阅读</h2><h3 id="综述：Deep-Learning-Based-Object-Pose-Estimation-A-Comprehensive-Survey"><a href="#综述：Deep-Learning-Based-Object-Pose-Estimation-A-Comprehensive-Survey" class="headerlink" title="综述：Deep Learning-Based Object Pose Estimation: A Comprehensive Survey"></a>综述：Deep Learning-Based Object Pose Estimation: A Comprehensive Survey</h3><p>这篇综述我觉得最有用的地方在于最后的future direction部分，详细介绍了很多很多值得研究的方向。其中提到的“End-to-end methods integrating detection or segmentation”,“Single RGB image-based methods”和“Model lightweighting”，都与我的想法和1ms系统对速度的要求不谋而合。</p>
 <p>当然，这篇文章前面的部分阐述了object-pose estimation的基本概念，对于入门者而言能够增广领域内知识储备，建议耐心看完。</p>
 
 
 	<div class="row">
-    <embed src="https://shinononome-enana.github.io/file/PoseCNN.pdf" width="100%" height="550" type="application/pdf">
+    <embed src="https://shinononome-enana.github.io/file/OPE_survey.pdf" width="100%" height="550" type="application/pdf">
 	</div>
 
 
@@ -355,8 +355,43 @@
 
 
 
+<hr>
+<h2 id="方向调研随笔"><a href="#方向调研随笔" class="headerlink" title="方向调研随笔"></a>方向调研随笔</h2><h2 id="PossibleResearchPoint"><a href="#PossibleResearchPoint" class="headerlink" title="PossibleResearchPoint"></a>PossibleResearchPoint</h2><blockquote>
+<blockquote>
+<blockquote>
+<p>关键词1：End-to-end methods<br>传统的方法是先用R-CNN，YOLO等神经网络进行物体识别和特征点提取，然后运用PnP等数学方法求解物体位姿信息[R|T]，使用这样需要迭代求解的数学方法复杂度太高，无法FPGA硬件部署；<br>与之不同的是，我们可以把feature detection和pose estimation两个工作结合，全部用一个神经网络实现。<br>(2025.3.17补)可以参考PoseCNN的网络架构，用e2e神经网络并行完成“语义识别 + 3D Translation预测 + 3D Rotation预测”三项工作。听李渊博士说，这个就是目前的主流做法。</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>关键词2：texture-less&#x2F;symmetric –&gt; tansparent&#x2F;articulated&#x2F;occlusion objects (挑战性的物体)<br>(1)透明物体 transparent: texture-less + non-color + less of depth information<br>(2)遮挡问题 occlusion: severe occlusion会导致texture和geometric信息大量丢失。<br>(3)柔性物体 articulated: 与常规的rigid body不同，对柔性物体的pose estimation的DoF不止6，并且这样的物体会自我遮挡。</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>关键词3：lightweighting network<br>为了部署FPGA并达到1ms系统的基本要求，要对网络进行轻量化处理，同时保证一定的精度。</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>关键词4：RGB camera<br>很多object pose estimation的方法都使用RGBD相机，即能够获取depth深度信息。但是RGBD相机内部的active depth sensor能耗较高(因为他是有源器件)，实际运用中我们更希望使用纯粹的RGB相机。<br>(2025.3.17补充)读PoseCNN有感：如果要预测Transition而又不使用RGBD直接获取深度信息，这就需要我们的网络自己去预测深度Tz。根据Transition预测的基础数学公式，在知道了物体的2D投影坐标(cx,cy)和深度信息Tz，就可以计算出Tx和Ty。这样Transition(Tx,Ty,Tz)就算预测完了。</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>【Reference】<br>[1] Deep Learning-Based Object Pose Estimation: A Comprehensive Survey<br>[2] Real-Time Seamless Single Shot 6D Object Pose Prediction</p>
+<h2 id="memo"><a href="#memo" class="headerlink" title="memo"></a>memo</h2><p>【2025.3.6】<br>根据 Real-Time Seamless Single Shot 6D Object Pose Prediction 中提到，『PoseNet』网络使用CNN结构直接从RGB图像得出物体的6D-pose，这与我们要设计的end-to-end网络思路一致。</p>
+<p>接下来阅读论文 A Convolutional Network for Real-Time 6-DOF camera relocalization，了解『PoseNet』。</p>
+<p>【3.7】<br>论文中提到，他们是通过修改GoogLeNet实现的，具体细节牵扯到预训练等在内。<br>接下来阅读论文 Going deeper with convolutions，了解『GoogLeNet』。</p>
+<p>论文 Going deeper with convolutions中第四节重点讲述『GoogLeNet』中的核心：Inception module。<br>这个模块不仅可以做到多尺度特征提取，而且巧妙使用 1*1kernel 降低通道数,从而降低网络的计算复杂度。<br>这或许可以作为hardware-friendly network的一个参考思路！</p>
+<p>【3.13】<br>从 LITERATURE REVIEW TEXTURELESS OBJECT RECOGNITION 综述里来看，2018年发表的PoseCNN是一个端到端的神经网络。</p>
+<p>【3.17】<br>PoseCNN论文阅读完成，是一个极为重要的论文，建议后期多次复读。<br>现在阅读更新的e2e相关的论文。A Pose Proposal and Refinement Network for Better 6D Object Pose Estimation是2021的一篇论文，里面使用e2e网络预测T和R，还使用了3D模型进行refinement，可以阅读。</p>
 
-<h3 id=""><a href="#" class="headerlink" title=""></a></h3>
       
     </div>
     <footer class="article-footer">
@@ -399,7 +434,7 @@
       
         
         
-          <img data-src="/covers/jiangjiang.jpg" data-sizes="auto" alt="コンビニアルバイト见闻·其一" class="lazyload">
+          <img data-src="/covers/airi_mzk_ena.png" data-sizes="auto" alt="コンビニアルバイト见闻·其一" class="lazyload">
         
       
       <a href="/2025/03/18/conbini-kansou-01/"></a>
@@ -448,10 +483,10 @@
     
       <div>
         <span class="icon-brush"></span>
-        38.3k
+        39.1k
         &nbsp;|&nbsp;
         <span class="icon-coffee"></span>
-        03:03
+        03:06
       </div>
     
     
@@ -479,7 +514,7 @@
   <h3 class="toc-title">Contents</h3>
   <div class="sidebar-toc-wrapper toc-div-class" >
       
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-20%E4%B8%8E%E6%95%99%E6%8E%88%E7%9F%AD%E6%9A%82meeting%E7%9A%84%E6%80%BB%E7%BB%93"><span class="toc-number">1.</span> <span class="toc-text">3.20与教授短暂meeting的总结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%88%91%E7%9A%84%E4%B8%89%E4%B8%AA%E6%8F%90%E6%A1%88"><span class="toc-number">1.1.</span> <span class="toc-text">我的三个提案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Prediction-%E2%89%A0-Estimation%EF%BC%81%E5%9F%BA%E4%BA%8E1ms%E7%9A%84object-pose-prediction%E6%98%AF%E4%B8%80%E4%B8%AA%E5%85%A8%E6%96%B0%E7%9A%84%E9%A2%86%E5%9F%9F"><span class="toc-number">1.2.</span> <span class="toc-text">Prediction ≠ Estimation！基于1ms的object-pose prediction是一个全新的领域</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB"><span class="toc-number">2.</span> <span class="toc-text">论文阅读</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%BC%E8%BF%B0%EF%BC%9A"><span class="toc-number">2.1.</span> <span class="toc-text">综述：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PoseCNN%EF%BC%9A%E4%B8%80%E4%B8%AA%E7%AB%AF%E5%88%B0%E7%AB%AF%E7%9A%84Object-Pose-estimation%E7%BD%91%E7%BB%9C"><span class="toc-number">2.2.</span> <span class="toc-text">PoseCNN：一个端到端的Object Pose-estimation网络</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.3.</span> <span class="toc-text"></span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-20%E4%B8%8E%E6%95%99%E6%8E%88%E7%9F%AD%E6%9A%82meeting%E7%9A%84%E6%80%BB%E7%BB%93"><span class="toc-number">1.</span> <span class="toc-text">3.20与教授短暂meeting的总结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%88%91%E7%9A%84%E4%B8%89%E4%B8%AA%E6%8F%90%E6%A1%88"><span class="toc-number">1.1.</span> <span class="toc-text">我的三个提案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Prediction-%E2%89%A0-Estimation%EF%BC%81%E5%9F%BA%E4%BA%8E1ms%E7%9A%84object-pose-prediction%E6%98%AF%E4%B8%80%E4%B8%AA%E5%85%A8%E6%96%B0%E7%9A%84%E9%A2%86%E5%9F%9F"><span class="toc-number">1.2.</span> <span class="toc-text">Prediction ≠ Estimation！基于1ms的object-pose prediction是一个全新的领域</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB"><span class="toc-number">2.</span> <span class="toc-text">论文阅读</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%BC%E8%BF%B0%EF%BC%9ADeep-Learning-Based-Object-Pose-Estimation-A-Comprehensive-Survey"><span class="toc-number">2.1.</span> <span class="toc-text">综述：Deep Learning-Based Object Pose Estimation: A Comprehensive Survey</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PoseCNN%EF%BC%9A%E4%B8%80%E4%B8%AA%E7%AB%AF%E5%88%B0%E7%AB%AF%E7%9A%84Object-Pose-estimation%E7%BD%91%E7%BB%9C"><span class="toc-number">2.2.</span> <span class="toc-text">PoseCNN：一个端到端的Object Pose-estimation网络</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E5%90%91%E8%B0%83%E7%A0%94%E9%9A%8F%E7%AC%94"><span class="toc-number">3.</span> <span class="toc-text">方向调研随笔</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PossibleResearchPoint"><span class="toc-number">4.</span> <span class="toc-text">PossibleResearchPoint</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#memo"><span class="toc-number">5.</span> <span class="toc-text">memo</span></a></li></ol>
       
   </div>
 </div>
