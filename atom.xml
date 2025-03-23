@@ -6,7 +6,7 @@
   <link href="https://shinononome-enana.github.io/atom.xml" rel="self"/>
   
   <link href="https://shinononome-enana.github.io/"/>
-  <updated>2025-03-23T11:36:58.707Z</updated>
+  <updated>2025-03-23T11:39:48.658Z</updated>
   <id>https://shinononome-enana.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>解决双系统下linux突然出现Read-only file system导致文件无法写入磁盘的问题</title>
+    <title>解决Linux系统突然出现Read-only file system导致文件无法写入磁盘的问题(双系统)</title>
     <link href="https://shinononome-enana.github.io/2025/03/23/linux-memo01/"/>
     <id>https://shinononome-enana.github.io/2025/03/23/linux-memo01/</id>
     <published>2025-03-23T11:02:26.000Z</published>
-    <updated>2025-03-23T11:36:58.707Z</updated>
+    <updated>2025-03-23T11:39:48.658Z</updated>
     
     
       
