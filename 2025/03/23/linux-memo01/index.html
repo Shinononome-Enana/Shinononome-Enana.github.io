@@ -39,7 +39,7 @@
 <meta property="og:image" content="https://s2.loli.net/2025/03/23/AYIVdR4QgHcvkG7.jpg">
 <meta property="og:image" content="https://s2.loli.net/2025/03/23/Hdp49PU7q2Ebxf5.jpg">
 <meta property="article:published_time" content="2025-03-23T11:02:26.000Z">
-<meta property="article:modified_time" content="2025-03-23T11:29:15.324Z">
+<meta property="article:modified_time" content="2025-03-23T11:33:57.376Z">
 <meta property="article:author" content="ロ　ユイセー(Lu Weicheng)">
 <meta property="article:tag" content="linux">
 <meta property="article:tag" content="ubuntu">
@@ -313,10 +313,10 @@
         <h2 id="问题起因"><a href="#问题起因" class="headerlink" title="问题起因"></a>问题起因</h2><p>今天在看论文时想顺便写一下笔记，但当我touch记事本的时候失败，告诉我read only文件系统。之前也遇到过同样的问题。</p>
 <p> ∅ &#x2F;home&#x2F;enana&#x2F;ReadingPapers&#x2F;pose prediction ▓▒░──────────────────────────░▒▓ 18:27:02<br>❯ touch memo.txt<br>touch: cannot touch ‘memo.txt’: Read-only file system</p>
 <hr>
-<h2 id="检查和分析"><a href="#检查和分析" class="headerlink" title="检查和分析"></a>检查和分析</h2><p>~ ▓▒░────────────────────────────────────────────────────────────░▒▓ 18:23:39<br>❯ mount | grep enana<br>&#x2F;dev&#x2F;sda1 on &#x2F;home&#x2F;enana type fuseblk (ro,nosuid,nodev,relatime,user_id&#x3D;0,group_id&#x3D;0,allow_other,blksize&#x3D;4096)</p>
+<h2 id="检查和分析"><a href="#检查和分析" class="headerlink" title="检查和分析"></a>检查和分析</h2><p>~ ▓▒░──────────────────────────░▒▓ 18:23:39<br>❯ mount | grep enana<br>&#x2F;dev&#x2F;sda1 on &#x2F;home&#x2F;enana type fuseblk (ro,nosuid,nodev,relatime,user_id&#x3D;0,group_id&#x3D;0,allow_other,blksize&#x3D;4096)</p>
 <p>我发现挂载在&#x2F;dev&#x2F;sda1(我自己的1T磁盘)上的&#x2F;home&#x2F;enana(我存放所有文件的目录)不知道怎么会是变成了**ro(read-only)**状态了。</p>
-<p>尝试umount后重新挂载，结果告诉我unclean file system，貌似是检测到windows系统了。<br> ~ ▓▒░────────────────────────────────────────────────────────────░▒▓ 18:23:51<br>❯ sudo umount &#x2F;home&#x2F;enana</p>
-<p> ~ ▓▒░────────────────────────────────────────────────────────────░▒▓ 18:24:14<br>❯ sudo mount -a<br>The disk contains an unclean file system (0, 0).<br>Metadata kept in Windows cache, refused to mount.<br>Falling back to read-only mount because the NTFS partition is in an<br>unsafe state. Please resume and shutdown Windows fully (no hibernation<br>or fast restarting.)<br>Could not mount read-write, trying read-only</p>
+<p>尝试umount后重新挂载，结果告诉我unclean file system，貌似是检测到windows系统了。<br> ~ ▓▒░──────────────────────────░▒▓ 18:23:51<br>❯ sudo umount &#x2F;home&#x2F;enana</p>
+<p> ~ ▓▒░──────────────────────────░▒▓ 18:24:14<br>❯ sudo mount -a<br>The disk contains an unclean file system (0, 0).<br>Metadata kept in Windows cache, refused to mount.<br>Falling back to read-only mount because the NTFS partition is in an<br>unsafe state. Please resume and shutdown Windows fully (no hibernation<br>or fast restarting.)<br>Could not mount read-write, trying read-only</p>
 <p>这时候我突然意识到，可能是因为我这台主机是双系统，所以会有这样的问题。前几天，我打开windows进去用了一下光驱玩东方永夜抄，然后就正常关机(也有可能直接按电源键了?)，然后重启切换到linux继续工作。</p>
 <p>我怀疑在这个时候就出了点问题：我以为我关闭了windows，事实上windows在磁盘里写了一个挂起标志，用于下一次快速开机(fast boot)。后来查了一下，说是<strong>双系统必须要把security boot 和 fast boot关了才行</strong>，不然就可能出现这样的问题！</p>
 <hr>
@@ -329,9 +329,9 @@
 <img src="https://s2.loli.net/2025/03/23/Hdp49PU7q2Ebxf5.jpg">
 
 <p>我们再次按下机箱上的电源键开机,回到linux,重新进行挂载。&#x2F;home&#x2F;enana变为rw模式，一切回归正常。</p>
-<p> ~ ▓▒░────────────────────────────────────────────────────────────░▒▓ 19:24:22<br>❯ sudo mount -a          </p>
-<p> ~ ▓▒░────────────────────────────────────────────────────────────░▒▓ 19:24:28<br>❯ mount | grep enana<br>&#x2F;dev&#x2F;sda1 on &#x2F;home&#x2F;enana type fuseblk (rw,nosuid,nodev,relatime,user_id&#x3D;0,group_id&#x3D;0,allow_other,blksize&#x3D;4096)</p>
-<p> ~ ▓▒░────────────────────────────────────────────────────────────░▒▓ 19:24:57<br>❯ </p>
+<p> ~ ▓▒░──────────────────────────░▒▓ 19:24:22<br>❯ sudo mount -a          </p>
+<p> ~ ▓▒░──────────────────────────░▒▓ 19:24:28<br>❯ mount | grep enana<br>&#x2F;dev&#x2F;sda1 on &#x2F;home&#x2F;enana type fuseblk (rw,nosuid,nodev,relatime,user_id&#x3D;0,group_id&#x3D;0,allow_other,blksize&#x3D;4096)</p>
+<p> ~ ▓▒░──────────────────────────░▒▓ 19:24:57<br>❯ </p>
 <p>(P.S:还有一种更加快捷的解决办法就是在linux里直接使用ntfsfix指令，把windows留在磁盘&#x2F;dev&#x2F;sda1里的挂起杀死。但这个ntfsfix可能会损坏windows系统下存放的一些数据或文件，并且下次启动windows后又会引发同样的问题，届时又要冒着风险ntfsdix一下，治标不治本，建议还是不要这么做。)</p>
 
       
