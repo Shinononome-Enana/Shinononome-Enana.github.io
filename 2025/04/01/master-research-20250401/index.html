@@ -14,7 +14,7 @@
   
   
   <title>
-    Archives: 2024/11 |
+    【修士课题记录02】在FPGA-GPU异构架构上实现Pose Prediction相关细节的讨论 |
     
     デジタル旅の休暇所
   </title>
@@ -28,12 +28,17 @@
 <link rel="stylesheet" href="/css/loader.css">
 
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="デジタル旅の休暇所">
-<meta property="og:url" content="https://shinononome-enana.github.io/archives/2024/11/index.html">
+  <meta name="description" content="Here&#39;s something encrypted, password is required to continue reading.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【修士课题记录02】在FPGA-GPU异构架构上实现Pose Prediction相关细节的讨论">
+<meta property="og:url" content="https://shinononome-enana.github.io/2025/04/01/master-research-20250401/index.html">
 <meta property="og:site_name" content="デジタル旅の休暇所">
+<meta property="og:description" content="Here&#39;s something encrypted, password is required to continue reading.">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-04-01T04:18:00.000Z">
+<meta property="article:modified_time" content="2025-04-01T04:48:45.991Z">
 <meta property="article:author" content="ロ　ユイセー(Lu Weicheng)">
+<meta property="article:tag" content="Object Pose Prediction">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="デジタル旅の休暇所" type="application/atom+xml">
@@ -48,7 +53,9 @@
   
   
     
-      <link rel="preload" href="https://npm.webcache.cn/@waline/client@v2/dist/waline.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+      
+<link rel="stylesheet" href="https://npm.webcache.cn/@waline/client@v2/dist/waline.css">
+
     
   
   
@@ -155,7 +162,7 @@
 <header id="header">
   
     
-      <img fetchpriority="high" src="/images/avemujica.webp" alt="">
+      <img fetchpriority="high" src="/images/avemujica.webp" alt="【修士课题记录02】在FPGA-GPU异构架构上实现Pose Prediction相关细节的讨论">
     
   
   <div id="header-outer">
@@ -164,7 +171,7 @@
         
         
           <a href="/" id="logo">
-            <h1 data-aos="slide-up">Archives</h1>
+            <h1 data-aos="slide-up">【修士课题记录02】在FPGA-GPU异构架构上实现Pose Prediction相关细节的讨论</h1>
           </a>
         
       
@@ -181,10 +188,19 @@
         <div id="content">
           
             <aside id="sidebar">
-  <div class="sidebar-wrapper ">
+  <div class="sidebar-wrapper wrap-sticky">
     <div class="sidebar-wrap" data-aos="fade-up">
       
-        <div class="sidebar-author">
+        <div class="sidebar-toc-sidebar"><div class="sidebar-toc">
+  <h3 class="toc-title">Contents</h3>
+  <div class="sidebar-toc-wrapper toc-div-class" style="display: none" >
+      
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#My-proposal"><span class="toc-number">1.</span> <span class="toc-text">My proposal</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%8B%E7%BB%B4Pose-Estimation%E5%B7%A5%E4%BD%9C%E7%9A%84%E7%90%86%E8%A7%A3%E4%B8%8E%E6%80%BB%E7%BB%93"><span class="toc-number">2.</span> <span class="toc-text">王维Pose Estimation工作的理解与总结</span></a></li></ol>
+      
+  </div>
+</div>
+</div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
   <img data-src="/avatar/avatar.webp" data-sizes="auto" alt="ロ　ユイセー(Lu Weicheng)" class="lazyload">
   <div class="sidebar-author-name">ロ　ユイセー(Lu Weicheng)</div>
   <div class="sidebar-description"></div>
@@ -251,8 +267,13 @@
     </div>
   
 </div>
-
+</div>
       
+      
+        <div class="sidebar-btn-wrapper" style="position:static">
+          <div class="sidebar-toc-btn current"></div>
+          <div class="sidebar-common-btn"></div>
+        </div>
       
     </div>
   </div>
@@ -261,173 +282,105 @@
 </aside>
 
           
-          <section id="main">
-<div class="archives-outer-wrap" data-aos="fade-up">
-  <div class="tag-wrap">
-    
-      <div class="archives-tag-list-item" data-aos="zoom-in">
-        <a class="archives-tag-list-link" href="/tags/travel/">travel</a>
-      </div>
-    
-      <div class="archives-tag-list-item" data-aos="zoom-in">
-        <a class="archives-tag-list-link" href="/tags/CPP/">CPP</a>
-      </div>
-    
-      <div class="archives-tag-list-item" data-aos="zoom-in">
-        <a class="archives-tag-list-link" href="/tags/Verilog/">Verilog</a>
-      </div>
-    
-      <div class="archives-tag-list-item" data-aos="zoom-in">
-        <a class="archives-tag-list-link" href="/tags/TSP/">TSP</a>
-      </div>
-    
-      <div class="archives-tag-list-item" data-aos="zoom-in">
-        <a class="archives-tag-list-link" href="/tags/vocaloid/">vocaloid</a>
-      </div>
-    
-      <div class="archives-tag-list-item" data-aos="zoom-in">
-        <a class="archives-tag-list-link" href="/tags/日本語/">日本語</a>
-      </div>
-    
-      <div class="archives-tag-list-item" data-aos="zoom-in">
-        <a class="archives-tag-list-link" href="/tags/アルバイト/">アルバイト</a>
-      </div>
-    
-      <div class="archives-tag-list-item" data-aos="zoom-in">
-        <a class="archives-tag-list-link" href="/tags/linux/">linux</a>
-      </div>
-    
-      <div class="archives-tag-list-item" data-aos="zoom-in">
-        <a class="archives-tag-list-link" href="/tags/ubuntu/">ubuntu</a>
-      </div>
-    
-      <div class="archives-tag-list-item" data-aos="zoom-in">
-        <a class="archives-tag-list-link" href="/tags/Object-Pose-Prediction/">Object Pose Prediction</a>
-      </div>
-    
-      <div class="archives-tag-list-item" data-aos="zoom-in">
-        <a class="archives-tag-list-link" href="/tags/Tough-Transform/">Tough-Transform</a>
-      </div>
-    
+          <section id="main"><article id="post-master-research-20250401" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner" data-aos="fade-up">
+    <div class="article-meta">
+      <div class="article-date">
+  <a href="/2025/04/01/master-research-20250401/" class="article-date-link" data-aos="zoom-in">
+    <time datetime="2025-04-01T04:18:00.000Z" itemprop="datePublished">2025-04-01</time>
+    <time style="display: none;" id="post-update-time">2025-04-01</time>
+  </a>
+</div>
+
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Master-Research/" data-aos="zoom-in">Master Research</a>
   </div>
-  <div class="category-wrap">
+
+
+    </div>
+    <div class="hr-line"></div>
     
-      <div class="archives-category-list-item" data-aos="zoom-in">
-        <a class="archives-category-list-link" href="/categories/Life-in-Japan/">Life in Japan</a>
-      </div>
-    
-      <div class="archives-category-list-item" data-aos="zoom-in">
-        <a class="archives-category-list-link" href="/categories/LAB-EXERCISE/">LAB EXERCISE</a>
-      </div>
-    
-      <div class="archives-category-list-item" data-aos="zoom-in">
-        <a class="archives-category-list-link" href="/categories/Course-Assignment/">Course Assignment</a>
-      </div>
-    
-      <div class="archives-category-list-item" data-aos="zoom-in">
-        <a class="archives-category-list-link" href="/categories/VOCALOID/">VOCALOID</a>
-      </div>
-    
-      <div class="archives-category-list-item" data-aos="zoom-in">
-        <a class="archives-category-list-link" href="/categories/日本語/">日本語</a>
-      </div>
-    
-      <div class="archives-category-list-item" data-aos="zoom-in">
-        <a class="archives-category-list-link" href="/categories/Linux/">Linux</a>
-      </div>
-    
-      <div class="archives-category-list-item" data-aos="zoom-in">
-        <a class="archives-category-list-link" href="/categories/Course-Assignment/System-LSI-Design/">System LSI Design</a>
-      </div>
-    
-      <div class="archives-category-list-item" data-aos="zoom-in">
-        <a class="archives-category-list-link" href="/categories/Master-Research/">Master Research</a>
-      </div>
-    
-      <div class="archives-category-list-item" data-aos="zoom-in">
-        <a class="archives-category-list-link" href="/categories/Course-Assignment/Computational-Intelligence/">Computational Intelligence</a>
-      </div>
-    
-  </div>
-  
-  
-    
-    
+
+    <div class="e-content article-entry" itemprop="articleBody">
       
       
-      <section class="archives-wrap" data-aos="fade-up">
-        <div class="archive-year-wrap">
-          <a href="/archives/2024" class="archive-year">2024</a>
-        </div>
-        <ul>
-          
-          <li class="archive-article">
-  <div class="archive-article-date-wrap">
-    <a href="/2024/11/15/nihongo-nakutenaide/">
-      <time class="dt-published" datetime="2024-11-15T09:07:56.000Z" itemprop="datePublished">11-15</time>
-    </a>
+        <div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="4a2ea71faa564a1a8994ff0838b56419c3780d49843138c467c60bd6ead86903">0d4b7612a2048d819779e760ac33505dc156d366b1f79272cb029af142d5c990d5405c561e5faaba64fe6e29feabaf2acd67e1b0d87e6e2f203fe66c05633150d9d743b616e57121ec4b995e89964c41b899827452ad24d4e360c04948045063da317f38e7416b5ec6a7938c9bc697f91acdd94f61641bfd90c109c3f41a1274413d175846c1f52ba97feeb635d6938001e6780147fdda96deb7dead1ebf79dd3eab7af128ffd349e9d4ef73da4ab8edbfc38c28f6aa150afd8b38ef10d695e079ef1dd1de849e85b761eaa2b3f65957d784be8716c39a4fe4229b2835748be1c3b8111c06e8f3566239dc941ed01bdd6fe32017e2e18724b251152f074ccd192c329195a6522ac7668ba01af51e2bee95096610c88c88395027fef63f41ce1aa769d5ebfb63bf6ef8a3156d2e2e9601fdab2b7f16ad43cb2c827ade4e7e79d0bf7d2d2143600f7861ea814e0245f88f138864a25144f0c38dbc15311dea29b8d70262ce55757d00002b37eb9382fc6b8ebf09b8b3c9e2938ac9bd064cafca9346ea68080ad897e3856c6d5d9dbe6b70e015cb4396b21f833a13369257a896413da450793980cb923158066d19bb620fd69a270cfba465a3acf7e19df30752381cac92421c52dc23ed0d8ee0cfbd2255eae18c7f051fe3e01867432ab6bdc211bc140c5f3473e9a6464f2cb5df4d439aefb8314ac03ec74b5a0241c2f395efecc33fa629e4ae897872267ab4add9dddd3c49185bd0f1cb31f43ab4cd8bf264559f2bc9fc5681a890ac2f470e607a6b0b0f47f7c91ef00f5c0f39df83e457378f7ef2b0d66e42d362f918d61901dede8d1495c07e94f194133c06ca13c39ec3c1432938e63df0ca1c045c467be2fe4697cfd7f1e6f2dfc22120c400258a5475612ca571c55c288ef81fc8ff8f2980efcd768e5a74eadd812756bfdd244cb068e94a496a6b252366c43f416e4271d306edafb4756df3625b0f22d35aa2d8fb710a805d81defdefb0e073d2d9264cee8c1f447328987cf5e72b42965c0379ca1e57f7cff6f86fdc913b27c385014302de9734ef9e1ed11beb6d51c3dcb1b5a5b1ced732fd7907d9f6c04d3ed13f9a896b6128e01f57a3121842a74d8ae1cac71a2ed88d74dfe67350dc8bb748332f4c3cdcb6bec39afa3806d7345f2435355ded70fc9cbf5195b0dfef2ec02795e56ed30681d427862a6b4f9684b99aaa05e7448eb7fcb8db437b344b93f9feae79e66399e172209d606dbe4278d39f9893479ae6882ac7f52177ae744a755b39a7ae2d1444c9900367802e29327126e6372f30ed62451aeb9b9581cb0fac828b4ca74b4a9f7c3e4b29ebd20022e106c633fb13e3e42dc4c500d17752f1de9285b13d5544db9e3cf84604e23be4d40105a75f3f21c8143a1e2563113bc191efb5d6172e182881432f20e32db5cd925854f5860c0010345b9fa17460dae4ab4c58668747b2b6188872825ed868163cf629754b4f8b0aa23fcd6ee8e5cdad8ede89e5b0d2bd8f351d9540ad230aeb0c4121c0a421e479f3d4c9b3079bb1b0e5cc69ade29e36191b42fc4fd1bdbc6eed2f4478db77a6066a9ac73f8a6a9d731602f3d7382c384bff6196de1b71ee8aea8f2250da1a10bfb5f6aa199764752fa834d17c2018f5bf302d72b32fadbf327113f19ebfd843b86da6b16ddefec1a67da204f0d68011d5b470154e27786583c514e2bda83db5f5a4941f2aac0c876c538a4f789c121f97c33fa2ffd94d07bc411d1e037f822b5cd9c51d8107845f285342265552d8f0ea00e5b56654a7ada03ed95cfdc2d7899cd6d34e6326f9f33c8c41bde68a37b514fb1df89b3ab89f9c07b01290b99982e07bdb17c2b8a4b41638fe6aa8642f0caf4dcd16651f0ebc5f1f60c511321be73244e8ea85f4e017228e5d9cb80b37e037f85965547be081142cd233e7c2d83d7c6483244b56556519ca65a1d6dafd68e9e5fa015692e1c2d143c743c7ac1962180c141d889a9c761e2ea558264340c521ac1a9dbc0573bbebef35663bfa1c79887609def2c483b0cb051142f202ecd8e7735b4ac59cfc47ce8cbca599ffe3291416e2f6cf621a5a74102dddac8d4186d88d05bfe352db7885056989cf384a9ef9a1370a4f1f14ce633b9b8297a31d48302fc86e44f0aeba85df373ea167210485559aa67c9cb3fe11a07eaf276fca36024ef3c5b276ccd81d205d325d0ff449faf8732e872a7c4958f852481a5269805ea2eae4d25cb41f9f24c996b3f0d5bc02e645444ab26ee4f35b50f70613a711982f4830dbba33d3c16a45e5b3e9f682557e90514fac00e796fb22124e4992bc2f8a87f767a316071043620f2358b2c1c97e7582a6303fa94c7c67b0778f3a2010f9ce4e96a91e0d4fdaa707105026c82900bf31296e85e3943f4086b3c52ef6abd36e21d0e75224475644eb7c51b068b7eb5fb28f41c7e488ba7876bf02ae06a92f2d968ed7d1fe4cc733170f9736164083cebfdb3dba9451f6d0e9242cc7d57a60e6fe93d4762eac3eb071ea770d86470cd6f5302e79d79c972ddd6eb23d3f2e0b62a19733d5b2951581153b31e1b54bf84c3933bed9d2846b83b74fa786d168d0ffaff367d5455c1cdb9afa1b01adfea0f478466fe5ee00d6945215e851f35f90906fa68a0d4a025648ab1c65849ae96cc83a8e63bc7c2e8863eaebdb226589e89c3de91bd3c847902619068e20efbc03d95ab81f0335744db8f8441494c174fb2afc1712d136a8fe897b9292ddd6909e5da3e5a8f8536170337bd03011bc40ccc210d3d4da2c9ccff1fab0439aa2b8f621f31b27fd19f223a6304fc1ade548edd934b9a5a472e041b8519851399ce363715d3729028cb8d24445f7588b304cd13671936c1a030ee6bdf6b1a254b6e9eb0e3f01d7cf6cfb62664ff0ddf3fdbe09649758e68a291669e744dd1d3302ef363a13c9cd25175bd02cd460ab5b0a7557968d8295634d5733e2d879dde838f3f3b6b64d7eade0ba9d8c348b67a279e64e9c7ca75345cc55ed3a6dfb2e8975</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>
+      </label>
+    </div>
   </div>
-  
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
+      
+    </div>
+    <footer class="article-footer">
+      <blockquote class="article-copyright">
+    <p><strong>本文作者：</strong>ロ　ユイセー(Lu Weicheng) @ デジタル旅の休暇所</p>
+    <p><strong>本文链接：</strong><a href="https://shinononome-enana.github.io/2025/04/01/master-research-20250401/">https://shinononome-enana.github.io/2025/04/01/master-research-20250401/</a></p>
+    <p><strong>本文标题：</strong>【修士课题记录02】在FPGA-GPU异构架构上实现Pose Prediction相关细节的讨论</p>
     
-      <a class="archive-article-title" href="/2024/11/15/nihongo-nakutenaide/">如何区分使用「ないで」和「なくて」</a>
     
-  
-</li>
+    <p><strong>本文版权：</strong>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"><span class="icon-creative-commons"></span>BY-NC-SA</a> 许可协议。转载请注明出处！</p>
+    <span class="icon-creative-commons article-copyright-bg"></span>
+  </blockquote>
+      
+      
+        <a data-aos="zoom-in" href="/2025/04/01/master-research-20250401/#comments" class="article-comment-link">
+          <span class="post-comments-count waline-comment-count" data-path="/2025/04/01/master-research-20250401/" itemprop="commentCount"></span>
+          Comments
+        </a>
+      
+      
+      
+      
+        <span data-aos="zoom-in" class="article-visitor-link">
+          <span class="waline-pageview-count" data-path="/2025/04/01/master-research-20250401/">0</span>
+          <em class="post-meta-item-text">Readings</em>
+        </span>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/Object-Pose-Prediction/" rel="tag">Object Pose Prediction</a></li></ul>
 
-          
-    
-    
-          <li class="archive-article">
-  <div class="archive-article-date-wrap">
-    <a href="/2024/11/14/nihongo-itadaku/">
-      <time class="dt-published" datetime="2024-11-14T14:59:06.000Z" itemprop="datePublished">11-14</time>
-    </a>
-  </div>
-  
-    
-      <a class="archive-article-title" href="/2024/11/14/nihongo-itadaku/">关于「させていただきます」的几点理解</a>
-    
-  
-</li>
 
-          
-    
-    
-          <li class="archive-article">
-  <div class="archive-article-date-wrap">
-    <a href="/2024/11/10/opencv/">
-      <time class="dt-published" datetime="2024-11-10T13:08:01.000Z" itemprop="datePublished">11-10</time>
-    </a>
+    </footer>
   </div>
   
     
-      <a class="archive-article-title" href="/2024/11/10/opencv/">用原生opencv代码实现霍夫变换(Tough-Transform)</a>
+  <nav id="article-nav" data-aos="fade-up">
     
-  
-</li>
+    
+    <div class="article-nav-link-wrap article-nav-link-right">
+      
+        
+        
+          <img data-src="/covers/airi_mzk_ena.png" data-sizes="auto" alt="日本語勉強メモ０１ーーＮ２読解·読み物１１～２０" class="lazyload">
+        
+      
+      <a href="/2025/03/26/hinongo-memo01/"></a>
+      <div class="article-nav-caption">Older</div>
+      <h3 class="article-nav-title">
+        
+          日本語勉強メモ０１ーーＮ２読解·読み物１１～２０
+        
+      </h3>
+    </div>
+    
+  </nav>
 
-          
-    
-    
-          <li class="archive-article">
-  <div class="archive-article-date-wrap">
-    <a href="/2024/11/03/RegisterFile/">
-      <time class="dt-published" datetime="2024-11-03T04:43:31.000Z" itemprop="datePublished">11-03</time>
-    </a>
-  </div>
-  
-    
-      <a class="archive-article-title" href="/2024/11/03/RegisterFile/">寄存器堆(RegisterFile)的设计和仿真验证</a>
-    
-  
-</li>
 
-          
-          
-        </ul>
-      </section>
   
-  </div>
+</article>
+
+
+  <div id="comments" class="wcomment"></div>
+
+
 
 
 
@@ -482,7 +435,16 @@
       <nav id="mobile-nav">
   <div class="sidebar-wrap">
     
-      <div class="sidebar-author">
+      <div class="sidebar-toc-sidebar"><div class="sidebar-toc">
+  <h3 class="toc-title">Contents</h3>
+  <div class="sidebar-toc-wrapper toc-div-class" style="display: none" >
+      
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#My-proposal"><span class="toc-number">1.</span> <span class="toc-text">My proposal</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%8B%E7%BB%B4Pose-Estimation%E5%B7%A5%E4%BD%9C%E7%9A%84%E7%90%86%E8%A7%A3%E4%B8%8E%E6%80%BB%E7%BB%93"><span class="toc-number">2.</span> <span class="toc-text">王维Pose Estimation工作的理解与总结</span></a></li></ol>
+      
+  </div>
+</div>
+</div>
+      <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
   <img data-src="/avatar/avatar.webp" data-sizes="auto" alt="ロ　ユイセー(Lu Weicheng)" class="lazyload">
   <div class="sidebar-author-name">ロ　ユイセー(Lu Weicheng)</div>
   <div class="sidebar-description"></div>
@@ -549,9 +511,14 @@
     </div>
   
 </div>
-
+</div>
     
   </div>
+  
+    <div class="sidebar-btn-wrapper">
+      <div class="sidebar-toc-btn current"></div>
+      <div class="sidebar-common-btn"></div>
+    </div>
   
 </nav>
 

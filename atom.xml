@@ -6,7 +6,7 @@
   <link href="https://shinononome-enana.github.io/atom.xml" rel="self"/>
   
   <link href="https://shinononome-enana.github.io/"/>
-  <updated>2025-03-26T16:06:15.061Z</updated>
+  <updated>2025-04-01T04:48:45.991Z</updated>
   <id>https://shinononome-enana.github.io/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【修士课题记录02】在FPGA-GPU异构架构上实现Pose Prediction相关细节的讨论</title>
+    <link href="https://shinononome-enana.github.io/2025/04/01/master-research-20250401/"/>
+    <id>https://shinononome-enana.github.io/2025/04/01/master-research-20250401/</id>
+    <published>2025-04-01T04:18:00.000Z</published>
+    <updated>2025-04-01T04:48:45.991Z</updated>
+    
+    
+    <summary type="html">Here&#39;s something encrypted, password is required to continue reading.</summary>
+    
+    
+    
+    <category term="Master Research" scheme="https://shinononome-enana.github.io/categories/Master-Research/"/>
+    
+    
+    <category term="Object Pose Prediction" scheme="https://shinononome-enana.github.io/tags/Object-Pose-Prediction/"/>
+    
+  </entry>
   
   <entry>
     <title>日本語勉強メモ０１ーーＮ２読解·読み物１１～２０</title>
@@ -73,23 +92,17 @@
     <link href="https://shinononome-enana.github.io/2025/03/20/master-research-20250320/"/>
     <id>https://shinononome-enana.github.io/2025/03/20/master-research-20250320/</id>
     <published>2025-03-20T14:33:27.000Z</published>
-    <updated>2025-03-20T15:50:46.210Z</updated>
+    <updated>2025-04-01T04:19:01.398Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;&#92;assets&#92;css&#92;APlayer.min.css&quot;&gt;&lt;script src=&quot;&#92;assets&#92;js&#92;APlayer.min.js&quot;</summary>
-        
-      
+    <summary type="html">Here&#39;s something encrypted, password is required to continue reading.</summary>
     
     
     
     <category term="Master Research" scheme="https://shinononome-enana.github.io/categories/Master-Research/"/>
     
     
-    <category term="Object Pose" scheme="https://shinononome-enana.github.io/tags/Object-Pose/"/>
+    <category term="Object Pose Prediction" scheme="https://shinononome-enana.github.io/tags/Object-Pose-Prediction/"/>
     
   </entry>
   
@@ -360,7 +373,7 @@
     <link href="https://shinononome-enana.github.io/2024/10/28/hinongo01/"/>
     <id>https://shinononome-enana.github.io/2024/10/28/hinongo01/</id>
     <published>2024-10-28T12:30:25.000Z</published>
-    <updated>2024-11-15T08:52:38.029Z</updated>
+    <updated>2025-03-26T13:25:10.694Z</updated>
     
     
       
@@ -439,10 +452,10 @@
     <link href="https://shinononome-enana.github.io/2024/10/18/Matrix/"/>
     <id>https://shinononome-enana.github.io/2024/10/18/Matrix/</id>
     <published>2024-10-17T15:25:00.000Z</published>
-    <updated>2024-10-28T08:41:39.374Z</updated>
+    <updated>2025-04-01T04:18:43.472Z</updated>
     
     
-    <summary type="html">课程内代码不能无偿开源, 请输入密码查看.</summary>
+    <summary type="html">Here&#39;s something encrypted, password is required to continue reading.</summary>
     
     
     
