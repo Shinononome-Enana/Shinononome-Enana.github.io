@@ -275,20 +275,35 @@
       
         
         
-          <img data-src="/covers/jiangjiang.jpg" data-sizes="auto" alt="【修士课题记录02】在FPGA-GPU异构架构上实现Pose Prediction相关细节的讨论" class="lazyload">
+          <img data-src="/covers/airi_mzk_ena.png" data-sizes="auto" alt="【修士课题记录02】在FPGA-GPU异构架构上实现Pose Prediction相关细节的讨论" class="lazyload">
         
       
     </div>
     <div class="post-info">
       <div class="post-meta">
         <span><span class="icon-calendar"></span>2025-04-01</span>
-        <span><span class="icon-pencil"></span>6 words</span>
-        <span><span class="icon-clock"></span>1 min</span>
+        <span><span class="icon-pencil"></span>1.1k words</span>
+        <span><span class="icon-clock"></span>3 mins</span>
       </div>
       <h2 class="post-title">【修士课题记录02】在FPGA-GPU异构架构上实现Pose Prediction相关细节的讨论</h2>
       <article class="post-article">
         
-          Here's something encrypted, password is required to continue reading.
+          My proposal
+
+	
+    
+	
+
+
+
+
+受到王维论文的启发，基于他的思路，我提出了在1ms系统上实现物体位姿预测的proposal，核心有两点：
+
+GPU上实现关键帧Pose Prediction：取连续几帧关键帧，获取他们的temporal和spatial信息来对未来的关键帧进行预测，得到预测的absolute pose。
+
+以往的1ms系统的GPU-FPGA结构中，以王维的工作为例，GPU只对当前的一个关键帧进行estimation，在下一个关键帧到来时运算完毕，这中间存在时间差(具体细节会在下一节讲)。如果使用多关键帧进行预测，就能消除这种误差。
+
+FPGA上部署e2e网络回
         
       </article>
     </div>
@@ -348,7 +363,7 @@
       
         
         
-          <img data-src="/covers/jiangjiang.jpg" data-sizes="auto" alt="解决Linux系统突然出现Read-only file system导致文件无法写入磁盘的问题(双系统)" class="lazyload">
+          <img data-src="/covers/airi_mzk_ena.png" data-sizes="auto" alt="解决Linux系统突然出现Read-only file system导致文件无法写入磁盘的问题(双系统)" class="lazyload">
         
       
     </div>
@@ -384,20 +399,33 @@
       
         
         
-          <img data-src="/covers/airi_mzk_ena.png" data-sizes="auto" alt="【修士课题记录01】有关6DoF Object-Pose Estimation课题的学习、调研和讨论" class="lazyload">
+          <img data-src="/covers/jiangjiang.jpg" data-sizes="auto" alt="【修士课题记录01】有关6DoF Object-Pose Estimation课题的学习、调研和讨论" class="lazyload">
         
       
     </div>
     <div class="post-info">
       <div class="post-meta">
         <span><span class="icon-calendar"></span>2025-03-20</span>
-        <span><span class="icon-pencil"></span>6 words</span>
-        <span><span class="icon-clock"></span>1 min</span>
+        <span><span class="icon-pencil"></span>1.7k words</span>
+        <span><span class="icon-clock"></span>6 mins</span>
       </div>
       <h2 class="post-title">【修士课题记录01】有关6DoF Object-Pose Estimation课题的学习、调研和讨论</h2>
       <article class="post-article">
         
-          Here's something encrypted, password is required to continue reading.
+          3.20与教授短暂meeting的总结我的三个提案经过3月份对6D物体姿态估计(6DoF Object-Pose Estimation)的学习和调研，以及和Li博的讨论，今天开会时idea也是终于受到了教授的认可。这意味着我今后的修士课题的大方向，很有可能就已经定下来了。下面是我的PPT：
+
+
+	
+    
+	
+
+
+
+
+在我的PPT中，我主要阐释了三个关键点：
+
+End-to-end Method： 我的目标是构建一个端到端的网络，能够直接回归出6D姿态估计参数T和R。
+RGB based, No Depth： 不使用深度信息Tz，而是通过网络去回归这个参数。回归得到深度Tz后，根据pin-h
         
       </article>
     </div>
@@ -557,7 +585,7 @@ Presentation PPT
       
         
         
-          <img data-src="/covers/airi_mzk_ena.png" data-sizes="auto" alt="Calculator的Verilog实现与上板验证：SystemLSI Project#1 留档" class="lazyload">
+          <img data-src="/covers/jiangjiang.jpg" data-sizes="auto" alt="Calculator的Verilog实现与上板验证：SystemLSI Project#1 留档" class="lazyload">
         
       
     </div>
@@ -751,10 +779,10 @@ FeatureExtraction：配合四个检查函数。新增Check_3BranchPoint和Check_
     
       <div>
         <span class="icon-brush"></span>
-        38.8k
+        41.6k
         &nbsp;|&nbsp;
         <span class="icon-coffee"></span>
-        03:06
+        03:13
       </div>
     
     
