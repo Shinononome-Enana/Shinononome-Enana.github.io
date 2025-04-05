@@ -35,6 +35,8 @@
 <meta property="og:site_name" content="デジタル旅の休暇所">
 <meta property="og:description" content="My proposal  	      	     受到王维论文的启发，基于他的思路，我提出了在1ms系统上实现物体位姿预测的proposal，核心有两点：  GPU上实现关键帧Pose Prediction：取连续几帧关键帧，获取他们的temporal和spatial信息来对未来的关键帧进行预测，得到预测的absolute pose。  以往的1ms系统的GPU-FPGA结构中，以王维的工作为例">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s2.loli.net/2025/04/05/6KYdJuXrIFBeE3b.png">
+<meta property="og:image" content="https://s2.loli.net/2025/04/05/HuC4MS3laWRKOiI.png">
 <meta property="og:image" content="https://s2.loli.net/2025/04/01/4mXUGZwcy3e8aAv.jpg">
 <meta property="og:image" content="https://s2.loli.net/2025/04/01/Rt7D1QbNkg2LyXJ.png">
 <meta property="og:image" content="https://s2.loli.net/2025/04/01/HAUm3CoqKI8BFYV.png">
@@ -44,11 +46,11 @@
 <meta property="og:image" content="https://s2.loli.net/2025/04/01/6WthCwK7VAMy3OP.png">
 <meta property="og:image" content="https://s2.loli.net/2025/04/01/WiNaG4H8nOAZ2pk.png">
 <meta property="article:published_time" content="2025-04-01T04:18:00.000Z">
-<meta property="article:modified_time" content="2025-04-01T08:09:42.670Z">
+<meta property="article:modified_time" content="2025-04-05T12:54:37.762Z">
 <meta property="article:author" content="ロ　ユイセー(Lu Weicheng)">
 <meta property="article:tag" content="Object Pose Prediction">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://s2.loli.net/2025/04/01/4mXUGZwcy3e8aAv.jpg">
+<meta name="twitter:image" content="https://s2.loli.net/2025/04/05/6KYdJuXrIFBeE3b.png">
   
     <link rel="alternate" href="/atom.xml" title="デジタル旅の休暇所" type="application/atom+xml">
   
@@ -204,7 +206,7 @@
   <h3 class="toc-title">Contents</h3>
   <div class="sidebar-toc-wrapper toc-div-class" >
       
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#My-proposal"><span class="toc-number">1.</span> <span class="toc-text">My proposal</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%8B%E7%BB%B4%E5%B7%A5%E4%BD%9C%EF%BC%9AFPGA-GPU%E6%9E%B6%E6%9E%84%E7%9A%84%E7%BB%86%E8%8A%82"><span class="toc-number">2.</span> <span class="toc-text">王维工作：FPGA-GPU架构的细节</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E8%AF%8D"><span class="toc-number">2.1.</span> <span class="toc-text">关键词</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%B6%E5%BA%8F"><span class="toc-number">2.2.</span> <span class="toc-text">时序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GPU%E4%BE%A7"><span class="toc-number">2.3.</span> <span class="toc-text">GPU侧</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FPGA%E4%BE%A7"><span class="toc-number">2.4.</span> <span class="toc-text">FPGA侧</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GPU-FPGA%E4%BA%A4%E4%BA%92"><span class="toc-number">2.5.</span> <span class="toc-text">GPU-FPGA交互</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FPGA%E5%AE%9E%E9%99%85%E5%B7%A5%E7%A8%8B%E7%BB%93%E6%9E%84"><span class="toc-number">2.6.</span> <span class="toc-text">FPGA实际工程结构</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#My-proposal"><span class="toc-number">1.</span> <span class="toc-text">My proposal</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%8B%E7%BB%B4%E5%B7%A5%E4%BD%9C%EF%BC%9AFPGA-GPU%E6%9E%B6%E6%9E%84%E7%9A%84%E7%BB%86%E8%8A%82"><span class="toc-number">2.</span> <span class="toc-text">王维工作：FPGA-GPU架构的细节</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E8%AF%8D"><span class="toc-number">2.1.</span> <span class="toc-text">关键词</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%B6%E5%BA%8F"><span class="toc-number">2.2.</span> <span class="toc-text">时序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GPU%E4%BE%A7"><span class="toc-number">2.3.</span> <span class="toc-text">GPU侧</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FPGA%E4%BE%A7"><span class="toc-number">2.4.</span> <span class="toc-text">FPGA侧</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GPU-FPGA%E4%BA%A4%E4%BA%92"><span class="toc-number">2.5.</span> <span class="toc-text">GPU-FPGA交互</span></a></li></ol></li></ol>
       
   </div>
 </div>
@@ -297,7 +299,7 @@
       <div class="article-date">
   <a href="/2025/04/01/master-research-20250401/" class="article-date-link" data-aos="zoom-in">
     <time datetime="2025-04-01T04:18:00.000Z" itemprop="datePublished">2025-04-01</time>
-    <time style="display: none;" id="post-update-time">2025-04-01</time>
+    <time style="display: none;" id="post-update-time">2025-04-05</time>
   </a>
 </div>
 
@@ -333,6 +335,13 @@
 </ul>
 <p>与王维的工作不同的是，王维通过ORB、2D-3D点匹配、particle filter等算法，对特征点进行提取后分析，然后才得到pose。这显然是rule-based的，鲁棒性有待验证。现在，我要改进为net-based，即直接使用一个端到端的神经网络替代所有rule-based算法。</p>
 <p>最后，对于任意一帧：<strong>结合GPU上得到的absolute pose(predicted)和FPGA上得到的relative pose，即可得到任意时刻真正的object pose。</strong></p>
+<p>这里给出我的idea(右)和previous work(左)的架构对比图：</p>
+<center>
+  <img src="https://s2.loli.net/2025/04/05/6KYdJuXrIFBeE3b.png" width="500" height="250" style="display:inline-block; margin-right: 20px;"/>
+  <img src="https://s2.loli.net/2025/04/05/HuC4MS3laWRKOiI.png" width="500" height="250" style="display:inline-block;"/>
+</center>
+
+
 <hr>
 <h2 id="王维工作：FPGA-GPU架构的细节"><a href="#王维工作：FPGA-GPU架构的细节" class="headerlink" title="王维工作：FPGA-GPU架构的细节"></a>王维工作：FPGA-GPU架构的细节</h2><p>由于我后期的研究需要基于王维的这篇论文中的思想，因此需要细致深入的理解。</p>
 
@@ -395,7 +404,10 @@
 <p>最后一步，关键帧KeyPose和普通帧RelativePose整合成最终输出pose。</p>
 <img src="https://s2.loli.net/2025/04/01/WiNaG4H8nOAZ2pk.png">
 
-<h3 id="FPGA实际工程结构"><a href="#FPGA实际工程结构" class="headerlink" title="FPGA实际工程结构"></a>FPGA实际工程结构</h3>
+
+
+
+
       
     </div>
     <footer class="article-footer">
@@ -438,7 +450,7 @@
       
         
         
-          <img data-src="/covers/airi_mzk_ena.png" data-sizes="auto" alt="日本語勉強メモ０１ーーＮ２読解·読み物１１～２０" class="lazyload">
+          <img data-src="/covers/jiangjiang.jpg" data-sizes="auto" alt="日本語勉強メモ０１ーーＮ２読解·読み物１１～２０" class="lazyload">
         
       
       <a href="/2025/03/26/hinongo-memo01/"></a>
@@ -518,7 +530,7 @@
   <h3 class="toc-title">Contents</h3>
   <div class="sidebar-toc-wrapper toc-div-class" >
       
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#My-proposal"><span class="toc-number">1.</span> <span class="toc-text">My proposal</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%8B%E7%BB%B4%E5%B7%A5%E4%BD%9C%EF%BC%9AFPGA-GPU%E6%9E%B6%E6%9E%84%E7%9A%84%E7%BB%86%E8%8A%82"><span class="toc-number">2.</span> <span class="toc-text">王维工作：FPGA-GPU架构的细节</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E8%AF%8D"><span class="toc-number">2.1.</span> <span class="toc-text">关键词</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%B6%E5%BA%8F"><span class="toc-number">2.2.</span> <span class="toc-text">时序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GPU%E4%BE%A7"><span class="toc-number">2.3.</span> <span class="toc-text">GPU侧</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FPGA%E4%BE%A7"><span class="toc-number">2.4.</span> <span class="toc-text">FPGA侧</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GPU-FPGA%E4%BA%A4%E4%BA%92"><span class="toc-number">2.5.</span> <span class="toc-text">GPU-FPGA交互</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FPGA%E5%AE%9E%E9%99%85%E5%B7%A5%E7%A8%8B%E7%BB%93%E6%9E%84"><span class="toc-number">2.6.</span> <span class="toc-text">FPGA实际工程结构</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#My-proposal"><span class="toc-number">1.</span> <span class="toc-text">My proposal</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%8B%E7%BB%B4%E5%B7%A5%E4%BD%9C%EF%BC%9AFPGA-GPU%E6%9E%B6%E6%9E%84%E7%9A%84%E7%BB%86%E8%8A%82"><span class="toc-number">2.</span> <span class="toc-text">王维工作：FPGA-GPU架构的细节</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E8%AF%8D"><span class="toc-number">2.1.</span> <span class="toc-text">关键词</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%B6%E5%BA%8F"><span class="toc-number">2.2.</span> <span class="toc-text">时序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GPU%E4%BE%A7"><span class="toc-number">2.3.</span> <span class="toc-text">GPU侧</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FPGA%E4%BE%A7"><span class="toc-number">2.4.</span> <span class="toc-text">FPGA侧</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GPU-FPGA%E4%BA%A4%E4%BA%92"><span class="toc-number">2.5.</span> <span class="toc-text">GPU-FPGA交互</span></a></li></ol></li></ol>
       
   </div>
 </div>
