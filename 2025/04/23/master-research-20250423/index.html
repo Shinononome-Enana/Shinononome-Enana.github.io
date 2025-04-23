@@ -28,18 +28,21 @@
 <link rel="stylesheet" href="/css/loader.css">
 
   
-  <meta name="description" content="本周主要针对1ms系统的GPU侧进行了调研。对于Pose Estimation网络部分，找了许多最新的工作，暂时选定了YOLOX-6D-Pose网络为baseline。目前对该网络只进行了YCBV官方数据集的训练和测试，未来的一个月内计划进行自己数据集的加载和预测头(LSTM-Head或者Transformer)的添加。 基于RGB原图像序列预测 or 基于Pose参">
+  <meta name="description" content="本周主要针对1ms系统的GPU侧进行了调研。对于Pose Estimation网络部分，找了许多最新的工作，暂时选定了YOLOX-6D-Pose网络为baseline。目前对该网络只进行了YCBV官方数据集的训练和测试，未来的一个月内计划进行自己数据集的加载和预测头(LSTM-Head或者Transformer)的添加。 如下图，最下方的两个小模块就是我想要添加的部分">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【修士课题记录03】GPU侧的初步研究：基于YOLOX-6D-Pose网络的改进思路">
 <meta property="og:url" content="https://shinononome-enana.github.io/2025/04/23/master-research-20250423/index.html">
 <meta property="og:site_name" content="デジタル旅の休暇所">
-<meta property="og:description" content="本周主要针对1ms系统的GPU侧进行了调研。对于Pose Estimation网络部分，找了许多最新的工作，暂时选定了YOLOX-6D-Pose网络为baseline。目前对该网络只进行了YCBV官方数据集的训练和测试，未来的一个月内计划进行自己数据集的加载和预测头(LSTM-Head或者Transformer)的添加。 基于RGB原图像序列预测 or 基于Pose参">
+<meta property="og:description" content="本周主要针对1ms系统的GPU侧进行了调研。对于Pose Estimation网络部分，找了许多最新的工作，暂时选定了YOLOX-6D-Pose网络为baseline。目前对该网络只进行了YCBV官方数据集的训练和测试，未来的一个月内计划进行自己数据集的加载和预测头(LSTM-Head或者Transformer)的添加。 如下图，最下方的两个小模块就是我想要添加的部分">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s2.loli.net/2025/04/23/VYSz4K2TNAldXFb.png">
+<meta property="og:image" content="https://s2.loli.net/2025/04/23/yq3Ej5ugPcwCY2F.png">
 <meta property="article:published_time" content="2025-04-23T13:11:35.000Z">
-<meta property="article:modified_time" content="2025-04-23T13:32:32.163Z">
+<meta property="article:modified_time" content="2025-04-23T13:53:12.157Z">
 <meta property="article:author" content="ロ　ユイセー(Lu Weicheng)">
 <meta property="article:tag" content="Object Pose Prediction">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2025/04/23/VYSz4K2TNAldXFb.png">
   
     <link rel="alternate" href="/atom.xml" title="デジタル旅の休暇所" type="application/atom+xml">
   
@@ -315,11 +318,19 @@
 
 
 <p>本周主要针对1ms系统的GPU侧进行了调研。对于Pose Estimation网络部分，找了许多最新的工作，暂时选定了YOLOX-6D-Pose网络为baseline。目前对该网络只进行了YCBV官方数据集的训练和测试，未来的一个月内计划进行<strong>自己数据集的加载</strong>和<strong>预测头(LSTM-Head或者Transformer)的添加</strong>。</p>
+<p>如下图，最下方的两个小模块就是我想要添加的部分：</p>
+<img src="https://s2.loli.net/2025/04/23/VYSz4K2TNAldXFb.png">
+
+<hr>
 <h2 id="基于RGB原图像序列预测-or-基于Pose参数预测？"><a href="#基于RGB原图像序列预测-or-基于Pose参数预测？" class="headerlink" title="基于RGB原图像序列预测 or 基于Pose参数预测？"></a>基于RGB原图像序列预测 or 基于Pose参数预测？</h2><p>对于本次会议最后提出的问题：<strong>进行预测时是基于RGB图像直接encode，还是基于回归得到的Pose参数进行encode好呢？</strong>这个问题的起因是我阅读了学长Head Pose Detection的修士论文，发现他是直接对RGB原图像进行transformer，attention等操作的，和我的架构不太一样。李博给出的回答是：</p>
 <ul>
 <li>从RGB图像回归到Pose参数，这个过程本身就是对RGB图像某个特定的特征的一种提取操作，因此不可避免会损失一些其他重要的信息。因此，目前的架构仅仅给Transformer投喂Pose参数，作为预测的唯一基准，效果恐怕不是很好。</li>
 </ul>
 <p>很有道理，因此，我有了如下的修改预想：</p>
+<img src="https://s2.loli.net/2025/04/23/yq3Ej5ugPcwCY2F.png">
+
+
+<hr>
 <h2 id="下周的工作-————-FPGA侧的思考"><a href="#下周的工作-————-FPGA侧的思考" class="headerlink" title="下周的工作 ———— FPGA侧的思考"></a>下周的工作 ———— FPGA侧的思考</h2><p>教授一再催促要开始FPGA侧的思考和调研了，下周开始。计划是阅读李博在FPGA上实现hardwired-CNN部署的代码，顺便摸索1ms系统的接口框架。</p>
 
       
