@@ -44,31 +44,6 @@
   </entry>
   
   <entry>
-    <title>【修士课题记录03】GPU侧的初步研究：基于YOLOX-6D-Pose网络的改进思路</title>
-    <link href="https://shinononome-enana.github.io/2025/04/23/master-research-20250423/"/>
-    <id>https://shinononome-enana.github.io/2025/04/23/master-research-20250423/</id>
-    <published>2025-04-23T13:11:35.000Z</published>
-    <updated>2025-04-23T14:23:46.885Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;&#92;assets&#92;css&#92;APlayer.min.css&quot;&gt;&lt;script src=&quot;&#92;assets&#92;js&#92;APlayer.min.js&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="修士课题记录" scheme="https://shinononome-enana.github.io/categories/%E4%BF%AE%E5%A3%AB%E8%AF%BE%E9%A2%98%E8%AE%B0%E5%BD%95/"/>
-    
-    
-    <category term="Object Pose Prediction" scheme="https://shinononome-enana.github.io/tags/Object-Pose-Prediction/"/>
-    
-  </entry>
-  
-  <entry>
     <title>日本語勉強メモ０２ーーＮ２読解·読み物２１～３０</title>
     <link href="https://shinononome-enana.github.io/2025/04/11/hinongo-memo02/"/>
     <id>https://shinononome-enana.github.io/2025/04/11/hinongo-memo02/</id>
@@ -533,6 +508,25 @@
     <category term="CPP" scheme="https://shinononome-enana.github.io/tags/CPP/"/>
     
     <category term="TSP" scheme="https://shinononome-enana.github.io/tags/TSP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>cpp实现矩阵操作</title>
+    <link href="https://shinononome-enana.github.io/2024/10/18/Matrix/"/>
+    <id>https://shinononome-enana.github.io/2024/10/18/Matrix/</id>
+    <published>2024-10-17T15:25:00.000Z</published>
+    <updated>2025-04-01T04:18:43.472Z</updated>
+    
+    
+    <summary type="html">Here&#39;s something encrypted, password is required to continue reading.</summary>
+    
+    
+    
+    <category term="LAB EXERCISE" scheme="https://shinononome-enana.github.io/categories/LAB-EXERCISE/"/>
+    
+    
+    <category term="CPP" scheme="https://shinononome-enana.github.io/tags/CPP/"/>
     
   </entry>
   
