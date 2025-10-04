@@ -36,7 +36,7 @@
 <meta property="og:description" content="前言为了在FPGA上快速部署QNN，我决定尝试Brevitas+FINN的开发流程：软件测在Pytorch上通过Brevitas量化库实现QNN的训练和模型ONNX导出，随后使用FINN工具链对网络进行微调，最后生成HLS工程，在vivado上生成对应硬件侧比特流。 对于FINN而言我也是初心者，因此尽量跟随官方文档走，这两周的目标是把例程(pynq上部署e2e小型qnn)跑起来。但是稍微操作了一">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-10-04T12:54:49.000Z">
-<meta property="article:modified_time" content="2025-10-04T13:51:21.991Z">
+<meta property="article:modified_time" content="2025-10-04T13:53:28.141Z">
 <meta property="article:author" content="ロ　ユイセー(Lu Weicheng)">
 <meta property="article:tag" content="FPGA">
 <meta name="twitter:card" content="summary">
@@ -326,29 +326,29 @@
 
 <hr>
 <h2 id="下载安装Vivado2022-2和对应版本Vitis"><a href="#下载安装Vivado2022-2和对应版本Vitis" class="headerlink" title="下载安装Vivado2022.2和对应版本Vitis"></a>下载安装Vivado2022.2和对应版本Vitis</h2><p>注意：推荐下载2022.2版本vivado，而不是最新。最新的vivado2024.2或2025版本无法适配FINN编译器。</p>
-<p>另外，vivado2022.2需要license才能使用。而幸运的是xilinx提供了免费的license生成地址：<a target="_blank" rel="noopener" href="https://www.xilinx.com/member/forms/license-form.html%EF%BC%8C%E4%B8%8D%E9%9C%80%E8%A6%81%E5%8E%BB%E7%BD%91%E7%BB%9C%E4%B8%8A%E6%89%BE%E7%9B%97%E7%89%88license%EF%BC%81">https://www.xilinx.com/member/forms/license-form.html，不需要去网络上找盗版license！</a></p>
+<p>另外，vivado2022.2需要license才能使用。而幸运的是xilinx提供了免费的license生成地址：(<a target="_blank" rel="noopener" href="https://www.xilinx.com/member/forms/license-form.html)%EF%BC%8C%E4%B8%8D%E9%9C%80%E8%A6%81%E5%8E%BB%E7%BD%91%E7%BB%9C%E4%B8%8A%E6%89%BE%E7%9B%97%E7%89%88license%EF%BC%81">https://www.xilinx.com/member/forms/license-form.html)，不需要去网络上找盗版license！</a></p>
 <h2 id="下载安装docker"><a href="#下载安装docker" class="headerlink" title="下载安装docker"></a>下载安装docker</h2><p>这里就跟着教程走，一步一步配置即可。</p>
 <h2 id="系统环境配置（bashrc）"><a href="#系统环境配置（bashrc）" class="headerlink" title="系统环境配置（bashrc）"></a>系统环境配置（bashrc）</h2><p>需要<strong>在~&#x2F;.bashrc里配置FINN_XILINX_PATH和FINN_XILINX_VERSION。</strong>由于我使用的是zsh，因此配置的是~.&#x2F;zshrc。</p>
-<img src = "https://s2.loli.net/2025/10/04/OJh7vKfBmrPqaAi.png">
+<img src = "https://s2.loli.net/2025/10/04/OJh7vKfBmrPqaAi.png" width="600" height="300">
 
 <hr>
 <h2 id="运行quicktest检查"><a href="#运行quicktest检查" class="headerlink" title="运行quicktest检查"></a>运行quicktest检查</h2><p>在git下来的finn目录下能够执行quicktest，检查环境是否已经完备。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> bash run-docker.sh quicktest</span><br></pre></td></tr></table></figure>
 
 <p>如果环境无误，会显示977个pass的检查项目，如图所示。（虽然后面有failed，不过没事）</p>
-<img src = "https://s2.loli.net/2025/10/04/6KePaZG7C4vTyui.png">
+<img src = "https://s2.loli.net/2025/10/04/6KePaZG7C4vTyui.png" width="600" height="300">
 
 <hr>
 <h2 id="在docker上运行Jupyter，打开官方例程"><a href="#在docker上运行Jupyter，打开官方例程" class="headerlink" title="在docker上运行Jupyter，打开官方例程"></a>在docker上运行Jupyter，打开官方例程</h2><p>最后，在finn路径下借助run-docker.sh脚本打开jupyter，通过点击生成的本地链接地址，可以进入jupyter工程。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash ./run-docker.sh notebook</span><br></pre></td></tr></table></figure>
 
-<img src = "https://s2.loli.net/2025/10/04/KtFhDjd5U1HRQGs.png">
+<img src = "https://s2.loli.net/2025/10/04/KtFhDjd5U1HRQGs.png" width="600" height="300">
 
 <p>此时可能会报错Bind for 0.0.0.0:8081 failed: port is already allocated。这说明有其他进程已经占用了端口8081，导致现在执行的notebook进程无法使用。通过终端信息，我发现是Jupyter(可能是之前没关闭的)和Netron(用于ONNX可视化)分别占用了端口8888和8081。我们换一个Jupyter和Netron端口就行了：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JUPYTER_PORT=8890 NETRON_PORT=8082 bash ./run-docker.sh notebook</span><br></pre></td></tr></table></figure>
 
 <p>最后，我们终于可以看到finn-docker上的Jupyter成功运行：</p>
-<img src = "https://s2.loli.net/2025/10/04/qeDlngfWdO5YC7I.png">
+<img src = "https://s2.loli.net/2025/10/04/qeDlngfWdO5YC7I.png" width="600" height="300">
 
 <p>如果这一步执行后仍旧报错，且终端没有弹出地址（直接结束了docker的本次进程），说明前面的环境配置有一步出了问题，请耐心找出问题或从头再来！</p>
 <hr>
