@@ -6,7 +6,7 @@
   <link href="https://shinononome-enana.github.io/atom.xml" rel="self"/>
   
   <link href="https://shinononome-enana.github.io/"/>
-  <updated>2025-09-01T03:20:54.468Z</updated>
+  <updated>2025-10-04T12:54:13.466Z</updated>
   <id>https://shinononome-enana.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
+    <title>【MicroProcessor】Project#1:FPGA-VGA实现“雷电战机”小游戏</title>
     <link href="https://shinononome-enana.github.io/2025/09/01/mp-FPGAgame-project/"/>
     <id>https://shinononome-enana.github.io/2025/09/01/mp-FPGAgame-project/</id>
     <published>2025-09-01T03:09:40.000Z</published>
-    <updated>2025-09-01T03:20:54.468Z</updated>
+    <updated>2025-10-04T12:54:13.466Z</updated>
     
     
       
@@ -225,11 +225,11 @@
   </entry>
   
   <entry>
-    <title>Calculator的Verilog实现与上板验证：SystemLSI Project#1 留档</title>
+    <title>【SystemLSI】Project#1:Calculator的Verilog实现与上板验证</title>
     <link href="https://shinononome-enana.github.io/2025/02/08/slsi-calculator-project/"/>
     <id>https://shinononome-enana.github.io/2025/02/08/slsi-calculator-project/</id>
     <published>2025-02-08T06:43:55.000Z</published>
-    <updated>2025-02-08T07:15:58.531Z</updated>
+    <updated>2025-09-01T03:29:25.221Z</updated>
     
     
       
@@ -252,11 +252,11 @@
   </entry>
   
   <entry>
-    <title>Pipline-CPU的Verilog实现与仿真：SystemLSI Project#2 留档</title>
+    <title>【SystemLSI】Project#2:Pipline-CPU的Verilog实现与仿真</title>
     <link href="https://shinononome-enana.github.io/2025/02/08/slsi-pcpu-project/"/>
     <id>https://shinononome-enana.github.io/2025/02/08/slsi-pcpu-project/</id>
     <published>2025-02-08T05:56:35.000Z</published>
-    <updated>2025-02-08T07:16:10.526Z</updated>
+    <updated>2025-09-01T03:29:24.290Z</updated>
     
     
       
