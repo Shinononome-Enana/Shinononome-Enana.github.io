@@ -35,11 +35,14 @@
 <meta property="og:site_name" content="デジタル旅の休暇所">
 <meta property="og:description" content="前言为了在FPGA上快速部署QNN，我决定尝试Brevitas+FINN的开发流程：软件测在Pytorch上通过Brevitas量化库实现QNN的训练和模型ONNX导出，随后使用FINN工具链对网络进行微调，最后生成HLS工程，在vivado上生成对应硬件侧比特流。 对于FINN而言我也是初心者，因此尽量跟随官方文档走，这两周的目标是把例程(pynq上部署e2e小型qnn)跑起来。但是稍微操作了一">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s2.loli.net/2025/10/05/DXKVLzPlw93vEfd.png">
+<meta property="og:image" content="https://s2.loli.net/2025/10/05/HSwEG2d9KheUXAQ.png">
 <meta property="article:published_time" content="2025-10-04T12:54:49.000Z">
-<meta property="article:modified_time" content="2025-10-04T13:59:46.997Z">
+<meta property="article:modified_time" content="2025-10-05T09:03:35.497Z">
 <meta property="article:author" content="ロ　ユイセー(Lu Weicheng)">
 <meta property="article:tag" content="FPGA">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2025/10/05/DXKVLzPlw93vEfd.png">
   
     <link rel="alternate" href="/atom.xml" title="デジタル旅の休暇所" type="application/atom+xml">
   
@@ -195,7 +198,7 @@
   <h3 class="toc-title">Contents</h3>
   <div class="sidebar-toc-wrapper toc-div-class" >
       
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E6%95%99%E7%A8%8B"><span class="toc-number">2.</span> <span class="toc-text">快速教程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85Vivado2022-2%E5%92%8C%E5%AF%B9%E5%BA%94%E7%89%88%E6%9C%ACVitis"><span class="toc-number">3.</span> <span class="toc-text">下载安装Vivado2022.2和对应版本Vitis</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85docker"><span class="toc-number">4.</span> <span class="toc-text">下载安装docker</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%EF%BC%88bashrc%EF%BC%89"><span class="toc-number">5.</span> <span class="toc-text">系统环境配置（bashrc）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%90%E8%A1%8Cquicktest%E6%A3%80%E6%9F%A5"><span class="toc-number">6.</span> <span class="toc-text">运行quicktest检查</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8docker%E4%B8%8A%E8%BF%90%E8%A1%8CJupyter%EF%BC%8C%E6%89%93%E5%BC%80%E5%AE%98%E6%96%B9%E4%BE%8B%E7%A8%8B"><span class="toc-number">7.</span> <span class="toc-text">在docker上运行Jupyter，打开官方例程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E8%AF%AD"><span class="toc-number">8.</span> <span class="toc-text">结语</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E6%95%99%E7%A8%8B"><span class="toc-number">2.</span> <span class="toc-text">快速教程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85Vivado2022-2%E5%92%8C%E5%AF%B9%E5%BA%94%E7%89%88%E6%9C%ACVitis"><span class="toc-number">2.1.</span> <span class="toc-text">下载安装Vivado2022.2和对应版本Vitis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85docker"><span class="toc-number">2.2.</span> <span class="toc-text">下载安装docker</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%EF%BC%88bashrc%EF%BC%89"><span class="toc-number">3.</span> <span class="toc-text">系统环境配置（bashrc）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#finn-run-docker-sh-%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="toc-number">4.</span> <span class="toc-text">finn&#x2F;run-docker.sh 环境配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%90%E8%A1%8Cquicktest%E6%A3%80%E6%9F%A5"><span class="toc-number">5.</span> <span class="toc-text">运行quicktest检查</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8docker%E4%B8%8A%E8%BF%90%E8%A1%8CJupyter%EF%BC%8C%E6%89%93%E5%BC%80%E5%AE%98%E6%96%B9%E4%BE%8B%E7%A8%8B"><span class="toc-number">6.</span> <span class="toc-text">在docker上运行Jupyter，打开官方例程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8%E6%8A%A5%E9%94%99%E7%9A%84%E6%8E%92%E6%9F%A5%E5%92%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="toc-number">7.</span> <span class="toc-text">端口占用报错的排查和解决方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E8%AF%AD"><span class="toc-number">8.</span> <span class="toc-text">结语</span></a></li></ol>
       
   </div>
 </div>
@@ -288,7 +291,7 @@
       <div class="article-date">
   <a href="/2025/10/04/FINN-env/" class="article-date-link" data-aos="zoom-in">
     <time datetime="2025-10-04T12:54:49.000Z" itemprop="datePublished">2025-10-04</time>
-    <time style="display: none;" id="post-update-time">2025-10-04</time>
+    <time style="display: none;" id="post-update-time">2025-10-05</time>
   </a>
 </div>
 
@@ -324,14 +327,25 @@
 
 
 
-<hr>
-<h2 id="下载安装Vivado2022-2和对应版本Vitis"><a href="#下载安装Vivado2022-2和对应版本Vitis" class="headerlink" title="下载安装Vivado2022.2和对应版本Vitis"></a>下载安装Vivado2022.2和对应版本Vitis</h2><p>注意：推荐下载2022.2版本vivado，而不是最新。最新的vivado2024.2或2025版本无法适配FINN编译器。</p>
+
+<h3 id="下载安装Vivado2022-2和对应版本Vitis"><a href="#下载安装Vivado2022-2和对应版本Vitis" class="headerlink" title="下载安装Vivado2022.2和对应版本Vitis"></a>下载安装Vivado2022.2和对应版本Vitis</h3><p>注意：推荐下载2022.2版本vivado，而不是最新。最新的vivado2024.2或2025版本无法适配FINN编译器。</p>
 <p>另外，vivado2022.2需要license才能使用。而幸运的是xilinx提供了免费的license生成地址，不需要去网络上找盗版license！<br>(<a target="_blank" rel="noopener" href="https://www.xilinx.com/member/forms/license-form.html">https://www.xilinx.com/member/forms/license-form.html</a>)</p>
-<h2 id="下载安装docker"><a href="#下载安装docker" class="headerlink" title="下载安装docker"></a>下载安装docker</h2><p>这里就跟着教程走，一步一步配置即可。</p>
+<h3 id="下载安装docker"><a href="#下载安装docker" class="headerlink" title="下载安装docker"></a>下载安装docker</h3><p>这里就跟着教程走，一步一步配置即可。</p>
+<p>注意：每次要运行FINN前，先检查docker是否已经开启。（点击docker图标即可）</p>
+<p>这里贴出docker的一些常用命令：</p>
+<hr>
 <h2 id="系统环境配置（bashrc）"><a href="#系统环境配置（bashrc）" class="headerlink" title="系统环境配置（bashrc）"></a>系统环境配置（bashrc）</h2><p>需要<strong>在~&#x2F;.bashrc里配置FINN_XILINX_PATH和FINN_XILINX_VERSION。</strong>由于我使用的是zsh，因此配置的是~.&#x2F;zshrc。</p>
 <img src = "https://s2.loli.net/2025/10/04/OJh7vKfBmrPqaAi.png" width="600" height="300">
 
-<hr>
+
+<h2 id="finn-run-docker-sh-环境配置"><a href="#finn-run-docker-sh-环境配置" class="headerlink" title="finn&#x2F;run-docker.sh 环境配置"></a>finn&#x2F;run-docker.sh 环境配置</h2><p>finn工程目录下的run-docker.sh会在FINN每次运行时运行一次，设置基本参数等。</p>
+<p><strong>这里我建议修改FINN_BUILD_DIR(&#x3D;$FINN_HOST_BUILD_DIR)至自己的目录下。</strong><br>因为FINN会把中间编译结果存放在FINN_BUILD_DIR目录下，而中间的一些模型结果(onnx和qonnx)我们也需要。默认的是&#x2F;tmp目录，容易丢失。</p>
+<center>
+  <img src="https://s2.loli.net/2025/10/05/DXKVLzPlw93vEfd.png" width="300" height="150" style="display:inline-block; margin-right: 20px;"/>
+  <img src="https://s2.loli.net/2025/10/05/HSwEG2d9KheUXAQ.png" width="500" height="150" style="display:inline-block;"/>
+</center>
+---------------------------
+
 <h2 id="运行quicktest检查"><a href="#运行quicktest检查" class="headerlink" title="运行quicktest检查"></a>运行quicktest检查</h2><p>在git下来的finn目录下能够执行quicktest，检查环境是否已经完备。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> bash run-docker.sh quicktest</span><br></pre></td></tr></table></figure>
 
@@ -344,13 +358,20 @@
 
 <img src = "https://s2.loli.net/2025/10/04/KtFhDjd5U1HRQGs.png" width="600" height="300">
 
-<p>此时可能会报错Bind for 0.0.0.0:8081 failed: port is already allocated。这说明有其他进程已经占用了端口8081，导致现在执行的notebook进程无法使用。通过终端信息，我发现是Jupyter(可能是之前没关闭的)和Netron(用于ONNX可视化)分别占用了端口8888和8081。我们换一个Jupyter和Netron端口就行了：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JUPYTER_PORT=8890 NETRON_PORT=8082 bash ./run-docker.sh notebook</span><br></pre></td></tr></table></figure>
 
 <p>最后，我们终于可以看到finn-docker上的Jupyter成功运行：</p>
 <img src = "https://s2.loli.net/2025/10/04/qeDlngfWdO5YC7I.png" width="600" height="300">
 
-<p>如果这一步执行后仍旧报错，且终端没有弹出地址（直接结束了docker的本次进程），说明前面的环境配置有一步出了问题，请耐心找出问题或从头再来！</p>
+<p>如果这一步执行后仍旧报错，且终端没有弹出地址（直接结束了docker的本次进程），说明前面的环境配置有一步出了问题，或者可能是端口被占用。<br>请耐心找出问题或从头再来！</p>
+<hr>
+<h2 id="端口占用报错的排查和解决方法"><a href="#端口占用报错的排查和解决方法" class="headerlink" title="端口占用报错的排查和解决方法"></a>端口占用报错的排查和解决方法</h2><p>在执行bash .&#x2F;run-docker.sh notebook时，<br>此时可能会报错Bind for 0.0.0.0:8081 failed: port is already allocated。这说明有其他进程已经占用了端口8081，导致现在执行的notebook进程无法使用。通过终端信息，我发现是Jupyter(可能是之前没关闭的)和Netron(用于ONNX可视化)分别占用了端口8888和8081。<br>我们换一个Jupyter和Netron端口就行了：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JUPYTER_PORT=8890 NETRON_PORT=8082 bash ./run-docker.sh notebook</span><br></pre></td></tr></table></figure>
+
+<p>另外，如果端口持续被占用，也可以通过命令查看占用的进程，然后将其杀死：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> lsof -i:8890</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">kill</span> -9 &lt;PID&gt;</span><br></pre></td></tr></table></figure>
+
+<img src = "https://s2.loli.net/2025/10/05/3gKYidtrQqm1Rzu.png" width="600" height="300">
+
 <hr>
 <h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>这次FINN环境配置，痛苦程度不亚于当初本科毕设配置ns-3，搞了整整三天才跑起来。真是醉了:)</p>
 
@@ -445,10 +466,10 @@
     
       <div>
         <span class="icon-brush"></span>
-        43.4k
+        43.6k
         &nbsp;|&nbsp;
         <span class="icon-coffee"></span>
-        03:25
+        03:26
       </div>
     
     
@@ -476,7 +497,7 @@
   <h3 class="toc-title">Contents</h3>
   <div class="sidebar-toc-wrapper toc-div-class" >
       
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E6%95%99%E7%A8%8B"><span class="toc-number">2.</span> <span class="toc-text">快速教程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85Vivado2022-2%E5%92%8C%E5%AF%B9%E5%BA%94%E7%89%88%E6%9C%ACVitis"><span class="toc-number">3.</span> <span class="toc-text">下载安装Vivado2022.2和对应版本Vitis</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85docker"><span class="toc-number">4.</span> <span class="toc-text">下载安装docker</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%EF%BC%88bashrc%EF%BC%89"><span class="toc-number">5.</span> <span class="toc-text">系统环境配置（bashrc）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%90%E8%A1%8Cquicktest%E6%A3%80%E6%9F%A5"><span class="toc-number">6.</span> <span class="toc-text">运行quicktest检查</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8docker%E4%B8%8A%E8%BF%90%E8%A1%8CJupyter%EF%BC%8C%E6%89%93%E5%BC%80%E5%AE%98%E6%96%B9%E4%BE%8B%E7%A8%8B"><span class="toc-number">7.</span> <span class="toc-text">在docker上运行Jupyter，打开官方例程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E8%AF%AD"><span class="toc-number">8.</span> <span class="toc-text">结语</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E6%95%99%E7%A8%8B"><span class="toc-number">2.</span> <span class="toc-text">快速教程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85Vivado2022-2%E5%92%8C%E5%AF%B9%E5%BA%94%E7%89%88%E6%9C%ACVitis"><span class="toc-number">2.1.</span> <span class="toc-text">下载安装Vivado2022.2和对应版本Vitis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85docker"><span class="toc-number">2.2.</span> <span class="toc-text">下载安装docker</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%EF%BC%88bashrc%EF%BC%89"><span class="toc-number">3.</span> <span class="toc-text">系统环境配置（bashrc）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#finn-run-docker-sh-%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="toc-number">4.</span> <span class="toc-text">finn&#x2F;run-docker.sh 环境配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%90%E8%A1%8Cquicktest%E6%A3%80%E6%9F%A5"><span class="toc-number">5.</span> <span class="toc-text">运行quicktest检查</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8docker%E4%B8%8A%E8%BF%90%E8%A1%8CJupyter%EF%BC%8C%E6%89%93%E5%BC%80%E5%AE%98%E6%96%B9%E4%BE%8B%E7%A8%8B"><span class="toc-number">6.</span> <span class="toc-text">在docker上运行Jupyter，打开官方例程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8%E6%8A%A5%E9%94%99%E7%9A%84%E6%8E%92%E6%9F%A5%E5%92%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="toc-number">7.</span> <span class="toc-text">端口占用报错的排查和解决方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E8%AF%AD"><span class="toc-number">8.</span> <span class="toc-text">结语</span></a></li></ol>
       
   </div>
 </div>
